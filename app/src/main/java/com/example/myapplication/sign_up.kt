@@ -2,15 +2,17 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.myapplication.databinding.ActivitySignUpBinding
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import android.util.Log
 
 class sign_up : AppCompatActivity() {
     lateinit var username : EditText
@@ -18,6 +20,8 @@ class sign_up : AppCompatActivity() {
     lateinit var password: EditText
     lateinit var confirmPassword: EditText
     lateinit var signup: ImageButton
+
+    private lateinit var postApi: PostApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,6 +31,7 @@ class sign_up : AppCompatActivity() {
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
 //            insets
 //        }
+
         username = findViewById(R.id.signup_username_input)
         email = findViewById(R.id.signup_email_input)
         password = findViewById(R.id.signup_password_input)
@@ -35,14 +40,17 @@ class sign_up : AppCompatActivity() {
 
         signup.setOnClickListener {
             val username_res = username.text.toString()
-            val email_res = username.text.toString()
+            val email_res = email.text.toString()
             val password_res = password.text.toString()
             val confirm_password_res = confirmPassword.text.toString()
-            validateInput(username_res,email_res,password_res,confirm_password_res)
+            if(validateInput(username_res,email_res,password_res,confirm_password_res)){
+                val user = User(username_res, email_res, password_res,confirm_password_res)
+                sendUserData(user)
+                Log.i("Thong tin dang nhap","username: $username_res, email: $email_res, password: $password_res")
+            }
             //to do
             // sau khi goi ham xac nhan thong tin dang ky, chinh sua lai ham xac nhan thong tin
             // dang ky sao cho neu hop le thi goi ham chuyen toi slide tiep theo
-            Log.i("Thong tin dang nhap","username: $username_res, email: $email_res, password: $password_res")
         }
 
     }
@@ -51,7 +59,7 @@ class sign_up : AppCompatActivity() {
         // Implement validation logic
         if(username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty() && password == confirmPassword)
         {
-            goToWelcomeActivity()
+            //goToWelcomeActivity()
             return true
         }
         else
@@ -70,5 +78,41 @@ class sign_up : AppCompatActivity() {
     {
         val intent = Intent(this, welcome::class.java)
         startActivity(intent)
+    }
+
+    fun goToSignInActivity()
+    {
+        val intent = Intent(this, sign_in::class.java)
+        startActivity(intent)
+    }
+    private fun sendUserData(user: User) {
+        // Khởi tạo Retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl(PostApi.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        postApi = retrofit.create(PostApi::class.java)
+
+        val call = postApi.registrationUser(user)
+        call.enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                Log.i("Thong tin dang nhap","gui thanh cong")
+                if (response.isSuccessful) {
+                    Log.i("Registration", "Registration successful")
+                    // Navigate to the next screen upon successful registration
+                    goToSignInActivity()
+                } else {
+                    Log.e("Registration", "Registration failed")
+                    goToWelcomeActivity()
+                    // Handle registration failure
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Log.e("Registration", "Error: ${t.message}")
+                // Handle failure to connect to server
+            }
+        })
     }
 }
