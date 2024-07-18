@@ -103,7 +103,7 @@ class sign_up : AppCompatActivity() {
                     // Navigate to the next screen upon successful registration
                     goToSignInActivity()
                 } else {
-                    Log.e("Regist  ration", "Registration failed")
+                    Log.e("Registration", "Registration failed")
                     goToWelcomeActivity()
                     // Handle registration failure
                 }
