@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="800dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:background="@drawable/gradient_1">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="691dp"
+            android:src="@drawable/line" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="75dp"
+            android:src="@drawable/line" />
+
+        <ImageButton
+            android:id="@+id/add_new_book_button"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="118dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="add_new_book"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="152dp"
+            android:src="@drawable/add_book"
+            android:clickable="true"
+            android:contentDescription="icon_add_new_book"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="220dp"
+            android:clickable="true"
+            android:fontFamily="@font/capriola"
+            android:padding="15dp"
+            android:text="Add new book"
+            android:textColor="#000000"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/book_import_button"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="118dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="import_books"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="138dp"
+            android:src="@drawable/box"
+            android:clickable="true"
+            android:contentDescription="icon_import_books"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="220dp"
+            android:clickable="true"
+            android:fontFamily="@font/capriola"
+            android:padding="15dp"
+            android:text="Books import"
+            android:textColor="#000000"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/search_book_button"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="303dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="search_book"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="67dp"
+            android:layout_marginTop="335dp"
+            android:src="@drawable/search"
+            android:clickable="true"
+            android:contentDescription="search_book"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="405dp"
+            android:clickable="true"
+            android:fontFamily="@font/capriola"
+            android:padding="15dp"
+            android:text="Search books"
+            android:textColor="#000000"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/sales_invoice_button"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="303dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="create_sales_invoice"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="330dp"
+            android:src="@drawable/invoice"
+            android:clickable="true"
+            android:contentDescription="icon_invoice"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="202dp"
+            android:layout_marginTop="405dp"
+            android:clickable="true"
+            android:fontFamily="@font/capriola"
+            android:padding="15dp"
+            android:text="Sales invoice"
+            android:textColor="#000000"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/receipt_button"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="488dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="create_receipt"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="518dp"
+            android:src="@drawable/receipt"
+            android:clickable="true"
+            android:contentDescription="icon_sales_receipt"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="591dp"
+            android:clickable="true"
+            android:fontFamily="@font/capriola"
+            android:padding="15dp"
+            android:text="Sales receipt"
+            android:textColor="#000000"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/monthly_report_button"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="488dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="monthly_report"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="228dp"
+            android:layout_marginTop="520dp"
+            android:src="@drawable/report"
+            android:clickable="true"
+            android:contentDescription="icon_monthly_report"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="193dp"
+            android:layout_marginTop="591dp"
+            android:clickable="true"
+            android:fontFamily="@font/capriola"
+            android:padding="15dp"
+            android:text="Monthly report"
+            android:textColor="#000000"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/foot_button_1"
+            android:layout_width="84dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="714dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="foot_button_1"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="722dp"
+            android:clickable="true">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"/>
+
+            <ImageView
+                android:id="@+id/icon_home"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/home"
+                android:contentDescription="icon_home"/>
+        </FrameLayout>
+
+
+        <ImageButton
+            android:id="@+id/foot_button_2"
+            android:layout_width="84dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="138dp"
+            android:layout_marginTop="714dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="foot_button_2"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="156dp"
+            android:layout_marginTop="722dp"
+            android:clickable="true">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"/>
+
+            <ImageView
+                android:id="@+id/icon_setting"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/setting"
+                android:contentDescription="icon_setting"/>
+        </FrameLayout>
+
+
+        <ImageButton
+            android:id="@+id/foot_button_3"
+            android:layout_width="84dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="246dp"
+            android:layout_marginTop="714dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="foot_button_3"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="265dp"
+            android:layout_marginTop="723dp"
+            android:clickable="true">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"/>
+
+            <ImageView
+                android:id="@+id/icon_user"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/user"
+                android:contentDescription="icon_user"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="800dp"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="800dp" />
+
+</LinearLayout>

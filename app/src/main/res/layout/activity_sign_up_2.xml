@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="800dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:background="@drawable/gradient_1">
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="105dp"
+            android:text="Sign Up"
+            android:textColor="#000000"
+            android:fontFamily="@font/capriola"
+            android:textSize="42sp"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="46dp"
+            android:clickable="true">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"/>
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/arrow_back"
+                android:contentDescription="back_button"/>
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/sign_up_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="630dp"
+            android:background="@drawable/blue_rectangle"
+            android:contentDescription="sign_up_button"/>
+
+        <TextView
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="190dp"
+            android:text="Username"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="218dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Enter username"
+            android:padding="10dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="198dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="300dp"
+            android:text="Email address"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="328dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Enter email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="198dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="410dp"
+            android:text="Password"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="438dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="198dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="520dp"
+            android:text="Confirm password"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/confirm_password_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="548dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="#000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="648dp"
+            android:text="Sign Up"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:padding="14dp"
+            android:fontFamily="@font/capriola"
+            android:clickable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="720dp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"
+            android:text="Already have an account?"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="235dp"
+            android:layout_marginTop="705dp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"
+            android:text="Sign in!"
+            android:textColor="#4461F2"
+            android:textSize="14sp"
+            android:padding="15dp"
+            android:clickable="true"/>
+        <!--
+        <Button
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="688dp"
+            android:id="@+id/supabutton_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sign_in_button"
+            />
+
+        <Button
+            android:layout_marginLeft="185dp"
+            android:layout_marginTop="688dp"
+            android:id="@+id/supabutton_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sign_up_button" />
+        -->
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="800dp"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="800dp" />
+
+</LinearLayout>
