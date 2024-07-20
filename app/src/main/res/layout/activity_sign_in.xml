@@ -71,7 +71,8 @@
             android:textColor="@color/black"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:textSize="16dp"/>
+            android:textSize="16dp"
+            android:inputType="textPassword"/>
 
         <TextView
             android:layout_width="145dp"

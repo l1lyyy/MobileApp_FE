@@ -44,7 +44,7 @@ class sign_up : AppCompatActivity() {
             val password_res = password.text.toString()
             val confirm_password_res = confirmPassword.text.toString()
             if(validateInput(username_res,email_res,password_res,confirm_password_res)){
-                val user = User(username_res, email_res, password_res,confirm_password_res)
+                val user = User(username_res, email_res, password_res,confirm_password_res,"")
                 sendUserData(user)
                 Log.i("Thong tin dang nhap","username: $username_res, email: $email_res, password: $password_res")
             }
