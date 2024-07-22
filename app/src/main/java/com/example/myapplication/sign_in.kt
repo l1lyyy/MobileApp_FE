@@ -23,15 +23,15 @@ class sign_in : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_sign_in)
+        setContentView(R.layout.activity_sign_in_2)
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 //            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
 //            insets
 //        }
-        username_email = findViewById(R.id.signin_username_email_input)
-        password = findViewById(R.id.signin_password_input)
-        signin = findViewById(R.id.signin_button)
+        username_email = findViewById(R.id.user_input)
+        password = findViewById(R.id.user_password_input)
+        signin = findViewById(R.id.sign_in_button)
         signin.setOnClickListener {
             val username_email_res =  username_email.text.toString()
             val password_res = password.text.toString()

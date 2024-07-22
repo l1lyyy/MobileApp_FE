@@ -12,7 +12,7 @@ class welcome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_welcome)
+        setContentView(R.layout.activity_welcome_2)
     }
 
     fun goToSignUpActivity(view: View)

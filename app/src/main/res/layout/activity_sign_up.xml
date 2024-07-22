@@ -131,9 +131,9 @@
 
         <TextView
             android:layout_width="154dp"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="146dp"
-            android:layout_marginTop="657dp"
+            android:layout_marginTop="655dp"
             android:text="Sign Up"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
