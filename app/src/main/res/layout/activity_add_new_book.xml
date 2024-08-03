@@ -13,7 +13,7 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="21dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="46dp"
             android:clickable="true">
 
@@ -55,9 +55,9 @@
             android:src="@drawable/gradient_rectangle" />
 
         <FrameLayout
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="292dp"
+            android:layout_marginLeft="300dp"
             android:layout_marginTop="46dp"
             android:clickable="true">
 
@@ -252,6 +252,25 @@
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"/>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="720dp"
+            android:max="1000"
+            android:progressTint="@color/purple"
+            android:thumbTint="@color/purple"/>
+
+        <TextView
+            android:id="@+id/seekBarValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seekBar"
+            android:layout_marginLeft="305dp"
+            android:text="0"
+            android:textSize="18sp"/>
 
 
 
