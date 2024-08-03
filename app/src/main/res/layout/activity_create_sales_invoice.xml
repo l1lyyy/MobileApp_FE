@@ -37,13 +37,13 @@ android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
             android:layout_marginTop="55dp"
-            android:text="Sales invoice"
-            android:textColor="#1E1E1E"
-            android:textSize="24sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
-            android:layout_gravity="top|center_horizontal"/>
+            android:text="Sales invoice"
+            android:textColor="#1E1E1E"
+            android:textSize="24sp" />
     </FrameLayout>
 
     <FrameLayout
@@ -79,7 +79,7 @@ android:orientation="vertical">
             android:id="@+id/date_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="214dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.05"
@@ -91,7 +91,7 @@ android:orientation="vertical">
             android:id="@+id/date_input"
             android:layout_width="220dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="58dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="200dp"
             android:background="@drawable/input_rectangle"
             android:fontFamily="@font/capriola"

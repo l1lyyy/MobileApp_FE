@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".CreateSalesInvoiceEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".MonthlyInventoryReportActivity"
             android:exported="false" />
         <activity
