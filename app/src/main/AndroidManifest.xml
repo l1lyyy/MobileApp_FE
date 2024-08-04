@@ -17,6 +17,12 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".CreateReceiptBillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateReceiptActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateSalesInvoiceEditActivity"
             android:exported="false" />
         <activity

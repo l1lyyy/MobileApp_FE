@@ -68,9 +68,9 @@
         </FrameLayout>
 
         <ImageView
-            android:layout_width="280dp"
+            android:layout_width="300dp"
             android:layout_height="190dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="130dp"
             android:src="@drawable/shadow_rectangle" />
 
@@ -183,14 +183,14 @@
 
         <SeekBar
             android:id="@+id/seekBar"
-            android:layout_width="320dp"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="720dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:max="1000"
-            android:progressTint="@color/purple"
-            android:thumbTint="@color/purple"/>
+            android:progressTint="@color/dark_purple"
+            android:thumbTint="@color/dark_purple"/>
 
         <TextView
             android:id="@+id/seekBarValue"
@@ -198,7 +198,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/seekBar"
             android:layout_marginTop="-5dp"
-            android:layout_marginLeft="305dp"
+            android:layout_marginLeft="320dp"
             android:text="0"
             android:textSize="18sp"/>
 
