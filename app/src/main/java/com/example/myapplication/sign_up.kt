@@ -13,7 +13,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
-import android.widget.TextView
 
 class sign_up : AppCompatActivity() {
     lateinit var username : EditText
@@ -27,7 +26,7 @@ class sign_up : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_sign_up_2)
+        setContentView(R.layout.activity_sign_up)
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.signup)) { v, insets ->
 //            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
