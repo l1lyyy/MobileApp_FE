@@ -80,7 +80,7 @@ android:orientation="vertical">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="214dp"
+            android:layout_marginTop="314dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.05"
             android:text="Date:"
@@ -92,7 +92,7 @@ android:orientation="vertical">
             android:layout_width="220dp"
             android:layout_height="48dp"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="300dp"
             android:background="@drawable/input_rectangle"
             android:fontFamily="@font/capriola"
             android:hint="          /           /        "
@@ -106,7 +106,7 @@ android:orientation="vertical">
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginLeft="285dp"
-            android:layout_marginTop="202dp"
+            android:layout_marginTop="302dp"
             android:background="@drawable/calendar"
             android:contentDescription="calendar_button" />
     </FrameLayout>
@@ -116,7 +116,7 @@ android:orientation="vertical">
         android:layout_height="3dp"
         android:layout_gravity="top|center_horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="285dp"
+        android:layout_marginTop="385dp"
         android:src="@drawable/dash_line" />
 
     <ImageView
@@ -124,7 +124,7 @@ android:orientation="vertical">
         android:layout_width="290dp"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="305dp"
+        android:layout_marginTop="405dp"
         android:background="@drawable/input_rectangle"
         android:fontFamily="@font/capriola"
         android:hint="Book name"
@@ -136,7 +136,7 @@ android:orientation="vertical">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="310dp"
-        android:layout_marginTop="306dp"
+        android:layout_marginTop="406dp"
         android:clickable="true">
 
         <View
@@ -158,7 +158,7 @@ android:orientation="vertical">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.05"
         android:text="Book"
@@ -170,7 +170,7 @@ android:orientation="vertical">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.05"
         android:text="Cat"
@@ -182,7 +182,7 @@ android:orientation="vertical">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="160dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.05"
         android:text="Amount"
@@ -194,7 +194,7 @@ android:orientation="vertical">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.05"
         android:text="Price"
@@ -205,7 +205,7 @@ android:orientation="vertical">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="365dp"
+        android:layout_marginTop="465dp"
         android:clickable="true">
 
         <View
@@ -241,7 +241,7 @@ android:orientation="vertical">
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="120dp"
-        android:text="Customer"
+        android:text="Customer ID"
         android:textColor="#1E1E1E"
         android:textSize="17sp"
         android:fontFamily="@font/capriola"
@@ -254,12 +254,30 @@ android:orientation="vertical">
         android:layout_marginLeft="20dp"
         android:layout_marginTop="150dp"
         android:background="@drawable/input_rectangle"
-        android:hint="Customer name"
+        android:hint="customer id"
         android:fontFamily="@font/capriola"
         android:textSize="16dp"
         android:letterSpacing="0.05"
         android:padding="10dp"
         android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="216dp"
+        android:text="Customer name"
+        android:textColor="#1E1E1E"
+        android:textSize="17sp"
+        android:fontFamily="@font/capriola"
+        android:letterSpacing="0.05"/>
+
+    <ImageView
+        android:layout_width="315dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="246dp"
+        android:background="@drawable/input_rectangle" />
 
     </RelativeLayout>
 

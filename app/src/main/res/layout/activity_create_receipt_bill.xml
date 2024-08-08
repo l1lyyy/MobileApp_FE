@@ -18,6 +18,42 @@
             android:layout_marginTop="80dp"
             android:src="@drawable/tick" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="380dp"
+            android:src="@drawable/purple_dash_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="300dp"
+            android:text="vnd"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="400dp"
+            android:text="Book"
+            android:textColor="#3755EC"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="430dp"
+            android:src="@drawable/corner_ratio_rectangle" />
+
 
 
 
