@@ -15,6 +15,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 class sign_in : AppCompatActivity() {
     lateinit var username_email : EditText
     lateinit var password: EditText
@@ -55,7 +56,6 @@ class sign_in : AppCompatActivity() {
         // Implement validation logic
         if(username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty())
         {
-            //goToWelcomeActivity()
             return true
         }
         else
@@ -96,10 +96,5 @@ class sign_in : AppCompatActivity() {
                 Toast.makeText(this@sign_in, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
-    }
-    fun goToDashboardActivity(view: View)
-    {
-        val intent = Intent(this, welcome::class.java)
-        startActivity(intent)
     }
 }

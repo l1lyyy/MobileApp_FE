@@ -15,6 +15,7 @@
             android:layout_height="2dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="691dp"
+            android:layout_centerHorizontal="true"
             android:src="@drawable/line" />
 
         <ImageView
@@ -291,7 +292,8 @@
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
-            android:contentDescription="foot_button_3"/>
+            android:contentDescription="foot_button_3"
+            android:onClick="goToAccountActivity"/>
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -305,13 +307,14 @@
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackground"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/icon_user"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:src="@drawable/user"
-                android:contentDescription="icon_user"/>
+                android:background="@drawable/user"
+                android:contentDescription="icon_user"
+                android:onClick="goToAccountActivity"/>
         </FrameLayout>
 
     </RelativeLayout>
