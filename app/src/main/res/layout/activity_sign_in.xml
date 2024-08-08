@@ -113,6 +113,7 @@
             android:layout_marginTop="568dp"
             android:src="@drawable/blue_rectangle"
             android:background="@null"
+            android:clickable="true"
             />
 
         <TextView
