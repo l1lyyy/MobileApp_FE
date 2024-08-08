@@ -2,151 +2,181 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="360dp"
     android:layout_height="800dp"
-    android:id="@+id/signup"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:background="@drawable/gradient">
+        android:background="@drawable/gradient_1">
 
-        <ImageView
-            android:layout_width="120dp"
+        <TextView
+            android:layout_width="160dp"
             android:layout_height="80dp"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="top|start"
-            android:layout_marginLeft="103dp"
-            android:layout_marginTop="100dp"
-            android:src="@drawable/sign_up_title" />
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="105dp"
+            android:text="Sign Up"
+            android:textColor="#000000"
+            android:fontFamily="@font/capriola"
+            android:textSize="42sp"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="46dp"
+            android:clickable="true">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"/>
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/arrow_back"
+                android:contentDescription="back_button"/>
+        </FrameLayout>
 
         <ImageButton
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="55dp"
-            android:background="@null"
-            android:onClick="goToWelcomeActivity"
-            android:src="@drawable/arrow_back"/>
-
-
-        <ImageButton
-            android:id="@+id/signup_button"
-            android:layout_width="245dp"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/sign_up_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="635dp"
-            android:background="@null"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:src="@drawable/blue_rectangle" />
+            android:layout_marginTop="630dp"
+            android:background="@drawable/blue_rectangle"
+            android:contentDescription="sign_up_button"/>
 
         <TextView
             android:layout_width="98dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="43dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="190dp"
             android:text="Username"
             android:textColor="#1E1E1E"
-            android:textSize="17sp"/>
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/signup_username_input"
-            android:layout_width="275dp"
-            android:layout_height="62dp"
-            android:layout_marginLeft="43dp"
+            android:id="@+id/username_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="218dp"
             android:background="@drawable/input_rectangle"
-            android:textColor="@color/black"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textSize="16dp"/>
+            android:hint="Enter username"
+            android:padding="10dp"
+            android:textColor="#000"/>
 
         <TextView
             android:layout_width="198dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="43dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="300dp"
             android:text="Email address"
             android:textColor="#1E1E1E"
-            android:textSize="17sp"/>
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/signup_email_input"
-            android:layout_width="275dp"
-            android:layout_height="62dp"
-            android:layout_marginLeft="43dp"
+            android:id="@+id/email_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="328dp"
             android:background="@drawable/input_rectangle"
-            android:textColor="@color/black"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textSize="16dp"/>
+            android:hint="Enter email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="#000"/>
 
         <TextView
             android:layout_width="198dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="43dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="410dp"
             android:text="Password"
             android:textColor="#1E1E1E"
-            android:textSize="17sp"/>
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/signup_password_input"
-            android:layout_width="275dp"
-            android:layout_height="62dp"
-            android:layout_marginLeft="43dp"
+            android:id="@+id/password_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="438dp"
             android:background="@drawable/input_rectangle"
-            android:textColor="@color/black"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textSize="16dp"
+            android:hint="Enter Password"
             android:inputType="textPassword"
-            />
+            android:padding="10dp"
+            android:textColor="#000"/>
 
         <TextView
             android:layout_width="198dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="43dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="520dp"
             android:text="Confirm password"
             android:textColor="#1E1E1E"
-            android:textSize="17sp"/>
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/signup_confirm_password_input"
-            android:layout_width="275dp"
-            android:layout_height="62dp"
-            android:layout_marginLeft="43dp"
-            android:layout_marginTop="548dp"
-            android:background="@drawable/input_rectangle"
-            android:inputType="textPassword"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="154dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="146dp"
-            android:layout_marginTop="657dp"
-            android:text="Sign Up"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-        <ImageButton
+            android:id="@+id/confirm_password_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="715dp"
-            android:src="@drawable/already_have_account"
-            android:background="@null"
-            android:onClick="goToSignInActivity"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="548dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="#000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="648dp"
+            android:text="Sign Up"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:padding="14dp"
+            android:fontFamily="@font/capriola"
+            android:clickable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="720dp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"
+            android:text="Already have an account?"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="235dp"
+            android:layout_marginTop="705dp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"
+            android:text="Sign in!"
+            android:textColor="#4461F2"
+            android:textSize="14sp"
+            android:padding="15dp"
+            android:clickable="true"/>
         <!--
         <Button
             android:layout_marginLeft="65dp"
