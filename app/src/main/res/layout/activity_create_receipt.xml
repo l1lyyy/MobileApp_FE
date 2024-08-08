@@ -41,7 +41,7 @@
                 android:layout_marginTop="55dp"
                 android:fontFamily="@font/capriola"
                 android:letterSpacing="0.02"
-                android:text="Add new book"
+                android:text="Create receipt"
                 android:textColor="#1E1E1E"
                 android:textSize="24sp" />
         </FrameLayout>
@@ -67,39 +67,26 @@
                 android:contentDescription="check_button" />
         </FrameLayout>
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="190dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="130dp"
-            android:src="@drawable/shadow_rectangle" />
-
-        <ImageView
-            android:layout_width="340dp"
-            android:layout_height="340dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/book_girl" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="340dp"
-            android:text="Book"
+            android:layout_marginTop="120dp"
+            android:text="Customer"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/book_input"
+            android:id="@+id/customer_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="370dp"
+            android:layout_marginTop="150dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book name"
+            android:hint="Customer name"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -108,23 +95,23 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="440dp"
-            android:text="Author"
+            android:layout_marginTop="220dp"
+            android:text="Address"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/author_input"
+            android:id="@+id/address_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="250dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Author name"
+            android:hint="Address"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -135,21 +122,73 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="540dp"
-            android:text="Categories"
+            android:layout_marginTop="320dp"
+            android:text="Phone number"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/publisher_input"
+            android:id="@+id/phone_number_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="570dp"
+            android:layout_marginTop="350dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book category"
+            android:hint="Phone number"
+            android:fontFamily="@font/capriola"
+            android:textSize="16dp"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:letterSpacing="0.05"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="420dp"
+            android:text="Email"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Email address"
+            android:fontFamily="@font/capriola"
+            android:textSize="16dp"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:letterSpacing="0.05"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="520dp"
+            android:text="Payment date"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/date_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="550dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Payment date"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -160,48 +199,26 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="640dp"
-            android:text="Price"
+            android:layout_marginTop="620dp"
+            android:text="Paid amount"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/price_input"
+            android:id="@+id/paid_amount_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="670dp"
+            android:layout_marginTop="650dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Price"
+            android:hint="Paid amount"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="325dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="720dp"
-            android:layout_marginLeft="20dp"
-            android:max="1000"
-            android:progressTint="@color/dark_purple"
-            android:thumbTint="@color/dark_purple"/>
-
-        <TextView
-            android:id="@+id/seekBarValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/seekBar"
-            android:layout_marginTop="-5dp"
-            android:layout_marginLeft="320dp"
-            android:text="0"
-            android:textSize="18sp"/>
-
 
 
 

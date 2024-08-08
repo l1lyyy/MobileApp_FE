@@ -14,7 +14,7 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="21dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="46dp"
             android:clickable="true">
 
@@ -150,7 +150,8 @@
             android:textColor="#4461F2"
             android:textSize="14sp"
             android:padding="15dp"
-            android:onClick="goToSignUpActivity"/>
+            android:onClick="goToSignUpActivity"
+            android:clickable="true"/>
 
 
         <!--
