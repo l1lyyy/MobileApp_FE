@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_1">
+        android:background="@drawable/gradient_3">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="120dp"
             android:text="Customer ID"
             android:textColor="#1E1E1E"
@@ -85,181 +85,151 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="150dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Customer id"
+            android:hint="Enter ID to autofill"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="215dp"
-            android:text="Customer"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="215dp"
+        android:text="Full name"
+        android:textColor="#1E1E1E"
+        android:textSize="17sp"
+        android:fontFamily="@font/capriola"
+        android:letterSpacing="0.02"/>
 
-        <EditText
-            android:id="@+id/customer_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="245dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Customer name"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="245dp"
+        android:background="@drawable/input_rectangle"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="310dp"
-            android:text="Address"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="310dp"
+        android:text="Address"
+        android:textColor="#1E1E1E"
+        android:textSize="17sp"
+        android:fontFamily="@font/capriola"
+        android:letterSpacing="0.02"/>
 
-        <EditText
-            android:id="@+id/address_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="340dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Address"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="340dp"
+        android:background="@drawable/input_rectangle" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="405dp"
-            android:text="Phone number"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="405dp"
+        android:text="Phone number"
+        android:textColor="#1E1E1E"
+        android:textSize="17sp"
+        android:fontFamily="@font/capriola"
+        android:letterSpacing="0.02"/>
 
-        <EditText
-            android:id="@+id/phone_number_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="435dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Phone number"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="435dp"
+        android:background="@drawable/input_rectangle" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="500dp"
+        android:text="Email"
+        android:textColor="#1E1E1E"
+        android:textSize="17sp"
+        android:fontFamily="@font/capriola"
+        android:letterSpacing="0.02"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="500dp"
-            android:text="Email"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="530dp"
+        android:background="@drawable/input_rectangle" />
 
-        <EditText
-            android:id="@+id/email_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="530dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Email address"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="595dp"
+        android:text="Payment date"
+        android:textColor="#1E1E1E"
+        android:textSize="17sp"
+        android:fontFamily="@font/capriola"
+        android:letterSpacing="0.02"/>
 
+    <EditText
+        android:id="@+id/date_input"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="625dp"
+        android:background="@drawable/input_rectangle"
+        android:hint="dd/mm/yyyy"
+        android:fontFamily="@font/capriola"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:letterSpacing="0.125"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="595dp"
-            android:text="Payment date"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
+    <ImageButton
+        android:id="@+id/calendar_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="627dp"
+        android:background="@drawable/calendar"
+        android:contentDescription="calendar_button" />
 
-        <EditText
-            android:id="@+id/date_input"
-            android:layout_width="240dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="625dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="dd/mm/yyyy"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.125"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="690dp"
+        android:text="Paid amount"
+        android:textColor="#1E1E1E"
+        android:textSize="17sp"
+        android:fontFamily="@font/capriola"
+        android:letterSpacing="0.02"/>
 
-        <ImageButton
-            android:id="@+id/calendar_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="285dp"
-            android:layout_marginTop="627dp"
-            android:background="@drawable/calendar"
-            android:contentDescription="calendar_button" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="690dp"
-            android:text="Paid amount"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/paid_amount_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="720dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Paid amount"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
+    <EditText
+        android:id="@+id/paid_amount_input"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="720dp"
+        android:background="@drawable/input_rectangle"
+        android:hint="Paid amount"
+        android:fontFamily="@font/capriola"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:letterSpacing="0.05"/>
 
 
 
 
-    </RelativeLayout>
+</RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
 </LinearLayout>

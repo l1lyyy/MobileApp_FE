@@ -79,48 +79,42 @@
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="350dp"
-            android:text="Book"
+            android:text="Book ID"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/book_input"
+            android:id="@+id/book_id_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="380dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book name"
+            android:hint="Book ID"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"/>
 
         <TextView
-            android:layout_width="98dp"
+            android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="450dp"
-            android:text="Categories"
+            android:text="Book name"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
-        <EditText
-            android:id="@+id/categories_input"
+        <ImageView
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="480dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Categories"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"/>
+            android:background="@drawable/input_rectangle" />
 
         <TextView
             android:layout_width="98dp"

@@ -136,14 +136,14 @@
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="540dp"
-            android:text="Categories"
+            android:text="Category"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/publisher_input"
+            android:id="@+id/categories_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"

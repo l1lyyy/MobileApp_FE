@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_2">
+        android:background="@drawable/gradient_3">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -67,13 +67,19 @@
                 android:contentDescription="check_button" />
         </FrameLayout>
 
+        <ImageView
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/import_box" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="320dp"
             android:text="Book ID"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
@@ -81,38 +87,13 @@
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/idBook_input"
+            android:id="@+id/book_id_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="350dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book id"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="340dp"
-            android:text="Book"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/book_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="370dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Book name"
+            android:hint="Enter ID to autofill"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -123,57 +104,43 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="440dp"
+            android:layout_marginTop="420dp"
+            android:text="Book"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/input_rectangle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="520dp"
             android:text="Author"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
-        <EditText
-            android:id="@+id/author_input"
+        <ImageView
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="470dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Author name"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:layout_marginTop="550dp"
+            android:background="@drawable/input_rectangle" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="540dp"
-            android:text="Categories"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/publisher_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="570dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Book category"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="640dp"
+            android:layout_marginTop="620dp"
             android:text="Amount"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
@@ -185,7 +152,7 @@
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="670dp"
+            android:layout_marginTop="650dp"
             android:background="@drawable/input_rectangle"
             android:hint="Amount"
             android:fontFamily="@font/capriola"
@@ -199,7 +166,7 @@
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="720dp"
+            android:layout_marginTop="700dp"
             android:layout_marginLeft="20dp"
             android:max="1000"
             android:progressTint="@color/dark_purple"
