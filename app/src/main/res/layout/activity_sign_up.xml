@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:background="@drawable/gradient_1">
+        android:background="@drawable/gradient_2">
 
         <TextView
             android:layout_width="160dp"
@@ -173,7 +173,7 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Sign in!"
-            android:textColor="#4461F2"
+            android:textColor="#3755EC"
             android:textSize="14sp"
             android:padding="15dp"
             android:clickable="true"/>

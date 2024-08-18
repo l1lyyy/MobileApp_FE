@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_1">
+        android:background="@drawable/gradient_2">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:layout_marginTop="55dp"
                 android:fontFamily="@font/capriola"
                 android:letterSpacing="0.02"
-                android:text="Create receipt"
+                android:text="Edit"
                 android:textColor="#1E1E1E"
                 android:textSize="24sp" />
         </FrameLayout>
@@ -67,25 +67,27 @@
                 android:contentDescription="check_button" />
         </FrameLayout>
 
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="120dp"
-            android:text="Customer ID"
+            android:layout_marginTop="240dp"
+            android:text="Book ID"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/customer_id_input"
+            android:id="@+id/idBook_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="270dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Customer id"
+            android:hint="Book id"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -96,46 +98,46 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="215dp"
-            android:text="Customer"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/customer_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="245dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Customer name"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="310dp"
-            android:text="Address"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/address_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="340dp"
+            android:text="Book"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/book_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="370dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Address"
+            android:hint="Book name"
+            android:fontFamily="@font/capriola"
+            android:textSize="16dp"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="440dp"
+            android:text="Author"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/author_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="470dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Author name"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -146,112 +148,73 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="405dp"
-            android:text="Phone number"
+            android:layout_marginTop="540dp"
+            android:text="Categories"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/phone_number_input"
+            android:id="@+id/publisher_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="435dp"
+            android:layout_marginTop="570dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Phone number"
+            android:hint="Book category"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="500dp"
-            android:text="Email"
+            android:layout_marginTop="640dp"
+            android:text="Amount"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/email_input"
+            android:id="@+id/amount_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="530dp"
+            android:layout_marginTop="670dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Email address"
+            android:hint="Amount"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="595dp"
-            android:text="Payment date"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/date_input"
-            android:layout_width="240dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="625dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="dd/mm/yyyy"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.125"/>
-
-        <ImageButton
-            android:id="@+id/calendar_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="285dp"
-            android:layout_marginTop="627dp"
-            android:background="@drawable/calendar"
-            android:contentDescription="calendar_button" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="690dp"
-            android:text="Paid amount"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/paid_amount_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="720dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Paid amount"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:layout_marginLeft="20dp"
+            android:max="1000"
+            android:progressTint="@color/dark_purple"
+            android:thumbTint="@color/dark_purple"/>
+
+        <TextView
+            android:id="@+id/seekBarValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seekBar"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="320dp"
+            android:text="0"
+            android:textSize="18sp"/>
+
 
 
 
