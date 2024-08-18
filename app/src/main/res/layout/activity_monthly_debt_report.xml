@@ -155,7 +155,7 @@
             android:id="@+id/customer_name_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="220dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.05"
