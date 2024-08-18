@@ -8,28 +8,76 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:background="@drawable/gradient_1">
+        android:background="@drawable/dashboard_background">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="46dp"
+            android:clickable="true">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground" />
+
+            <ImageButton
+                android:id="@+id/setting_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/setting"
+                android:contentDescription="setting_button" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="46dp"
+            android:clickable="true">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground" />
+
+            <ImageButton
+                android:id="@+id/user_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/user"
+                android:contentDescription="user_button" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="120dp"
+            android:clickable="true"
+            android:fontFamily="@font/capriola"
+            android:text="Dashboard"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"/>
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="2dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="691dp"
-            android:src="@drawable/line" />
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="2dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="75dp"
-            android:src="@drawable/line" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/menu_gradient_rectangle"
+            android:clickable="true"
+            android:contentDescription="menu_gradient_rectangle"/>
 
         <ImageButton
             android:id="@+id/add_new_book_button"
             android:layout_width="164dp"
             android:layout_height="164dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="118dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="250dp"
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
@@ -38,8 +86,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="152dp"
+            android:layout_marginLeft="66dp"
+            android:layout_marginTop="284dp"
             android:src="@drawable/add_book"
             android:clickable="true"
             android:contentDescription="icon_add_new_book"/>
@@ -47,8 +95,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="220dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="352dp"
             android:clickable="true"
             android:fontFamily="@font/capriola"
             android:padding="15dp"
@@ -60,8 +108,8 @@
             android:id="@+id/book_import_button"
             android:layout_width="164dp"
             android:layout_height="164dp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="118dp"
+            android:layout_marginLeft="184dp"
+            android:layout_marginTop="250dp"
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
@@ -70,8 +118,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="138dp"
+            android:layout_marginLeft="224dp"
+            android:layout_marginTop="270dp"
             android:src="@drawable/box"
             android:clickable="true"
             android:contentDescription="icon_import_books"/>
@@ -79,8 +127,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="220dp"
+            android:layout_marginLeft="204dp"
+            android:layout_marginTop="352dp"
             android:clickable="true"
             android:fontFamily="@font/capriola"
             android:padding="15dp"
@@ -92,8 +140,8 @@
             android:id="@+id/search_book_button"
             android:layout_width="164dp"
             android:layout_height="164dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="303dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="425dp"
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
@@ -102,8 +150,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="67dp"
-            android:layout_marginTop="335dp"
+            android:layout_marginLeft="63dp"
+            android:layout_marginTop="457dp"
             android:src="@drawable/search"
             android:clickable="true"
             android:contentDescription="search_book"/>
@@ -111,8 +159,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="38dp"
-            android:layout_marginTop="405dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="527dp"
             android:clickable="true"
             android:fontFamily="@font/capriola"
             android:padding="15dp"
@@ -124,8 +172,8 @@
             android:id="@+id/sales_invoice_button"
             android:layout_width="164dp"
             android:layout_height="164dp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="303dp"
+            android:layout_marginLeft="184dp"
+            android:layout_marginTop="425dp"
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
@@ -134,8 +182,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="230dp"
-            android:layout_marginTop="330dp"
+            android:layout_marginLeft="234dp"
+            android:layout_marginTop="457dp"
             android:src="@drawable/invoice"
             android:clickable="true"
             android:contentDescription="icon_invoice"/>
@@ -143,8 +191,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="202dp"
-            android:layout_marginTop="405dp"
+            android:layout_marginLeft="206dp"
+            android:layout_marginTop="527dp"
             android:clickable="true"
             android:fontFamily="@font/capriola"
             android:padding="15dp"
@@ -157,7 +205,7 @@
             android:layout_width="164dp"
             android:layout_height="164dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="488dp"
+            android:layout_marginTop="600dp"
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
@@ -166,8 +214,8 @@
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="62dp"
-            android:layout_marginTop="518dp"
+            android:layout_marginLeft="58dp"
+            android:layout_marginTop="630dp"
             android:src="@drawable/receipt"
             android:clickable="true"
             android:contentDescription="icon_sales_receipt"/>
@@ -175,8 +223,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="591dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="703dp"
             android:clickable="true"
             android:fontFamily="@font/capriola"
             android:padding="15dp"
@@ -188,8 +236,8 @@
             android:id="@+id/monthly_report_button"
             android:layout_width="164dp"
             android:layout_height="164dp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="488dp"
+            android:layout_marginLeft="184dp"
+            android:layout_marginTop="600dp"
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
@@ -198,8 +246,8 @@
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="228dp"
-            android:layout_marginTop="520dp"
+            android:layout_marginLeft="232dp"
+            android:layout_marginTop="632dp"
             android:src="@drawable/report"
             android:clickable="true"
             android:contentDescription="icon_monthly_report"/>
@@ -207,8 +255,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="193dp"
-            android:layout_marginTop="591dp"
+            android:layout_marginLeft="197dp"
+            android:layout_marginTop="703dp"
             android:clickable="true"
             android:fontFamily="@font/capriola"
             android:padding="15dp"
@@ -216,103 +264,12 @@
             android:textColor="#000000"
             android:textSize="14sp"/>
 
-        <ImageButton
-            android:id="@+id/foot_button_1"
-            android:layout_width="84dp"
-            android:layout_height="67dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="714dp"
-            android:fillColor="#FFFFFFFF"
-            android:background="@drawable/square_button"
-            android:layout_gravity="top|start"
-            android:contentDescription="foot_button_1"/>
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:layout_marginTop="722dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground"/>
-
-            <ImageView
-                android:id="@+id/icon_home"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/home"
-                android:contentDescription="icon_home"/>
-        </FrameLayout>
 
 
-        <ImageButton
-            android:id="@+id/foot_button_2"
-            android:layout_width="84dp"
-            android:layout_height="67dp"
-            android:layout_marginLeft="138dp"
-            android:layout_marginTop="714dp"
-            android:fillColor="#FFFFFFFF"
-            android:background="@drawable/square_button"
-            android:layout_gravity="top|start"
-            android:contentDescription="foot_button_2"/>
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="156dp"
-            android:layout_marginTop="722dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground"/>
-
-            <ImageView
-                android:id="@+id/icon_setting"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/setting"
-                android:contentDescription="icon_setting"/>
-        </FrameLayout>
 
 
-        <ImageButton
-            android:id="@+id/foot_button_3"
-            android:layout_width="84dp"
-            android:layout_height="67dp"
-            android:layout_marginLeft="246dp"
-            android:layout_marginTop="714dp"
-            android:fillColor="#FFFFFFFF"
-            android:background="@drawable/square_button"
-            android:layout_gravity="top|start"
-            android:contentDescription="foot_button_3"/>
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="723dp"
-            android:clickable="true">
 
-            <View
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground"/>
-
-            <ImageView
-                android:id="@+id/icon_user"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/user"
-                android:contentDescription="icon_user"/>
-        </FrameLayout>
 
     </RelativeLayout>
 

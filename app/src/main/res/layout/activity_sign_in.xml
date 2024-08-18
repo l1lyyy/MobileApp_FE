@@ -105,16 +105,16 @@
             android:id="@+id/sign_in_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="540dp"
-            android:background="@drawable/blue_rectangle"
+            android:background="@drawable/blue_shadow_button"
             android:contentDescription="sign_in_button"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="558dp"
+            android:layout_marginTop="546dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Sign In"
@@ -142,7 +142,7 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Register here!"
-            android:textColor="#3755EC"
+            android:textColor="#4461F2"
             android:textSize="14sp"
             android:padding="15dp"
             android:clickable="true"/>
