@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_2">
+        android:background="@drawable/gradient_3">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:layout_marginTop="55dp"
                 android:fontFamily="@font/capriola"
                 android:letterSpacing="0.02"
-                android:text="Add new book"
+                android:text="Edit"
                 android:textColor="#1E1E1E"
                 android:textSize="24sp" />
         </FrameLayout>
@@ -69,62 +69,73 @@
 
         <ImageView
             android:layout_width="300dp"
-            android:layout_height="190dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/inventory_report_man" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="300dp"
+            android:text="Book ID"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/book_id_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="130dp"
-            android:src="@drawable/shadow_rectangle" />
+            android:layout_marginTop="330dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="Enter ID to autofill"
+            android:fontFamily="@font/capriola"
+            android:textSize="16dp"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="395dp"
+            android:text="Book name"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
 
         <ImageView
-            android:layout_width="340dp"
-            android:layout_height="340dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/book_girl" />
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="425dp"
+            android:background="@drawable/input_rectangle"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="340dp"
-            android:text="Book"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="490dp"
+            android:text="Beginning inventory"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/book_input"
+            android:id="@+id/beginning_inventory_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="370dp"
+            android:layout_marginTop="520dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book name"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="440dp"
-            android:text="Author"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/author_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="470dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Author name"
+            android:hint="Beginning inventory"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -134,22 +145,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="540dp"
-            android:text="Category"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="585dp"
+            android:text="Arising inventory"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/categories_input"
+            android:id="@+id/arising_inventory_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="570dp"
+            android:layout_marginTop="615dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book category"
+            android:hint="Arising inventory"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
@@ -159,50 +170,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="640dp"
-            android:text="Price"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="680dp"
+            android:text="Ending inventory"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/price_input"
+            android:id="@+id/ending_inventory_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="670dp"
+            android:layout_marginTop="710dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Price"
+            android:hint="Ending inventory"
             android:fontFamily="@font/capriola"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="325dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="720dp"
-            android:layout_marginLeft="20dp"
-            android:max="1000"
-            android:progressTint="@color/dark_purple"
-            android:thumbTint="@color/dark_purple"/>
-
-        <TextView
-            android:id="@+id/seekBarValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/seekBar"
-            android:layout_marginTop="-5dp"
-            android:layout_marginLeft="320dp"
-            android:text="0"
-            android:textSize="18sp"/>
-
-
 
 
 

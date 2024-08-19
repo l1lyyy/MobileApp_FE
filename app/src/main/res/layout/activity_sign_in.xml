@@ -106,21 +106,23 @@
 
         <ImageButton
             android:id="@+id/sign_in_button"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="540dp"
+            android:src="@drawable/blue_shadow_button"
+            android:contentDescription="sign_in_button"/>
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:background="@null"
             android:layout_width="245dp"
             android:layout_height="75dp"
-            android:layout_marginLeft="35dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="568dp"
-            android:src="@drawable/blue_rectangle"
-            android:background="@null"
-            android:clickable="true"
             />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="585dp"
+            android:layout_marginTop="546dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Sign In"
@@ -133,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="43dp"
-            android:layout_marginTop="645dp"
+            android:layout_marginTop="625dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Don't have an account?"
@@ -143,8 +145,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="630dp"
+            android:layout_marginLeft="202dp"
+            android:layout_marginTop="610dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Register here!"

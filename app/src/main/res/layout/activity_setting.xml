@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_2">
+        android:background="@drawable/gradient_3">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -37,145 +37,172 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|center_horizontal"
-                android:layout_marginTop="55dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="56dp"
                 android:fontFamily="@font/capriola"
                 android:letterSpacing="0.02"
-                android:text="Add new book"
+                android:text="Adjust regulations"
                 android:textColor="#1E1E1E"
-                android:textSize="24sp" />
+                android:textSize="22sp" />
         </FrameLayout>
 
-        <FrameLayout
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="120dp"
+            android:text="Minimum import amount"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/minimum_import_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/input_rectangle"
+            android:hint="150"
+            android:textSize="16dp"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:letterSpacing="0.05"/>
+
+        <SeekBar
+            android:id="@+id/seekBar_1"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="20dp"
+            android:max="1000"
+            android:progressTint="@color/dark_purple"
+            android:thumbTint="@color/dark_purple"/>
+
+        <TextView
+            android:id="@+id/seekBarValue_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="46dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
-
-            <ImageButton
-                android:id="@+id/check_square_button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/check_square"
-                android:contentDescription="check_button" />
-        </FrameLayout>
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="190dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="130dp"
-            android:src="@drawable/shadow_rectangle" />
-
-        <ImageView
-            android:layout_width="340dp"
-            android:layout_height="340dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/book_girl" />
+            android:layout_below="@id/seekBar_1"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="320dp"
+            android:text="0"
+            android:textSize="18sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="340dp"
-            android:text="Book"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="250dp"
+            android:text="Only import stock less than"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/book_input"
+            android:id="@+id/num_import_stock_less_than_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="370dp"
+            android:layout_marginTop="280dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book name"
-            android:fontFamily="@font/capriola"
+            android:hint="300"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
 
+        <SeekBar
+            android:id="@+id/seekBar_2"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="330dp"
+            android:layout_marginLeft="20dp"
+            android:max="1000"
+            android:progressTint="@color/dark_purple"
+            android:thumbTint="@color/dark_purple"/>
+
+        <TextView
+            android:id="@+id/seekBarValue_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seekBar_2"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="320dp"
+            android:text="0"
+            android:textSize="18sp"/>
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="440dp"
-            android:text="Author"
+            android:layout_height="30dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="380dp"
+            android:text="Maximum debt"
             android:textColor="#1E1E1E"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/author_input"
+            android:id="@+id/maximum_debt_input"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="410dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Author name"
-            android:fontFamily="@font/capriola"
+            android:hint="300"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
 
+        <SeekBar
+            android:id="@+id/seekBar_3"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="460dp"
+            android:layout_marginLeft="20dp"
+            android:max="1000"
+            android:progressTint="@color/dark_purple"
+            android:thumbTint="@color/dark_purple"/>
+
+        <TextView
+            android:id="@+id/seekBarValue_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seekBar_3"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="320dp"
+            android:text="0"
+            android:textSize="18sp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="510dp"
+            android:text="Minimum in stock"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.02"/>
+
+        <EditText
+            android:id="@+id/arising_inventory_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="540dp"
-            android:text="Category"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/categories_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="570dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book category"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="640dp"
-            android:text="Price"
-            android:textColor="#1E1E1E"
-            android:textSize="17sp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/price_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="670dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Price"
-            android:fontFamily="@font/capriola"
+            android:hint="300"
             android:textSize="16dp"
             android:padding="10dp"
             android:textColor="#000"
@@ -186,11 +213,11 @@
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="720dp"
+            android:layout_marginTop="590dp"
             android:layout_marginLeft="20dp"
             android:max="1000"
             android:progressTint="@color/dark_purple"
-            android:thumbTint="@color/dark_purple"/>
+            android:thumbTint="@color/dark_purple" />
 
         <TextView
             android:id="@+id/seekBarValue"
@@ -202,8 +229,29 @@
             android:text="0"
             android:textSize="18sp"/>
 
+        <CheckBox
+            android:id="@+id/apply_filter_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="640dp"
+            android:text="Customer’s payment bill don’t"
+            android:fontFamily="@font/capriola"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:padding="10dp"
+            android:letterSpacing="0.04"/>
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="675dp"
+            android:text="exceed debt"
+            android:textColor="#1E1E1E"
+            android:textSize="17sp"
+            android:fontFamily="@font/capriola"
+            android:letterSpacing="0.04"/>
 
 
     </RelativeLayout>

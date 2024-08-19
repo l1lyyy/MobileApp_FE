@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:background="@drawable/gradient_1">
+        android:background="@drawable/gradient_2">
 
         <TextView
             android:layout_width="160dp"
@@ -47,13 +47,13 @@
             android:id="@+id/sign_up_button"
             android:layout_width="245dp"
             android:layout_height="90dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="630dp"
-            android:src="@drawable/blue_rectangle"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="640dp"
+            android:src="@drawable/blue_shadow_button"
+            android:contentDescription="sign_up_button"/>
             android:background="@null"
             android:clickable="true"
-            android:contentDescription="sign_up_button" />
+            android:layout_centerHorizontal="true"
 
         <TextView
             android:layout_width="98dp"
@@ -151,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="655dp"
+            android:layout_marginTop="647dp"
             android:text="Sign Up"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
@@ -163,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
-            android:layout_marginTop="720dp"
+            android:layout_marginTop="725dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Already have an account?"
@@ -175,7 +175,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="235dp"
-            android:layout_marginTop="705dp"
+            android:layout_marginTop="710dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Sign in!"
