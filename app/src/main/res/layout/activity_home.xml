@@ -13,7 +13,7 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="245dp"
             android:layout_marginTop="46dp"
             android:clickable="true">
 
@@ -24,8 +24,8 @@
 
             <ImageButton
                 android:id="@+id/setting_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:layout_gravity="center"
                 android:background="@drawable/setting"
                 android:contentDescription="setting_button" />
@@ -45,8 +45,8 @@
 
             <ImageButton
                 android:id="@+id/user_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:layout_gravity="center"
                 android:background="@drawable/user"
                 android:contentDescription="user_button" />
