@@ -10,6 +10,7 @@
         android:layout_weight="0"
         android:background="@drawable/dashboard_background">
 
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,6 +63,15 @@
             android:text="Dashboard"
             android:textColor="#FFFFFF"
             android:textSize="40sp"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="691dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/line" />
+
 
         <ImageView
             android:layout_width="wrap_content"
@@ -269,6 +279,35 @@
 
 
 
+        <ImageButton
+            android:id="@+id/foot_button_3"
+            android:layout_width="84dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="246dp"
+            android:layout_marginTop="714dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/square_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="foot_button_3"
+            android:onClick="goToAccountActivity"/>
+
+
+
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"/>
+
+            <ImageButton
+                android:id="@+id/icon_user"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/user"
+                android:contentDescription="icon_user"
+                android:onClick="goToAccountActivity"/>
+        </FrameLayout>
 
 
     </RelativeLayout>

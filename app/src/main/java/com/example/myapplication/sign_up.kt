@@ -19,6 +19,7 @@ class sign_up : AppCompatActivity() {
     lateinit var email: EditText
     lateinit var password: EditText
     lateinit var confirmPassword: EditText
+    //lateinit var signin: TextView
     lateinit var signup: ImageButton
 
     private lateinit var postApi: PostApi
@@ -32,11 +33,11 @@ class sign_up : AppCompatActivity() {
 //            insets
 //        }
 
-        username = findViewById(R.id.signup_username_input)
-        email = findViewById(R.id.signup_email_input)
-        password = findViewById(R.id.signup_password_input)
-        confirmPassword = findViewById(R.id.signup_confirm_password_input)
-        signup = findViewById(R.id.signup_button)
+        username = findViewById(R.id.username_input)
+        email = findViewById(R.id.email_input)
+        password = findViewById(R.id.password_input)
+        confirmPassword = findViewById(R.id.confirm_password_input)
+        signup = findViewById(R.id.sign_up_button)
 
         signup.setOnClickListener {
             val username_res = username.text.toString()
@@ -44,7 +45,7 @@ class sign_up : AppCompatActivity() {
             val password_res = password.text.toString()
             val confirm_password_res = confirmPassword.text.toString()
             if(validateInput(username_res,email_res,password_res,confirm_password_res)){
-                val user = User(username_res, email_res, password_res,confirm_password_res)
+                val user = User(username_res, email_res, password_res,confirm_password_res,"")
                 sendUserData(user)
                 Log.i("Thong tin dang nhap","username: $username_res, email: $email_res, password: $password_res")
             }
@@ -52,6 +53,12 @@ class sign_up : AppCompatActivity() {
             // sau khi goi ham xac nhan thong tin dang ky, chinh sua lai ham xac nhan thong tin
             // dang ky sao cho neu hop le thi goi ham chuyen toi slide tiep theo
         }
+
+//        signin = findViewById(R.id.goToSignIn)
+//
+//        signin.setOnClickListener {
+//            goToSignInActivity()
+//        }
 
     }
 

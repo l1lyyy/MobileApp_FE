@@ -28,7 +28,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button"/>
+                android:contentDescription="back_button"
+                android:onClick="goToHomeActivity"/>
         </FrameLayout>
 
 

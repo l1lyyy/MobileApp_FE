@@ -29,11 +29,13 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button"/>
+                android:contentDescription="back_button"
+                android:onClick="goToWelcomeActivity"/>
         </FrameLayout>
 
         <TextView
             android:layout_width="154dp"
+            android:layout_centerHorizontal="true"
             android:layout_height="80dp"
             android:layout_marginLeft="110dp"
             android:layout_marginTop="134dp"
@@ -84,6 +86,7 @@
             android:layout_marginTop="393dp"
             android:background="@drawable/input_rectangle"
             android:hint="Enter password"
+            android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="#000"/>
 
@@ -98,17 +101,22 @@
             android:textColor="#8C8A8A"
             android:textSize="15sp"
             android:padding="14dp"
-            android:clickable="true" />
+            android:clickable="true"/>
 
 
         <ImageButton
             android:id="@+id/sign_in_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="540dp"
-            android:background="@drawable/blue_shadow_button"
+            android:src="@drawable/blue_shadow_button"
             android:contentDescription="sign_in_button"/>
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:background="@null"
+            android:layout_width="245dp"
+            android:layout_height="75dp"
+            />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -121,7 +129,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:padding="15dp"
-            android:clickable="true"/>
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -145,6 +153,7 @@
             android:textColor="#4461F2"
             android:textSize="14sp"
             android:padding="15dp"
+            android:onClick="goToSignUpActivity"
             android:clickable="true"/>
 
 

@@ -45,6 +45,11 @@
             android:padding="15dp"
             android:fontFamily="@font/capriola"
             android:clickable="true"/>
+            android:background="@drawable/sign_in_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="sign_in"
+            android:onClick="goToSignInActivity"/>
+
 
         <ImageButton
             android:id="@+id/sign_up_button"
@@ -68,6 +73,8 @@
             android:padding="15dp"
             android:fontFamily="@font/capriola"
             android:clickable="true"/>
+            android:contentDescription="sign_up"
+            android:onClick="goToSignUpActivity"/>
 
     </RelativeLayout>
 
