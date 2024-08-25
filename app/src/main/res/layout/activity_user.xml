@@ -28,7 +28,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button"/>
+                android:contentDescription="back_button"
+                android:onClick="goToDashboardActivity"/>
         </FrameLayout>
 
 
@@ -69,7 +70,8 @@
             android:layout_marginTop="410dp"
             android:background="@drawable/purple_rectangle"
             android:layout_gravity="top|start"
-            android:contentDescription="change_profile"/>
+            android:contentDescription="change_profile"
+            android:onClick="goToChangeProfileActivity"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -89,7 +91,9 @@
             android:padding="15dp"
             android:text="Change profile"
             android:textColor="#000000"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:contentDescription="change_profile_button"
+            android:onClick="goToChangeProfileActivity"/>
 
 
         <ImageButton
@@ -100,7 +104,8 @@
             android:layout_marginTop="485dp"
             android:background="@drawable/purple_rectangle"
             android:layout_gravity="top|start"
-            android:contentDescription="security"/>
+            android:contentDescription="security_button"
+            android:onClick="goToSecurityActivity"/>
 
         <ImageView
             android:layout_width="32dp"
@@ -120,7 +125,9 @@
             android:padding="15dp"
             android:text="Security"
             android:textColor="#000000"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:contentDescription="sign_in"
+            android:onClick="goToSecurityActivity"/>
 
         <ImageButton
             android:id="@+id/contact_support_button"
@@ -150,7 +157,9 @@
             android:padding="15dp"
             android:text="Contact support"
             android:textColor="#000000"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:contentDescription="contact_support_button"
+            android:onClick="goToContactSupportActivity"/>
 
         <ImageButton
             android:id="@+id/log_out_button"
@@ -160,7 +169,8 @@
             android:layout_marginTop="635dp"
             android:background="@drawable/purple_rectangle"
             android:layout_gravity="top|start"
-            android:contentDescription="log_out"/>
+            android:contentDescription="log_out"
+            android:onClick="goToWelcomeActivity"/>
 
         <ImageView
             android:layout_width="32dp"
@@ -180,7 +190,9 @@
             android:padding="15dp"
             android:text="Log out"
             android:textColor="#000000"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:contentDescription="log_out_button"
+            android:onClick="goToWelcomeActivity"/>
 
     </RelativeLayout>
 

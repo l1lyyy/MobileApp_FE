@@ -27,7 +27,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button" />
+                android:contentDescription="back_button"
+                android:onClick="goToDashboardActivity"/>
         </FrameLayout>
 
         <FrameLayout
@@ -85,7 +86,8 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:background="@drawable/cancel"
-                android:contentDescription="cancel_button" />
+                android:contentDescription="cancel_button"
+                android:onClick="goToCancelActivity"/>
         </FrameLayout>
 
 

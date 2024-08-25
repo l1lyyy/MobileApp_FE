@@ -56,10 +56,10 @@
             android:name=".CreateBookImportOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".dashboard"
+            android:name=".DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".Dashboard"
+            android:name=".DashboardActivity"
             android:exported="false" />
         <activity
             android:name=".sign_in"

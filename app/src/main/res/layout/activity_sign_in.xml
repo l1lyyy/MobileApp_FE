@@ -29,7 +29,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button"/>
+                android:contentDescription="back_button"
+                android:onClick="goToWelcomeActivity"/>
         </FrameLayout>
 
         <TextView
@@ -63,7 +64,10 @@
             android:background="@drawable/input_rectangle"
             android:hint="Enter email/username"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="150dp"
@@ -85,7 +89,10 @@
             android:background="@drawable/input_rectangle"
             android:hint="Enter password"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,12 +110,13 @@
 
         <ImageButton
             android:id="@+id/sign_in_button"
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="540dp"
             android:background="@drawable/blue_shadow_button"
-            android:contentDescription="sign_in_button"/>
+            android:contentDescription="sign_in_button"
+            android:onClick="goToDashboardActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -145,8 +153,9 @@
             android:textColor="#4461F2"
             android:textSize="14sp"
             android:padding="15dp"
-            android:clickable="true"/>
-
+            android:clickable="true"
+            android:contentDescription="sign_up"
+            android:onClick="goToSignUpActivity"/>
 
         <!--
         <Button

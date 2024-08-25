@@ -27,7 +27,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button" />
+                android:contentDescription="back_button"
+                android:onClick="goToDashboardActivity"/>
         </FrameLayout>
 
         <ImageView
@@ -62,7 +63,8 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="560dp"
             android:background="@drawable/blue_shadow_button"
-            android:contentDescription="inventory_button" />
+            android:contentDescription="inventory_report_button"
+            android:onClick="goToInventoryReportActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,7 +76,9 @@
             android:textSize="18sp"
             android:padding="14dp"
             android:fontFamily="@font/capriola"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:contentDescription="inventory_report"
+            android:onClick="goToInventoryReportActivity"/>
 
         <ImageButton
             android:id="@+id/debt_button"
@@ -83,7 +87,8 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="640dp"
             android:background="@drawable/white_shadow_button"
-            android:contentDescription="debt_button" />
+            android:contentDescription="debt_report_button"
+            android:onClick="goToDebtReportActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,7 +100,9 @@
             android:textSize="18sp"
             android:padding="14dp"
             android:fontFamily="@font/capriola"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:contentDescription="debt_report"
+            android:onClick="goToDebtReportActivity"/>
 
     </RelativeLayout>
 

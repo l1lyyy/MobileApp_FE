@@ -26,48 +26,54 @@
 
         <ImageButton
             android:id="@+id/sign_in_button"
-            android:layout_width="125dp"
+            android:layout_width="120dp"
             android:layout_height="48dp"
             android:layout_gravity="top|start"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="698dp"
             android:background="@drawable/blue_shadow_button"
-            android:contentDescription="sign_in" />
+            android:contentDescription="sign_in"
+            android:onClick="goToSignInActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="78dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="696dp"
             android:text="Sign In"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:padding="15dp"
             android:fontFamily="@font/capriola"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:contentDescription="sign_in"
+            android:onClick="goToSignInActivity"/>
 
         <ImageButton
             android:id="@+id/sign_up_button"
-            android:layout_width="125dp"
+            android:layout_width="120dp"
             android:layout_height="48dp"
             android:layout_marginLeft="185dp"
             android:layout_marginTop="698dp"
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/white_shadow_button"
             android:layout_gravity="top|start"
-            android:contentDescription="sign_up"/>
+            android:contentDescription="sign_up"
+            android:onClick="goToSignUpActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="206dp"
+            android:layout_marginLeft="204dp"
             android:layout_marginTop="696dp"
             android:text="Sign Up"
             android:textColor="#4461F2"
             android:textSize="14sp"
             android:padding="15dp"
             android:fontFamily="@font/capriola"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:contentDescription="sign_up"
+            android:onClick="goToSignUpActivity"/>
 
     </RelativeLayout>
 

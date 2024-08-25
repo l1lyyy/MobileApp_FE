@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:background="@drawable/gradient_2">
+        android:background="@drawable/gradient_1">
 
         <TextView
             android:layout_width="160dp"
@@ -38,7 +38,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button"/>
+                android:contentDescription="back_button"
+                android:onClick="goToWelcomeActivity"/>
         </FrameLayout>
 
         <ImageButton
@@ -48,7 +49,8 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="640dp"
             android:background="@drawable/blue_shadow_button"
-            android:contentDescription="sign_up_button"/>
+            android:contentDescription="sign_up_button"
+            android:onClick="goToDashboardActivity"/>
 
         <TextView
             android:layout_width="98dp"
@@ -70,7 +72,10 @@
             android:background="@drawable/input_rectangle"
             android:hint="Enter username"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="198dp"
@@ -93,7 +98,9 @@
             android:hint="Enter email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="198dp"
@@ -114,9 +121,11 @@
             android:layout_marginTop="438dp"
             android:background="@drawable/input_rectangle"
             android:hint="Enter Password"
-            android:inputType="textPassword"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="198dp"
@@ -137,9 +146,11 @@
             android:layout_marginTop="548dp"
             android:background="@drawable/input_rectangle"
             android:hint="Confirm Password"
-            android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="#000"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
             />
 
         <TextView
@@ -176,7 +187,9 @@
             android:textColor="#4461F2"
             android:textSize="14sp"
             android:padding="15dp"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:contentDescription="sign_in"
+            android:onClick="goToSignInActivity"/>
         <!--
         <Button
             android:layout_marginLeft="65dp"

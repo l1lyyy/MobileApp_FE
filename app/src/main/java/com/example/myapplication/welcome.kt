@@ -3,8 +3,6 @@ package com.example.myapplication
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.view.View
 import android.content.Intent
 
@@ -15,14 +13,12 @@ class welcome : AppCompatActivity() {
         setContentView(R.layout.activity_welcome)
     }
 
-    fun goToSignUpActivity(view: View)
-    {
+    fun goToSignUpActivity(view: View) {
         val intent = Intent(this, sign_up::class.java)
         startActivity(intent)
     }
 
-    fun goToSignInActivity(view: View)
-    {
+    fun goToSignInActivity(view: View) {
         val intent = Intent(this, sign_in::class.java)
         startActivity(intent)
     }
