@@ -65,6 +65,7 @@
             android:background="@drawable/input_rectangle"
             android:hint="Enter email/username"
             android:padding="10dp"
+            android:fontFamily="@font/capriola"
             android:textColor="#000"/>
 
         <TextView
@@ -86,6 +87,7 @@
             android:layout_marginTop="393dp"
             android:background="@drawable/input_rectangle"
             android:hint="Enter password"
+            android:fontFamily="@font/capriola"
             android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="#000"/>

@@ -64,7 +64,8 @@ android:orientation="vertical">
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:background="@drawable/check_square"
-            android:contentDescription="check_button" />
+            android:contentDescription="check_button"
+            android:clickable="true"/>
     </FrameLayout>
 
 
@@ -150,7 +151,8 @@ android:orientation="vertical">
             android:layout_height="28dp"
             android:layout_gravity="center"
             android:background="@drawable/pencil"
-            android:contentDescription="edit_pencil" />
+            android:contentDescription="edit_pencil"
+            android:clickable="true"/>
     </FrameLayout>
 
     <TextView
@@ -248,7 +250,6 @@ android:orientation="vertical">
         android:letterSpacing="0.05"/>
 
     <EditText
-        android:id="@+id/customer_name_input"
         android:layout_width="315dp"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
@@ -272,11 +273,16 @@ android:orientation="vertical">
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.05"/>
 
-    <ImageView
+    <EditText
+        android:id="@+id/customer_name_input"
         android:layout_width="315dp"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="246dp"
+        android:hint="Enter email/username"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:fontFamily="@font/capriola"
         android:background="@drawable/input_rectangle" />
 
     </RelativeLayout>

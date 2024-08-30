@@ -25,11 +25,6 @@ class sign_in : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_sign_in)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
         username_email = findViewById(R.id.user_input)
         password = findViewById(R.id.user_password_input)
         signin = findViewById(R.id.sign_in_button)
@@ -64,6 +59,11 @@ class sign_in : AppCompatActivity() {
         }
     }
 
+    fun gotoCreateSalesInvoiceActivity()
+    {
+        val intent = Intent(this, CreateSalesInvoiceActivity::class.java)
+        startActivity(intent)
+    }
     private fun signIn(username: String,password: String) {
         val builder = Retrofit.Builder()
             .baseUrl(PostApi.BASE_URL)
@@ -76,7 +76,8 @@ class sign_in : AppCompatActivity() {
 
         val call = postApi.signinUser(signIn)
 
-        call.enqueue(object : Callback<User> {
+        call.enqueue(object : Callback<User>
+        {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
                     response.body()?.let { user ->
@@ -86,10 +87,13 @@ class sign_in : AppCompatActivity() {
                         prefSigninEdit?.putBoolean("signed in", true)
                         prefSigninEdit?.putString("token", token)
                         prefSigninEdit?.apply()
+                        println("Retrieved Token: $token")
                         Toast.makeText(this@sign_in, "Login successful", Toast.LENGTH_SHORT).show()
+                        gotoCreateSalesInvoiceActivity()
                     }
                 } else {
                     Toast.makeText(this@sign_in, "Login failed, wrong password or account",Toast.LENGTH_LONG).show()
+
                 }
             }
             override fun onFailure(call: Call<User>, t: Throwable) {

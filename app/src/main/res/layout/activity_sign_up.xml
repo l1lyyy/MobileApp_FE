@@ -75,6 +75,7 @@
             android:background="@drawable/input_rectangle"
             android:hint="Enter username"
             android:padding="10dp"
+            android:fontFamily="@font/capriola"
             android:textColor="#000"/>
 
         <TextView
@@ -98,6 +99,7 @@
             android:hint="Enter email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
+            android:fontFamily="@font/capriola"
             android:textColor="#000"/>
 
         <TextView
@@ -121,6 +123,7 @@
             android:hint="Enter Password"
             android:inputType="textPassword"
             android:padding="10dp"
+            android:fontFamily="@font/capriola"
             android:textColor="#000"/>
 
         <TextView
@@ -144,6 +147,7 @@
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:padding="10dp"
+            android:fontFamily="@font/capriola"
             android:textColor="#000"
             />
 
