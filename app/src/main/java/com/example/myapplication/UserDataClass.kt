@@ -8,7 +8,7 @@ data class User(
     var token: String
 )
 
-data class SignIn(
+data class Signin(
     val username: String,
     val password: String
 )
