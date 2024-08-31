@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.media.session.MediaSession.Token
+
 data class User(
     var username: String,
     var email: String,
@@ -10,5 +12,6 @@ data class User(
 
 data class Signin(
     val username: String,
-    val password: String
+    val password: String,
 )
+

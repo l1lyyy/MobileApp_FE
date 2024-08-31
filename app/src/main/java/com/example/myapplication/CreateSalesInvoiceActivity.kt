@@ -77,7 +77,7 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
             val customer_name_res = customer_name.text.toString()
             val date_res = date.text.toString()
 
-            sendSalesInvoice(customer_name_res,date_res,result_book_name.text.toString(),"", amount_res, price_res,token)
+            sendSalesInvoice("Nhut",date_res,result_book_name.text.toString(),"null", amount_res, price_res,token)
         }
     }
     private fun sendSalesInvoice(customername: String, date: String, book_name: String, category: String, amount: Int, price: Float,token: String )

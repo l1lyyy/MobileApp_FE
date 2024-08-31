@@ -12,9 +12,12 @@ interface PostApi {
         //const val BASE_LOCAL = "${ROOT}api/v1/"
         const val BASE_URL = "${ROOT}account/"
         const val INVOICE_URL = "${ROOT}invoice/"
+        const val RECEIPT_URL = "${ROOT}receipt/"
         //const val POST_URL = "${ROOT}post/"
         const val API_URL = ROOT + "api/v1/"
     }
+    @POST("create-receipt/")
+    fun sendReceipt(@Header("Authorization") authHeader: String, @Body customerData: CustomerData): Call<ResponseBody>
     @POST("create-invoice/")
     fun sendSalesInvoice(@Header("Authorization") authHeader: String, @Body salesInvoice: Salesinvoice): Call<ResponseBody>
     //fun sendSalesInvoice(@Body invoice: Salesinvoice): Call<ResponseBody>
