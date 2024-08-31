@@ -35,7 +35,7 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token","") ?: ""
         val result_book_name = findViewById<TextView>(R.id.book_name_1)
-        val result_category = findViewById<TextView>(R.id.categories_1)
+        //val result_category = findViewById<TextView>(R.id.categories_1)
         val result_amount = findViewById<TextView>(R.id.amount_1)
         val result_price = findViewById<TextView>(R.id.price_1)
         val button = findViewById<ImageButton>(R.id.edit_button_1)
@@ -49,12 +49,12 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
             if (result.resultCode== RESULT_OK) {
                 val data = result.data
                 val bookname= data?.getStringExtra("bookname")
-                val category = data?.getStringExtra("category")
-                val amount = data?.getStringExtra("Amount")
-                val priceString = data?.getStringExtra("Price")
+                //val category = data?.getStringExtra("category")
+                val amount = data?.getStringExtra("amount")
+                val priceString = data?.getStringExtra("price")
                 val price = priceString?.toFloatOrNull() ?: 0.0f
                 result_book_name.text = "$bookname\n"
-                result_category.text = "$category\n"
+                //result_category.text = "$category\n"
                 result_amount.text = "$amount\n"
                 result_price.text = "$price\n"
 
@@ -77,7 +77,7 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
             val customer_name_res = customer_name.text.toString()
             val date_res = date.text.toString()
 
-            sendSalesInvoice(customer_name_res,date_res,result_book_name.text.toString(),result_category.text.toString(), amount_res, price_res,token)
+            sendSalesInvoice(customer_name_res,date_res,result_book_name.text.toString(),"", amount_res, price_res,token)
         }
     }
     private fun sendSalesInvoice(customername: String, date: String, book_name: String, category: String, amount: Int, price: Float,token: String )
