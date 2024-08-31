@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 class AddNewBookActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class AddNewBookActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_add_new_book)
 
         priceInput = findViewById(R.id.price_input)
