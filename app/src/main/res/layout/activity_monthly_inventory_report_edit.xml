@@ -95,11 +95,13 @@
             android:layout_marginTop="330dp"
             android:background="@drawable/input_rectangle"
             android:hint="Enter ID to autofill"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <ImageButton
             android:id="@+id/check_id_button"
@@ -150,11 +152,13 @@
             android:layout_marginTop="520dp"
             android:background="@drawable/input_rectangle"
             android:hint="Beginning inventory"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -175,11 +179,13 @@
             android:layout_marginTop="615dp"
             android:background="@drawable/input_rectangle"
             android:hint="Arising inventory"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -200,11 +206,13 @@
             android:layout_marginTop="710dp"
             android:background="@drawable/input_rectangle"
             android:hint="Ending inventory"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
 
 

@@ -95,10 +95,13 @@
             android:layout_marginTop="380dp"
             android:background="@drawable/input_rectangle"
             android:hint="Book ID"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
+            android:letterSpacing="0.05"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <ImageButton
             android:id="@+id/check_id_button"
@@ -149,10 +152,13 @@
             android:layout_marginTop="580dp"
             android:background="@drawable/input_rectangle"
             android:hint="Amount"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
+            android:letterSpacing="0.05"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -193,10 +199,13 @@
             android:layout_marginTop="700dp"
             android:background="@drawable/input_rectangle"
             android:hint="Price"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
+            android:letterSpacing="0.05"
             android:padding="10dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
 
 

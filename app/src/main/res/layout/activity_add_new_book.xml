@@ -102,11 +102,13 @@
             android:layout_marginTop="370dp"
             android:background="@drawable/input_rectangle"
             android:hint="Book name"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -127,11 +129,13 @@
             android:layout_marginTop="470dp"
             android:background="@drawable/input_rectangle"
             android:hint="Author name"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -152,11 +156,13 @@
             android:layout_marginTop="570dp"
             android:background="@drawable/input_rectangle"
             android:hint="Book category"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -177,11 +183,13 @@
             android:layout_marginTop="670dp"
             android:background="@drawable/input_rectangle"
             android:hint="Price"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <SeekBar
             android:id="@+id/seekBar"

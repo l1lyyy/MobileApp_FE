@@ -94,12 +94,14 @@
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="100dp"
                 android:background="@drawable/input_rectangle"
-                android:fontFamily="@font/capriola"
-                android:hint="          /           /        "
-                android:inputType="date"
-                android:letterSpacing="0.05"
+                android:hint="dd/mm/yyyy"
+                android:padding="10dp"
+                android:letterSpacing="0.1"
                 android:textColor="#000"
-                android:textSize="20sp" />
+                android:textSize="17sp"
+                android:inputType="date"
+                android:maxLines="1"
+                android:singleLine="true"/>
 
             <ImageButton
                 android:id="@+id/calendar_button"

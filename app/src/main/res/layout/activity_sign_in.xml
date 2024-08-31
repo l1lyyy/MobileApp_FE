@@ -64,6 +64,7 @@
             android:background="@drawable/input_rectangle"
             android:hint="Enter email/username"
             android:padding="10dp"
+
             android:textColor="#000"
             android:inputType="text"
             android:maxLines="1"

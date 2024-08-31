@@ -88,11 +88,13 @@
             android:layout_marginTop="140dp"
             android:background="@drawable/input_rectangle"
             android:hint="Enter ID to autofill"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <ImageButton
             android:id="@+id/check_id_button"
@@ -197,11 +199,13 @@
         android:layout_marginTop="615dp"
         android:background="@drawable/input_rectangle"
         android:hint="dd/mm/yyyy"
-        android:fontFamily="@font/capriola"
-        android:textSize="16dp"
+        android:textSize="18dp"
         android:padding="10dp"
         android:textColor="#000"
-        android:letterSpacing="0.125"/>
+        android:letterSpacing="0.1"
+        android:inputType="date"
+        android:maxLines="1"
+        android:singleLine="true"/>
 
     <ImageButton
         android:id="@+id/calendar_button"
@@ -231,11 +235,13 @@
         android:layout_marginTop="710dp"
         android:background="@drawable/input_rectangle"
         android:hint="Paid amount"
-        android:fontFamily="@font/capriola"
-        android:textSize="16dp"
+        android:textSize="18dp"
         android:padding="10dp"
         android:textColor="#000"
-        android:letterSpacing="0.05"/>
+        android:letterSpacing="0.05"
+        android:inputType="number"
+        android:maxLines="1"
+        android:singleLine="true"/>
 
 
 
