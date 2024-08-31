@@ -1,11 +1,26 @@
 package com.example.myapplication
 
+import com.google.gson.annotations.SerializedName
+
 data class CustomerData(
-    var id: String,
-    var name: String,
+    @SerializedName("receipt_id")
+    var receiptId: String,
+
+    @SerializedName("customer_name")
+    var customerName: String,
+
+    @SerializedName("address")
     var address: String,
-    var phone: String,
+
+    @SerializedName("phone_number")
+    var phoneNumber: String,
+
+    @SerializedName("email")
     var email: String,
-    var payment_date: String,
-    var paid_amount: Double
+
+    @SerializedName("payment_date")
+    var paymentDate: String,
+
+    @SerializedName("paid_amount")
+    var paidAmount: Int // Chuyển đổi thành số nguyên
 )
