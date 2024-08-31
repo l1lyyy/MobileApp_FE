@@ -26,5 +26,5 @@ interface PostApi {
     fun registrationUser(@Body userModel: User): Call<User>
 
     @POST("api-token-auth/")
-    fun signinUser(@Body login: Signin ): Call<User>
+    fun signinUser(@Body login: Signin ): Call<Token>
 }

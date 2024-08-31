@@ -21,6 +21,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import com.google.gson.Gson
+import android.util.Log
 
 class CreateReceiptActivity : AppCompatActivity() {
     lateinit var customer_id: EditText
@@ -62,12 +66,21 @@ class CreateReceiptActivity : AppCompatActivity() {
 
     private fun sendReceipt(id: String, fullname: String, address: String,phonenumber:String, email: String, paymentdate: String, paidamount: Double, token: String)
     {
-        val builder = Retrofit.Builder().baseUrl(PostApi.RECEIPT_URL).addConverterFactory(GsonConverterFactory.create())
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        val httpClient = OkHttpClient.Builder()
+        httpClient.addInterceptor(logging)
+
+        val builder = Retrofit.Builder().baseUrl(PostApi.RECEIPT_URL).addConverterFactory(GsonConverterFactory.create()).client(httpClient.build())
         val retrofit = builder.build()
 
         postApi = retrofit.create(PostApi::class.java)
-
-        val receipt = CustomerData(id,fullname,address,phonenumber,email,paymentdate,paidamount)
+        val paidAmountInt = paidamount.toInt()
+        val receipt = CustomerData(id,fullname,address,phonenumber,email,paymentdate,paidAmountInt)
+        val gson = Gson()
+        val json = gson.toJson(receipt)
+        Log.d("receipt JSON", json)
         val call = postApi.sendReceipt("Token $token", receipt)
 
         call.enqueue(object: Callback<ResponseBody>
