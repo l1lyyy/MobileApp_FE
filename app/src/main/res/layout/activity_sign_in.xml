@@ -113,23 +113,25 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="540dp"
+            android:layout_marginTop="535dp"
             android:background="@drawable/blue_shadow_button"
             android:contentDescription="sign_in_button"
-            android:onClick="goToDashboardActivity"/>
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="546dp"
+            android:layout_marginTop="540dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Sign In"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:padding="15dp"
-            android:clickable="true"/>
+            android:clickable="false"
+            android:focusable="false"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -157,24 +159,6 @@
             android:contentDescription="sign_up"
             android:onClick="goToSignUpActivity"/>
 
-        <!--
-        <Button
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="688dp"
-            android:id="@+id/supabutton_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sign_in_button"
-            />
-
-        <Button
-            android:layout_marginLeft="185dp"
-            android:layout_marginTop="688dp"
-            android:id="@+id/supabutton_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sign_up_button" />
-        -->
     </RelativeLayout>
 
     <LinearLayout
