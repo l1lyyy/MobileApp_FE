@@ -98,7 +98,7 @@
             android:layout_marginTop="665dp"
             android:background="@drawable/blue_rectangle"
             android:contentDescription="confirm_button"
-            android:onClick="goToCreateSalesInvoiceActivity"/>
+            android:onClick="goToCreateReceiptActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
             android:padding="15dp"
             android:clickable="true"
             android:contentDescription="confirm_text"
-            android:onClick="goToCreateSalesInvoiceActivity"/>
+            android:onClick="goToCreateReceiptActivity"/>
 
 
 

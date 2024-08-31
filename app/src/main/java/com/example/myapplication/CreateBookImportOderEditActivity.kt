@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,15 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
 //            insets
 //        }
+    }
+
+    fun goToBooksImportActivity(view: View) {
+        val intent = Intent(this, CreateBookImportOrderActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun goToVerifyActivity(view: View) {
+        val intent = Intent(this, CreateBookImportOrderActivity::class.java)
+        startActivity(intent)
     }
 }

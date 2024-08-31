@@ -33,7 +33,7 @@
             android:layout_marginTop="698dp"
             android:background="@drawable/blue_shadow_button"
             android:contentDescription="sign_in"
-            android:onClick="goToSignInActivity"/>
+            android:onClick="goToDashboardActivity" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:fontFamily="@font/capriola"
             android:clickable="true"
             android:contentDescription="sign_in"
-            android:onClick="goToSignInActivity"/>
+            android:onClick="goToDashboardActivity"/>
 
         <ImageButton
             android:id="@+id/sign_up_button"

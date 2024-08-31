@@ -22,4 +22,9 @@ class welcome : AppCompatActivity() {
         val intent = Intent(this, sign_in::class.java)
         startActivity(intent)
     }
+
+    fun goToDashboardActivity(view: View) {
+        val intent = Intent(this, DashboardActivity::class.java)
+        startActivity(intent)
+    }
 }
