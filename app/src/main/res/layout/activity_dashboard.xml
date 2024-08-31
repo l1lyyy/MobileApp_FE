@@ -14,7 +14,7 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="245dp"
             android:layout_marginTop="46dp"
             android:clickable="true">
 
@@ -25,11 +25,12 @@
 
             <ImageButton
                 android:id="@+id/setting_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:layout_gravity="center"
                 android:background="@drawable/setting"
-                android:contentDescription="setting_button" />
+                android:contentDescription="setting_button"
+                android:onClick="goToSettingActivity"/>
         </FrameLayout>
 
         <FrameLayout
@@ -46,11 +47,12 @@
 
             <ImageButton
                 android:id="@+id/user_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:layout_gravity="center"
                 android:background="@drawable/user"
-                android:contentDescription="user_button" />
+                android:contentDescription="user_button"
+                android:onClick="goToUserActivity"/>
         </FrameLayout>
 
         <TextView
@@ -91,7 +93,8 @@
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
-            android:contentDescription="add_new_book"/>
+            android:contentDescription="add_new_book"
+            android:onClick="goToAddNewBookActivity"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -100,7 +103,8 @@
             android:layout_marginTop="284dp"
             android:src="@drawable/add_book"
             android:clickable="true"
-            android:contentDescription="icon_add_new_book"/>
+            android:contentDescription="icon_add_new_book"
+            android:onClick="goToAddNewBookActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -112,7 +116,9 @@
             android:padding="15dp"
             android:text="Add new book"
             android:textColor="#000000"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:contentDescription="add_new_book_text"
+            android:onClick="goToAddNewBookActivity"/>
 
         <ImageButton
             android:id="@+id/book_import_button"
@@ -123,7 +129,8 @@
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
-            android:contentDescription="import_books"/>
+            android:contentDescription="import_books"
+            android:onClick="goToBooksImportActivity"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -132,7 +139,8 @@
             android:layout_marginTop="270dp"
             android:src="@drawable/box"
             android:clickable="true"
-            android:contentDescription="icon_import_books"/>
+            android:contentDescription="icon_import_books"
+            android:onClick="goToBooksImportActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -144,7 +152,9 @@
             android:padding="15dp"
             android:text="Books import"
             android:textColor="#000000"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:contentDescription="import_books_text"
+            android:onClick="goToBooksImportActivity"/>
 
         <ImageButton
             android:id="@+id/search_book_button"
@@ -155,7 +165,8 @@
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
-            android:contentDescription="search_book"/>
+            android:contentDescription="search_book"
+            android:onClick="goToSearchBooksActivity"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -164,7 +175,8 @@
             android:layout_marginTop="457dp"
             android:src="@drawable/search"
             android:clickable="true"
-            android:contentDescription="search_book"/>
+            android:contentDescription="icon_search_book"
+            android:onClick="goToSearchBooksActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -176,7 +188,9 @@
             android:padding="15dp"
             android:text="Search books"
             android:textColor="#000000"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:contentDescription="search_book_text"
+            android:onClick="goToSearchBooksActivity"/>
 
         <ImageButton
             android:id="@+id/sales_invoice_button"
@@ -187,7 +201,8 @@
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
-            android:contentDescription="create_sales_invoice"/>
+            android:contentDescription="create_sales_invoice"
+            android:onClick="goToCreateSalesInvoiceActivity"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -196,7 +211,8 @@
             android:layout_marginTop="457dp"
             android:src="@drawable/invoice"
             android:clickable="true"
-            android:contentDescription="icon_invoice"/>
+            android:contentDescription="icon_invoice"
+            android:onClick="goToCreateSalesInvoiceActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -208,7 +224,9 @@
             android:padding="15dp"
             android:text="Sales invoice"
             android:textColor="#000000"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:contentDescription="create_sales_invoice_text"
+            android:onClick="goToCreateSalesInvoiceActivity"/>
 
         <ImageButton
             android:id="@+id/receipt_button"
@@ -219,7 +237,8 @@
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
-            android:contentDescription="create_receipt"/>
+            android:contentDescription="create_receipt"
+            android:onClick="goToCreateReceiptActivity"/>
 
         <ImageView
             android:layout_width="70dp"
@@ -228,7 +247,8 @@
             android:layout_marginTop="630dp"
             android:src="@drawable/receipt"
             android:clickable="true"
-            android:contentDescription="icon_sales_receipt"/>
+            android:contentDescription="icon_sales_receipt"
+            android:onClick="goToCreateReceiptActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -240,7 +260,9 @@
             android:padding="15dp"
             android:text="Sales receipt"
             android:textColor="#000000"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:contentDescription="create_receipt_text"
+            android:onClick="goToCreateReceiptActivity"/>
 
         <ImageButton
             android:id="@+id/monthly_report_button"
@@ -251,7 +273,8 @@
             android:fillColor="#FFFFFFFF"
             android:background="@drawable/square_button"
             android:layout_gravity="top|start"
-            android:contentDescription="monthly_report"/>
+            android:contentDescription="monthly_report"
+            android:onClick="goToMonthlyReportActivity"/>
 
         <ImageView
             android:layout_width="70dp"
@@ -260,7 +283,8 @@
             android:layout_marginTop="632dp"
             android:src="@drawable/report"
             android:clickable="true"
-            android:contentDescription="icon_monthly_report"/>
+            android:contentDescription="icon_monthly_report"
+            android:onClick="goToMonthlyReportActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -272,12 +296,9 @@
             android:padding="15dp"
             android:text="Monthly report"
             android:textColor="#000000"
-            android:textSize="14sp"/>
-
-
-
-
-
+            android:textSize="14sp"
+            android:contentDescription="monthly_report_text"
+            android:onClick="goToMonthlyReportActivity"/>
 
         <ImageButton
             android:id="@+id/foot_button_3"

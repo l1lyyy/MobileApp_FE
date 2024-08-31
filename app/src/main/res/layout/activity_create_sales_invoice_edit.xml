@@ -60,13 +60,13 @@
                 android:background="?attr/selectableItemBackground" />
 
             <ImageButton
-                android:id="@+id/confirm_button"
+                android:id="@+id/check_square_button"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/check_square"
                 android:contentDescription="check_button"
-                android:clickable="true"/>
+                android:onClick="goToVerifyActivity"/>
         </FrameLayout>
 
         <ImageView

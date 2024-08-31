@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:background="@drawable/gradient_2">
+        android:background="@drawable/gradient_1">
 
         <TextView
             android:layout_width="160dp"
@@ -16,7 +16,6 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="105dp"
             android:text="Sign Up"
-            android:layout_centerHorizontal="true"
             android:textColor="#000000"
             android:fontFamily="@font/capriola"
             android:textSize="42sp"/>
@@ -45,15 +44,13 @@
 
         <ImageButton
             android:id="@+id/sign_up_button"
-            android:layout_width="245dp"
-            android:layout_height="90dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="640dp"
-            android:src="@drawable/blue_shadow_button"
-            android:contentDescription="sign_up_button"/>
-            android:background="@null"
-            android:clickable="true"
-            android:layout_centerHorizontal="true"
+            android:background="@drawable/blue_shadow_button"
+            android:contentDescription="sign_up_button"
+            android:onClick="goToDashboardActivity"/>
 
         <TextView
             android:layout_width="98dp"
@@ -75,8 +72,10 @@
             android:background="@drawable/input_rectangle"
             android:hint="Enter username"
             android:padding="10dp"
-            android:fontFamily="@font/capriola"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="198dp"
@@ -99,8 +98,9 @@
             android:hint="Enter email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:fontFamily="@font/capriola"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="198dp"
@@ -121,10 +121,11 @@
             android:layout_marginTop="438dp"
             android:background="@drawable/input_rectangle"
             android:hint="Enter Password"
-            android:inputType="textPassword"
             android:padding="10dp"
-            android:fontFamily="@font/capriola"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="198dp"
@@ -145,10 +146,11 @@
             android:layout_marginTop="548dp"
             android:background="@drawable/input_rectangle"
             android:hint="Confirm Password"
-            android:inputType="textPassword"
             android:padding="10dp"
-            android:fontFamily="@font/capriola"
             android:textColor="#000"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
             />
 
         <TextView
@@ -175,7 +177,6 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/goToSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="235dp"
@@ -186,6 +187,8 @@
             android:textColor="#4461F2"
             android:textSize="14sp"
             android:padding="15dp"
+            android:clickable="true"
+            android:contentDescription="sign_in"
             android:onClick="goToSignInActivity"/>
         <!--
         <Button

@@ -13,15 +13,18 @@ class welcome : AppCompatActivity() {
         setContentView(R.layout.activity_welcome)
     }
 
-    fun goToSignUpActivity(view: View)
-    {
+    fun goToSignUpActivity(view: View) {
         val intent = Intent(this, sign_up::class.java)
         startActivity(intent)
     }
 
-    fun goToSignInActivity(view: View)
-    {
+    fun goToSignInActivity(view: View) {
         val intent = Intent(this, sign_in::class.java)
+        startActivity(intent)
+    }
+
+    fun goToDashboardActivity(view: View) {
+        val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
 }

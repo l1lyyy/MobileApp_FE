@@ -27,7 +27,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/arrow_back"
-                android:contentDescription="back_button" />
+                android:contentDescription="back_button"
+                android:onClick="goToDashboardActivity"/>
         </FrameLayout>
 
         <FrameLayout
@@ -64,7 +65,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/check_square"
-                android:contentDescription="check_button" />
+                android:contentDescription="check_button"
+                android:onClick="goToVerifyActivity"/>
         </FrameLayout>
 
         <FrameLayout
@@ -148,7 +150,8 @@
                 android:layout_height="28dp"
                 android:layout_gravity="center"
                 android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
+                android:contentDescription="edit_pencil"
+                android:onClick="goToEditActivity"/>
         </FrameLayout>
 
         <TextView
@@ -204,7 +207,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="265dp"
-            android:clickable="true">
+            android:clickable="true"
+            android:contentDescription="add_slot"
+            android:onClick="goToAddSlotActivity">
 
             <View
                 android:layout_width="48dp"
