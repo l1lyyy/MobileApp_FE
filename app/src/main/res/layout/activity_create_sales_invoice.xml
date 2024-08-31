@@ -79,7 +79,7 @@ android:orientation="vertical">
             android:layout_gravity="center"
             android:background="@drawable/check_square"
             android:contentDescription="check_button"
-            android:onClick="goToVerifyActivity"/>
+            android:clickable="true"/>
     </FrameLayout>
 
 
@@ -109,12 +109,14 @@ android:orientation="vertical">
             android:layout_marginLeft="60dp"
             android:layout_marginTop="300dp"
             android:background="@drawable/input_rectangle"
-            android:fontFamily="@font/capriola"
-            android:hint="          /           /        "
-            android:inputType="date"
-            android:letterSpacing="0.05"
+            android:hint="dd/mm/yyyy"
+            android:padding="10dp"
+            android:letterSpacing="0.1"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="18sp"
+            android:inputType="date"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <ImageButton
             android:id="@+id/calendar_button"
@@ -260,11 +262,25 @@ android:orientation="vertical">
         android:layout_marginTop="150dp"
         android:background="@drawable/input_rectangle"
         android:hint="Customer ID"
-        android:fontFamily="@font/capriola"
-        android:textSize="16dp"
+        android:textSize="18dp"
         android:letterSpacing="0.05"
         android:padding="10dp"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"/>
+
+    <ImageButton
+        android:id="@+id/check_id_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="146dp"
+        android:fillColor="#FFFFFFFF"
+        android:background="@drawable/check_id_button"
+        android:layout_gravity="top|start"
+        android:contentDescription="check_id"
+        android:onClick="goToCheckIdActivity"/>
 
     <TextView
         android:layout_width="wrap_content"

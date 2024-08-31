@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginTop="56dp"
                 android:fontFamily="@font/capriola"
                 android:letterSpacing="0.02"
@@ -47,7 +47,27 @@
                 android:textSize="22sp" />
         </FrameLayout>
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="46dp"
+            android:clickable="true">
 
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground" />
+
+            <ImageButton
+                android:id="@+id/check_square_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/check_square"
+                android:contentDescription="check_button"
+                android:clickable="true"/>
+        </FrameLayout>
 
 
         <TextView
@@ -69,7 +89,7 @@
             android:layout_marginTop="150dp"
             android:background="@drawable/input_rectangle"
             android:hint="150"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
@@ -114,7 +134,7 @@
             android:layout_marginTop="280dp"
             android:background="@drawable/input_rectangle"
             android:hint="300"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
@@ -159,7 +179,7 @@
             android:layout_marginTop="410dp"
             android:background="@drawable/input_rectangle"
             android:hint="300"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>
@@ -204,7 +224,7 @@
             android:layout_marginTop="540dp"
             android:background="@drawable/input_rectangle"
             android:hint="300"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"/>

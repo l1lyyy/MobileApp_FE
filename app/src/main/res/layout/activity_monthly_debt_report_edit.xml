@@ -66,7 +66,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/check_square"
                 android:contentDescription="check_button"
-                android:onClick="goToVerifyActivity"/>
+                android:clickable="true"/>
         </FrameLayout>
 
         <ImageView
@@ -95,11 +95,25 @@
             android:layout_marginTop="330dp"
             android:background="@drawable/input_rectangle"
             android:hint="Enter ID to autofill"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+        <ImageButton
+            android:id="@+id/check_id_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="326dp"
+            android:fillColor="#FFFFFFFF"
+            android:background="@drawable/check_id_button"
+            android:layout_gravity="top|start"
+            android:contentDescription="check_id"
+            android:onClick="goToCheckIdActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -138,11 +152,13 @@
             android:layout_marginTop="520dp"
             android:background="@drawable/input_rectangle"
             android:hint="Beginning debt"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -163,11 +179,13 @@
             android:layout_marginTop="615dp"
             android:background="@drawable/input_rectangle"
             android:hint="Arising debt"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -188,11 +206,13 @@
             android:layout_marginTop="710dp"
             android:background="@drawable/input_rectangle"
             android:hint="Ending debt"
-            android:fontFamily="@font/capriola"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
 
 

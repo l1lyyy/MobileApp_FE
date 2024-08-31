@@ -97,8 +97,4 @@ class CreateReceiptActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToVerifyActivity(view: View) {
-        val intent = Intent(this, CreateReceiptBillActivity::class.java)
-        startActivity(intent)
-    }
 }
