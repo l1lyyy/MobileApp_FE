@@ -30,8 +30,4 @@ class MonthlyInventoryReportActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToVerifyActivity(view: View) {
-        val intent = Intent(this, MonthlyReportActivity::class.java)
-        startActivity(intent)
-    }
 }

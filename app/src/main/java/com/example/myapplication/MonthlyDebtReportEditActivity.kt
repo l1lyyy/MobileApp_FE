@@ -25,8 +25,4 @@ class MonthlyDebtReportEditActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToVerifyActivity(view: View) {
-        val intent = Intent(this, MonthlyDebtReportActivity::class.java)
-        startActivity(intent)
-    }
 }

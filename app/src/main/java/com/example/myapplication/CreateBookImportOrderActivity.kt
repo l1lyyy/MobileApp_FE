@@ -30,8 +30,4 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToVerifyActivity(view: View) {
-        val intent = Intent(this, DashboardActivity::class.java)
-        startActivity(intent)
-    }
 }

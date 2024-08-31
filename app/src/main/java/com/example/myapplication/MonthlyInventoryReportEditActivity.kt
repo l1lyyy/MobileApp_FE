@@ -25,9 +25,5 @@ class MonthlyInventoryReportEditActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToVerifyActivity(view: View) {
-        val intent = Intent(this, MonthlyInventoryReportActivity::class.java)
-        startActivity(intent)
-    }
 
 }
