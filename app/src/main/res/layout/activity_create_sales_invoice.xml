@@ -45,6 +45,19 @@ android:orientation="vertical">
             android:text="Sales invoice"
             android:textColor="#1E1E1E"
             android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/book_import_info_1"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="405dp"
+            android:background="@drawable/input_rectangle"
+            android:fontFamily="@font/capriola"
+            android:hint="Book name"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textSize="16dp" />
     </FrameLayout>
 
     <FrameLayout
@@ -120,19 +133,6 @@ android:orientation="vertical">
         android:layout_marginLeft="20dp"
         android:layout_marginTop="385dp"
         android:src="@drawable/dash_line" />
-
-    <ImageView
-        android:id="@+id/book_import_info_1"
-        android:layout_width="290dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="405dp"
-        android:background="@drawable/input_rectangle"
-        android:fontFamily="@font/capriola"
-        android:hint="Book name"
-        android:padding="10dp"
-        android:textColor="#000"
-        android:textSize="16dp" />
 
     <FrameLayout
         android:layout_width="wrap_content"
