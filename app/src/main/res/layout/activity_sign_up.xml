@@ -50,7 +50,7 @@
             android:layout_marginTop="640dp"
             android:background="@drawable/blue_shadow_button"
             android:contentDescription="sign_up_button"
-            android:onClick="goToDashboardActivity"/>
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="98dp"
