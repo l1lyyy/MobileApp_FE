@@ -50,7 +50,7 @@
             android:layout_marginTop="640dp"
             android:background="@drawable/blue_shadow_button"
             android:contentDescription="sign_up_button"
-            android:clickable="true"/>
+            android:onClick="goToDashboardActivity"/>
 
         <TextView
             android:layout_width="98dp"
@@ -156,7 +156,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
+            android:layout_marginLeft="140dp"
             android:layout_marginTop="660dp"
             android:text="Sign Up"
             android:textColor="#FFFFFF"

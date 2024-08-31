@@ -47,6 +47,11 @@ class sign_in : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun goToDashboardActivity() {
+        val intent = Intent(this, DashboardActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun validateInput(username: String, email: String, password: String): Boolean {
         // Implement validation logic
         if(username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty())
@@ -90,7 +95,7 @@ class sign_in : AppCompatActivity() {
                         prefSigninEdit?.apply()
                         println("Retrieved Token: $token")
                         Toast.makeText(this@sign_in, "Login successful", Toast.LENGTH_SHORT).show()
-                        gotoCreateSalesInvoiceActivity()
+                        goToDashboardActivity()
                     }
                 } else {
                     Toast.makeText(this@sign_in, "Login failed, wrong password or account",Toast.LENGTH_LONG).show()
