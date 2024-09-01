@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -15,6 +16,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 
     private lateinit var dateInput: EditText
     private lateinit var addSlotButtonContainer: FrameLayout
+    private var currentMarginTop: Int = 265
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,9 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 
         // Initialize the container for the add slot button
         addSlotButtonContainer = findViewById(R.id.add_slot_button_container)
+
+        // Restore the state from SharedPreferences
+        restoreStateFromPreferences()
 
         // Set up the calendar button click listener
         findViewById<View>(R.id.calendar_button).setOnClickListener {
@@ -59,8 +64,12 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
     private fun onAddSlotButtonClicked() {
         // Adjust the margin of the "Add slot" button and text
         val layoutParams = addSlotButtonContainer.layoutParams as RelativeLayout.LayoutParams
-        layoutParams.topMargin += dpToPx(100)
+        currentMarginTop = layoutParams.topMargin + dpToPx(100)
+        layoutParams.topMargin = currentMarginTop
         addSlotButtonContainer.layoutParams = layoutParams
+
+        // Save the updated marginTop
+        saveStateToPreferences()
     }
 
     private fun dpToPx(dp: Int): Int {
@@ -68,12 +77,42 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         return (dp * density).toInt()
     }
 
+    private fun saveStateToPreferences() {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // Save the current state
+        editor.putString("dateInputText", dateInput.text.toString())
+        editor.putInt("currentMarginTop", currentMarginTop)
+        editor.apply()
+    }
+
+    private fun restoreStateFromPreferences() {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
+
+        // Restore the state
+        dateInput.setText(sharedPreferences.getString("dateInputText", ""))
+        currentMarginTop = sharedPreferences.getInt("currentMarginTop", currentMarginTop)
+        val layoutParams = addSlotButtonContainer.layoutParams as RelativeLayout.LayoutParams
+        layoutParams.topMargin = currentMarginTop
+        addSlotButtonContainer.layoutParams = layoutParams
+    }
+
+    private fun clearPreferences() {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
+        sharedPreferences.edit().clear().apply()
+    }
+
     fun goToDashboardActivity(view: View) {
+        // Save the current state before switching activities
+        clearPreferences()
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
 
     fun goToEditActivity(view: View) {
+        // Save the current state before switching activities
+        saveStateToPreferences()
         val intent = Intent(this, CreateBookImportOderEditActivity::class.java)
         startActivity(intent)
     }
