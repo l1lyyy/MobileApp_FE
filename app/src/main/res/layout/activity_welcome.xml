@@ -47,7 +47,7 @@
             android:fontFamily="@font/capriola"
             android:clickable="true"
             android:contentDescription="sign_in"
-            android:onClick="goToDashboardActivity"/>
+            android:onClick="goToSignInActivity"/>
 
         <ImageButton
             android:id="@+id/sign_up_button"

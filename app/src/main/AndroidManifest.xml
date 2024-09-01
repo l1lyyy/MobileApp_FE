@@ -17,10 +17,10 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".SettingActivity"
+            android:name=".UserActivity"
             android:exported="false" />
         <activity
-            android:name=".UserActivity"
+            android:name=".SettingActivity"
             android:exported="false" />
         <activity
             android:name=".AddNewBookActivity"

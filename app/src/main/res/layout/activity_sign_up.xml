@@ -50,7 +50,7 @@
             android:layout_marginTop="640dp"
             android:background="@drawable/blue_shadow_button"
             android:contentDescription="sign_up_button"
-            android:onClick="goToDashboardActivity"/>
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="98dp"
@@ -191,36 +191,12 @@
             android:clickable="true"
             android:contentDescription="sign_in"
             android:onClick="goToSignInActivity"/>
-        <!--
-        <Button
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="688dp"
-            android:id="@+id/supabutton_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sign_in_button"
-            />
 
-        <Button
-            android:layout_marginLeft="185dp"
-            android:layout_marginTop="688dp"
-            android:id="@+id/supabutton_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sign_up_button" />
-        -->
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="360dp"
-        android:layout_height="800dp"
-        android:layout_weight="0"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
     <View
-        android:layout_width="380dp"
-        android:layout_height="800dp" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>
