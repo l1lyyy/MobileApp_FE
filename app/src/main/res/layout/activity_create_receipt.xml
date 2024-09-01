@@ -202,7 +202,7 @@
         android:textSize="18dp"
         android:padding="10dp"
         android:textColor="#000"
-        android:letterSpacing="0.1"
+        android:letterSpacing="0.05"
         android:inputType="date"
         android:maxLines="1"
         android:singleLine="true"/>
