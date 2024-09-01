@@ -88,11 +88,14 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="150dp"
             android:background="@drawable/input_rectangle"
-            android:hint="150"
+            android:hint="0"
             android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <SeekBar
             android:id="@+id/seekBar_1"
@@ -133,11 +136,14 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="280dp"
             android:background="@drawable/input_rectangle"
-            android:hint="300"
+            android:hint="0"
             android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <SeekBar
             android:id="@+id/seekBar_2"
@@ -178,11 +184,14 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="410dp"
             android:background="@drawable/input_rectangle"
-            android:hint="300"
+            android:hint="0"
             android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <SeekBar
             android:id="@+id/seekBar_3"
@@ -223,11 +232,14 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="540dp"
             android:background="@drawable/input_rectangle"
-            android:hint="300"
+            android:hint="0"
             android:textSize="18dp"
             android:padding="10dp"
             android:textColor="#000"
-            android:letterSpacing="0.05"/>
+            android:letterSpacing="0.05"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <SeekBar
             android:id="@+id/seekBar"
