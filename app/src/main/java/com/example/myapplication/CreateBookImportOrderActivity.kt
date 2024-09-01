@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Calendar
@@ -12,6 +14,7 @@ import java.util.Calendar
 class CreateBookImportOrderActivity : AppCompatActivity() {
 
     private lateinit var dateInput: EditText
+    private lateinit var addSlotButtonContainer: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +24,17 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         // Initialize the EditText for date input
         dateInput = findViewById(R.id.date_input)
 
+        // Initialize the container for the add slot button
+        addSlotButtonContainer = findViewById(R.id.add_slot_button_container)
+
         // Set up the calendar button click listener
         findViewById<View>(R.id.calendar_button).setOnClickListener {
             showDatePickerDialog()
+        }
+
+        // Set up the add slot button click listener
+        findViewById<View>(R.id.add_slot).setOnClickListener {
+            onAddSlotButtonClicked()
         }
     }
 
@@ -43,6 +54,18 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 
         // Show the DatePickerDialog
         datePickerDialog.show()
+    }
+
+    private fun onAddSlotButtonClicked() {
+        // Adjust the margin of the "Add slot" button and text
+        val layoutParams = addSlotButtonContainer.layoutParams as RelativeLayout.LayoutParams
+        layoutParams.topMargin += dpToPx(100)
+        addSlotButtonContainer.layoutParams = layoutParams
+    }
+
+    private fun dpToPx(dp: Int): Int {
+        val density = resources.displayMetrics.density
+        return (dp * density).toInt()
     }
 
     fun goToDashboardActivity(view: View) {
