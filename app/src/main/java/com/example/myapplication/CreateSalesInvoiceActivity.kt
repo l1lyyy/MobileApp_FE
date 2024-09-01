@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -20,6 +21,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreateSalesInvoiceActivity : AppCompatActivity() {
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
@@ -28,44 +31,43 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
     lateinit var create: ImageButton
     private lateinit var postApi: PostApi
     private lateinit var token: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_sales_invoice)
+
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-        token = preferences.getString("token","") ?: ""
+        token = preferences.getString("token", "") ?: ""
+
         val result_book_name = findViewById<TextView>(R.id.book_name_1)
-        //val result_category = findViewById<TextView>(R.id.categories_1)
         val result_amount = findViewById<TextView>(R.id.amount_1)
         val result_price = findViewById<TextView>(R.id.price_1)
         val button = findViewById<ImageButton>(R.id.edit_button_1)
 
         var amount_res = 0
         var price_res = 0.0f
+
         resultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
-
-        ) {result ->
-            if (result.resultCode== RESULT_OK) {
+        ) { result ->
+            if (result.resultCode == RESULT_OK) {
                 val data = result.data
-                val bookname= data?.getStringExtra("bookname")
-                //val category = data?.getStringExtra("category")
+                val bookname = data?.getStringExtra("bookname")
                 val amount = data?.getStringExtra("amount")
                 val priceString = data?.getStringExtra("price")
                 val price = priceString?.toFloatOrNull() ?: 0.0f
                 result_book_name.text = "$bookname\n"
-                //result_category.text = "$category\n"
                 result_amount.text = "$amount\n"
                 result_price.text = "$price\n"
 
-                // Get the displayed text (remove the newline character if necessary)
                 val displayedAmount = result_amount.text.toString().trim()
-                // Convert the strings to integers
-                amount_res= displayedAmount.toIntOrNull() ?: 0
+                amount_res = displayedAmount.toIntOrNull() ?: 0
                 price_res = price
             }
         }
-        button.setOnClickListener{
+
+        button.setOnClickListener {
             val intent = Intent(this, CreateSalesInvoiceEditActivity::class.java)
             resultLauncher.launch(intent)
         }
@@ -73,15 +75,40 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         customer_name = findViewById(R.id.customer_name_input)
         date = findViewById(R.id.date_input)
         create = findViewById(R.id.check_square_button)
-        create.setOnClickListener{
+
+        // Set up Calendar Button
+        val calendar_button = findViewById<ImageButton>(R.id.calendar_button)
+        calendar_button.setOnClickListener {
+            showDatePickerDialog()
+        }
+
+        create.setOnClickListener {
             val customer_name_res = customer_name.text.toString()
             val date_res = date.text.toString()
-
-            sendSalesInvoice("Nhut",date_res,result_book_name.text.toString(),"null", amount_res, price_res,token)
+            sendSalesInvoice("Nhut", date_res, result_book_name.text.toString(), "null", amount_res, price_res, token)
         }
     }
-    private fun sendSalesInvoice(customername: String, date: String, book_name: String, category: String, amount: Int, price: Float,token: String )
-    {
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = Calendar.getInstance()
+                selectedDate.set(selectedYear, selectedMonth, selectedDay)
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                date.setText(dateFormat.format(selectedDate.time))
+            },
+            year, month, day
+        )
+        datePickerDialog.show()
+    }
+
+    private fun sendSalesInvoice(customername: String, date: String, book_name: String, category: String, amount: Int, price: Float, token: String) {
         val builder = Retrofit.Builder()
             .baseUrl(PostApi.INVOICE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -89,18 +116,14 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
 
         postApi = retrofit.create(PostApi::class.java)
 
-        val invoice = Salesinvoice("",customername,date,book_name,category, amount,price)
+        val invoice = Salesinvoice("", customername, date, book_name, category, amount, price)
         val call = postApi.sendSalesInvoice("Token $token", invoice)
 
-        call.enqueue(object: Callback<ResponseBody>
-        {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>)
-            {
-                if (response.isSuccessful)
-                {
+        call.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
                     Toast.makeText(this@CreateSalesInvoiceActivity, "Invoice sent successfully", Toast.LENGTH_SHORT).show()
-                } else
-                {
+                } else {
                     val errorBody = response.errorBody()?.string()
                     val statusCode = response.code()
                     println("Error: $statusCode, $errorBody")
@@ -108,8 +131,7 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable)
-            {
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Toast.makeText(this@CreateSalesInvoiceActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
@@ -124,5 +146,4 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         val intent = Intent(this, CreateSalesInvoiceEditActivity::class.java)
         startActivity(intent)
     }
-
 }

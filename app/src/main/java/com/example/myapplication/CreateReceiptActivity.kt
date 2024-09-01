@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -25,6 +26,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import com.google.gson.Gson
 import android.util.Log
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class CreateReceiptActivity : AppCompatActivity() {
     lateinit var customer_id: EditText
@@ -41,16 +45,25 @@ class CreateReceiptActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_receipt)
+
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token","") ?: ""
-        val customer_id = findViewById<EditText>(R.id.customer_id_input)
+
+        customer_id = findViewById<EditText>(R.id.customer_id_input)
         //val full_name = findViewById<EditText>(R.id.)
         //val address = findViewById<EditText>(R.id.)
         //val phone_number = findViewById<EditText>(R.id.)
         //val email = findViewById<EditText>(R.id.)
-        val payment_date = findViewById<EditText>(R.id.date_input)
-        val paid_amount = findViewById<EditText>(R.id.paid_amount_input)
+        payment_date = findViewById<EditText>(R.id.date_input)
+        paid_amount = findViewById<EditText>(R.id.paid_amount_input)
         confirm_button = findViewById(R.id.check_square_button)
+
+        // Set up Calendar Button
+        val calendar_button = findViewById<ImageButton>(R.id.calendar_button)
+        calendar_button.setOnClickListener {
+            showDatePickerDialog()
+        }
+
         confirm_button.setOnClickListener{
             val customer_id_res = customer_id.text.toString()
             //val full_name_res = full_name.text.toString()
@@ -62,6 +75,25 @@ class CreateReceiptActivity : AppCompatActivity() {
             val paidAmountDouble = paid_amount_res.toDoubleOrNull() ?: 0.0
             sendReceipt(customer_id_res,"Trang Minh Nhut","Vinhomes Tan Cang","255182193","minhnhut13@icloud.com",payment_date_res,paidAmountDouble,token)
         }
+    }
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = Calendar.getInstance()
+                selectedDate.set(selectedYear, selectedMonth, selectedDay)
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                payment_date.setText(dateFormat.format(selectedDate.time))
+            },
+            year, month, day
+        )
+        datePickerDialog.show()
     }
 
     private fun sendReceipt(id: String, fullname: String, address: String,phonenumber:String, email: String, paymentdate: String, paidamount: Double, token: String)

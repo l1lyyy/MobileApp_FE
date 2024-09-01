@@ -1,5 +1,9 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
+import android.widget.TextView
+import java.text.SimpleDateFormat
+import java.util.*
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -7,10 +11,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 class DashboardActivity : AppCompatActivity() {
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard)
+
+        // Get the current date and format it
+        val dateTextView = findViewById<TextView>(R.id.current_date)
+        val sdf = SimpleDateFormat("MMMM dd, yyyy")
+        val currentDate = sdf.format(Date())
+
+        // Set the formatted date to the TextView
+        dateTextView.text = currentDate
     }
 
     fun goToAddNewBookActivity(view: View) {

@@ -52,12 +52,7 @@ android:orientation="vertical">
             android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="405dp"
-            android:background="@drawable/input_rectangle"
-            android:fontFamily="@font/capriola"
-            android:hint="Book name"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:textSize="16dp" />
+            android:background="@drawable/input_rectangle" />
     </FrameLayout>
 
     <FrameLayout
@@ -159,7 +154,7 @@ android:orientation="vertical">
     </FrameLayout>
 
     <TextView
-        android:id="@+id/book_name_1"
+        android:id="@+id/book_id_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
@@ -171,7 +166,7 @@ android:orientation="vertical">
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/categories_1"
+        android:id="@+id/book_name_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="88dp"
