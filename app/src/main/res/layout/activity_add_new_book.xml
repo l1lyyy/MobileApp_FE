@@ -45,6 +45,22 @@
                 android:text="Add new book"
                 android:textColor="#1E1E1E"
                 android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/price_input"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="670dp"
+                android:background="@drawable/input_rectangle"
+                android:hint="Price"
+                android:inputType="number"
+                android:letterSpacing="0.05"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="18dp" />
         </FrameLayout>
 
         <FrameLayout
@@ -174,22 +190,6 @@
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
-
-        <EditText
-            android:id="@+id/price_input"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="670dp"
-            android:background="@drawable/input_rectangle"
-            android:hint="Price"
-            android:textSize="18dp"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:letterSpacing="0.05"
-            android:inputType="number"
-            android:maxLines="1"
-            android:singleLine="true"/>
 
         <SeekBar
             android:id="@+id/seekBar"
