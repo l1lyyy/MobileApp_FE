@@ -11,15 +11,12 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class CreateSalesInvoiceEditActivity : AppCompatActivity() {
-    private lateinit var book_name: EditText
+    private lateinit var bookName: EditText
     private lateinit var amount: EditText
     private lateinit var price: EditText
-    private lateinit var confirm_button: ImageButton
-
+    private lateinit var confirmButton: ImageButton
     private lateinit var seekBar: SeekBar
     private lateinit var seekBarValue: TextView
 
@@ -28,34 +25,37 @@ class CreateSalesInvoiceEditActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_sales_invoice_edit)
 
-        book_name = findViewById(R.id.book_id_input)
-        //category = findViewById(R.id.categories_input)
+        bookName = findViewById(R.id.book_id_input)
         amount = findViewById(R.id.amount_input)
         price = findViewById(R.id.price_input)
-        confirm_button = findViewById(R.id.check_square_button)
+        confirmButton = findViewById(R.id.check_square_button)
         seekBar = findViewById(R.id.seekBar)
         seekBarValue = findViewById(R.id.seekBarValue)
 
-        confirm_button.setOnClickListener{
-            val input_book_name = book_name.text.toString()
-            //val input_category = category.text.toString()
-            val input_amount = amount.text.toString()
-            val input_price = price.text.toString()
-            val resultIntent = Intent()
-            resultIntent.putExtra("bookname",input_book_name)
-            //resultIntent.putExtra("category",input_category)
-            resultIntent.putExtra("amount",input_amount)
-            resultIntent.putExtra("price",input_price)
-
-            setResult(RESULT_OK,resultIntent)
+        confirmButton.setOnClickListener {
+            val inputBookName = bookName.text.toString()
+            val inputAmount = amount.text.toString()
+            val inputPrice = price.text.toString()
+            val resultIntent = Intent().apply {
+                putExtra("bookname", inputBookName)
+                putExtra("amount", inputAmount)
+                putExtra("price", inputPrice)
+            }
+            setResult(RESULT_OK, resultIntent)
             finish()
-
         }
 
-        // Update EditText when SeekBar is changed
+        // Apply the setupSeekBarWithEditText method
+        setupSeekBarWithEditText(seekBar, amount, seekBarValue)
+    }
+
+    private fun setupSeekBarWithEditText(seekBar: SeekBar, editText: EditText, seekBarValue: TextView) {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                amount.setText(progress.toString())
+                // Ensure that we are not creating a loop of updates
+                if (editText.text.toString().toIntOrNull() != progress) {
+                    editText.setText(progress.toString())
+                }
                 seekBarValue.text = progress.toString()
             }
 
@@ -68,16 +68,22 @@ class CreateSalesInvoiceEditActivity : AppCompatActivity() {
             }
         })
 
-        // Update SeekBar when EditText is changed
-        amount.addTextChangedListener(object : TextWatcher {
+        editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // Do nothing
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Avoid updating SeekBar if the value is invalid or if it is being updated by SeekBar
                 if (s != null && s.isNotEmpty()) {
-                    val value = s.toString().toInt()
-                    seekBar.progress = value
+                    try {
+                        val value = s.toString().toInt()
+                        if (seekBar.progress != value) {
+                            seekBar.progress = value
+                        }
+                    } catch (e: NumberFormatException) {
+                        // Handle the case where the input is not a valid integer
+                    }
                 }
             }
 

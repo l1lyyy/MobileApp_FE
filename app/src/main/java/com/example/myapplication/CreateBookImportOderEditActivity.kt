@@ -10,8 +10,6 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class CreateBookImportOderEditActivity : AppCompatActivity() {
 
@@ -28,10 +26,17 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         seekBar = findViewById(R.id.seekBar)
         seekBarValue = findViewById(R.id.seekBarValue)
 
-        // Update EditText when SeekBar is changed
+        // Apply the setupSeekBarWithEditText method
+        setupSeekBarWithEditText(seekBar, amountInput, seekBarValue)
+    }
+
+    private fun setupSeekBarWithEditText(seekBar: SeekBar, editText: EditText, seekBarValue: TextView) {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                amountInput.setText(progress.toString())
+                // Ensure that we are not creating a loop of updates
+                if (editText.text.toString().toIntOrNull() != progress) {
+                    editText.setText(progress.toString())
+                }
                 seekBarValue.text = progress.toString()
             }
 
@@ -44,16 +49,22 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
             }
         })
 
-        // Update SeekBar when EditText is changed
-        amountInput.addTextChangedListener(object : TextWatcher {
+        editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // Do nothing
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Avoid updating SeekBar if the value is invalid or if it is being updated by SeekBar
                 if (s != null && s.isNotEmpty()) {
-                    val value = s.toString().toInt()
-                    seekBar.progress = value
+                    try {
+                        val value = s.toString().toInt()
+                        if (seekBar.progress != value) {
+                            seekBar.progress = value
+                        }
+                    } catch (e: NumberFormatException) {
+                        // Handle the case where the input is not a valid integer
+                    }
                 }
             }
 
@@ -67,5 +78,4 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         val intent = Intent(this, CreateBookImportOrderActivity::class.java)
         startActivity(intent)
     }
-
 }

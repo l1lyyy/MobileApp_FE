@@ -244,6 +244,17 @@
                 android:contentDescription="add_slot"
                 android:onClick="goToAddSlotActivity"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/capriola"
+                android:letterSpacing="0.05"
+                android:text="Add slot"
+                android:textColor="#1E1E1E"
+                android:textSize="16sp" />
+
             <!-- Add an extra space to increase height by 200dp -->
             <View
                 android:layout_width="match_parent"
