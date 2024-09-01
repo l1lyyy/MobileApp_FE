@@ -70,7 +70,10 @@ class SettingActivity : AppCompatActivity() {
     private fun setupSeekBarWithEditText(seekBar: SeekBar, editText: EditText, seekBarValue: TextView) {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                editText.setText(progress.toString())
+                // Ensure that we are not creating a loop of updates
+                if (editText.text.toString().toIntOrNull() != progress) {
+                    editText.setText(progress.toString())
+                }
                 seekBarValue.text = progress.toString()
             }
 
@@ -89,9 +92,16 @@ class SettingActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Avoid updating SeekBar if the value is invalid or if it is being updated by SeekBar
                 if (s != null && s.isNotEmpty()) {
-                    val value = s.toString().toInt()
-                    seekBar.progress = value
+                    try {
+                        val value = s.toString().toInt()
+                        if (seekBar.progress != value) {
+                            seekBar.progress = value
+                        }
+                    } catch (e: NumberFormatException) {
+                        // Handle the case where the input is not a valid integer
+                    }
                 }
             }
 
@@ -100,6 +110,7 @@ class SettingActivity : AppCompatActivity() {
             }
         })
     }
+
 
     fun goToDashboardActivity(view: View) {
         val intent = Intent(this, DashboardActivity::class.java)
