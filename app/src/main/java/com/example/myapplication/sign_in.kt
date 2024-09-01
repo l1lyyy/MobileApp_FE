@@ -82,19 +82,19 @@ class sign_in : AppCompatActivity() {
 
         val call = postApi.signinUser(signIn)
 
-        call.enqueue(object : Callback<User>
+        call.enqueue(object : Callback<Token>
         {
-            override fun onResponse(call: Call<User>, response: Response<User>) {
+            override fun onResponse(call: Call<Token>, response: Response<Token>) {
                 if (response.isSuccessful) {
-                    response.body()?.let { user ->
-                        val token = user.token
+                    response.body()?.let { tokenResponse ->
+                        val tokenValue = tokenResponse.token
                         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
                         val prefSigninEdit = preferences?.edit()
                         prefSigninEdit?.putBoolean("signed in", true)
-                        prefSigninEdit?.putString("token", token)
+                        prefSigninEdit?.putString("token", tokenValue)
                         prefSigninEdit?.apply()
-                        println("Retrieved Token: $token")
-                        Toast.makeText(this@sign_in, "Login successful", Toast.LENGTH_SHORT).show()
+                        println("Retrieved Token: $tokenValue")
+                        Toast.makeText(this@sign_in, "Login successfully", Toast.LENGTH_SHORT).show()
                         goToDashboardActivity()
                     }
                 } else {
@@ -102,7 +102,7 @@ class sign_in : AppCompatActivity() {
 
                 }
             }
-            override fun onFailure(call: Call<User>, t: Throwable) {
+            override fun onFailure(call: Call<Token>, t: Throwable) {
                 Toast.makeText(this@sign_in, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
