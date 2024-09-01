@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -45,7 +44,7 @@ class sign_up : AppCompatActivity() {
             val username_res = username.text.toString()
             val email_res = email.text.toString()
             val password_res = password.text.toString()
-            val confirm_password_res = confirmPassword.text.toString()
+            val confirm_password_res = confirm_password.text.toString()
 
             if (validateInput(username_res, email_res, password_res, confirm_password_res)) {
                 Log.i("SignUp", "Validation passed")
