@@ -96,7 +96,7 @@
                 android:background="@drawable/input_rectangle"
                 android:hint="dd/mm/yyyy"
                 android:padding="10dp"
-                android:letterSpacing="0.1"
+                android:letterSpacing="0.05"
                 android:textColor="#000"
                 android:textSize="17sp"
                 android:inputType="date"
