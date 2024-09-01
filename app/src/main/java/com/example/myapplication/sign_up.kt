@@ -49,7 +49,7 @@ class sign_up : AppCompatActivity() {
             if (validateInput(username_res, email_res, password_res, confirm_password_res)) {
                 Log.i("SignUp", "Validation passed")
                 val user = User(username_res, email_res, password_res, confirm_password_res)
-                sendUserData(user)
+                sendUserData(username_res, email_res, password_res,confirm_password_res)
                 Log.i("SignUp", "User data sent: $username_res, $email_res")
             } else {
                 Log.e("SignUp", "Validation failed")
@@ -82,19 +82,6 @@ class sign_up : AppCompatActivity() {
             }
             else -> true
         }
-    }
-
-
-    fun goToSignInActivity(view: View)
-    {
-        val intent = Intent(this, sign_in::class.java)
-        startActivity(intent)
-    }
-
-    fun goToWelcomeActivity()
-    {
-        val intent = Intent(this, welcome::class.java)
-        startActivity(intent)
     }
 
     fun goToSignInActivity()
