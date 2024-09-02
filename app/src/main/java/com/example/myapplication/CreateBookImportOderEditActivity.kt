@@ -3,6 +3,8 @@ package com.example.myapplication
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -10,7 +12,6 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,8 +24,6 @@ import com.google.gson.Gson
 import android.util.Log
 import android.widget.Toast
 import org.json.JSONObject
-=======
->>>>>>> Nhu
 
 class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var book_id: EditText
@@ -46,16 +45,14 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
 
         book_id = findViewById(R.id.book_id_input)
         check_button = findViewById(R.id.check_id_button)
-        book_name = findViewById(R.id.book_name_1)
+        book_name = findViewById(R.id.book_name)
         author = findViewById(R.id.author_name)
 
-<<<<<<< HEAD
         check_button.setOnClickListener {
             val book_id_res = book_id.text.toString()
             sendId(book_id_res)
         }
-    }
-=======
+
         // Retrieve the edit type passed through the intent
         val editType = intent.getStringExtra("book_type")
 
@@ -76,7 +73,41 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
                 }
                 seekBarValue.text = progress.toString()
             }
->>>>>>> Nhu
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // Do nothing
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                // Do nothing
+            }
+        })
+
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Do nothing
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Avoid updating SeekBar if the value is invalid or if it is being updated by SeekBar
+                if (s != null && s.isNotEmpty()) {
+                    try {
+                        val value = s.toString().toInt()
+                        if (seekBar.progress != value) {
+                            seekBar.progress = value
+                        }
+                    } catch (e: NumberFormatException) {
+                        // Handle the case where the input is not a valid integer
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Do nothing
+            }
+        })
+    }
+
 
     private fun sendId(id: String)
     {
@@ -86,7 +117,6 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor(logging)
 
-<<<<<<< HEAD
         val builder = Retrofit.Builder().baseUrl(PostApi.CHECK_BOOK_ID_URL).addConverterFactory(GsonConverterFactory.create()).client(httpClient.build())
         val retrofit = builder.build()
 
@@ -113,24 +143,6 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
                     val statusCode = response.code()
                     println("Error: $statusCode, $errorBody")
                     Toast.makeText(this@CreateBookImportOderEditActivity, "Failed to check book ID", Toast.LENGTH_SHORT).show()
-=======
-        editText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Do nothing
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Avoid updating SeekBar if the value is invalid or if it is being updated by SeekBar
-                if (s != null && s.isNotEmpty()) {
-                    try {
-                        val value = s.toString().toInt()
-                        if (seekBar.progress != value) {
-                            seekBar.progress = value
-                        }
-                    } catch (e: NumberFormatException) {
-                        // Handle the case where the input is not a valid integer
-                    }
->>>>>>> Nhu
                 }
             }
 
@@ -139,13 +151,6 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
             }
         })
     }
-    fun goToBooksImportActivity(view: View) {
-        val intent = Intent(this, CreateBookImportOrderActivity::class.java)
-        startActivity(intent)
-    }
-<<<<<<< HEAD
 
 }
-=======
-}
->>>>>>> Nhu
+
