@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.widget.ImageButton
@@ -18,41 +19,35 @@ import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.Gson
 import android.util.Log
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Calendar
 
 class CreateBookImportOrderActivity : AppCompatActivity() {
-<<<<<<< HEAD
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     lateinit var date: EditText
     lateinit var confirm_button: ImageButton
     private lateinit var postApi: PostApi
     private lateinit var token: String
-=======
 
-    private lateinit var dateInput: EditText
-
->>>>>>> Nhu
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_book_import_order)
-<<<<<<< HEAD
+
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token","") ?: ""
         val result_id = findViewById<TextView>(R.id.book_ID_1)
         val result_name = findViewById<TextView>(R.id.book_name_1)
         val result_author = findViewById<TextView>(R.id.author_1)
         val result_amount = findViewById<TextView>(R.id.amount_1)
-=======
 
         // Initialize the EditText for date input
-        dateInput = findViewById(R.id.date_input)
+        date = findViewById(R.id.date_input)
 
         // Restore the state from SharedPreferences
         restoreStateFromPreferences()
@@ -102,7 +97,24 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         findViewById<View>(R.id.calendar_button).setOnClickListener {
             showDatePickerDialog()
         }
->>>>>>> Nhu
+    }
+
+    private fun showDatePickerDialog() {
+        // Get the current date
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Create a DatePickerDialog
+        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+            // Format the selected date and set it to the EditText
+            val formattedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+            date.setText(formattedDate)
+        }, year, month, day)
+
+        // Show the DatePickerDialog
+        datePickerDialog.show()
     }
 
     private fun sendImportOrder(id: String, book: String, author: String, amount: String,date: String)
@@ -149,16 +161,13 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         })
 
     }
-<<<<<<< HEAD
-=======
-
 
     private fun saveStateToPreferences() {
         val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         // Save the current state
-        editor.putString("dateInputText", dateInput.text.toString())
+        editor.putString("dateInputText", date.text.toString())
         editor.apply()
     }
 
@@ -166,7 +175,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
 
         // Restore the state
-        dateInput.setText(sharedPreferences.getString("dateInputText", ""))
+        date.setText(sharedPreferences.getString("dateInputText", ""))
     }
 
     private fun clearPreferences() {
@@ -174,7 +183,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         sharedPreferences.edit().clear().apply()
     }
 
->>>>>>> Nhu
+
     fun goToDashboardActivity(view: View) {
         // Save the current state before switching activities
         clearPreferences()
@@ -190,9 +199,5 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> Nhu
