@@ -3,11 +3,12 @@ package com.example.myapplication
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -22,8 +23,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import com.google.gson.Gson
 import android.util.Log
-import android.widget.Toast
 import org.json.JSONObject
+
 
 class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var book_id: EditText
@@ -40,13 +41,17 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_book_import_oder_edit)
+
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token","") ?: ""
 
-        book_id = findViewById(R.id.book_id_input)
         check_button = findViewById(R.id.check_id_button)
+        book_id = findViewById(R.id.book_id_input)
         book_name = findViewById(R.id.book_name)
         author = findViewById(R.id.author_name)
+        amountInput = findViewById(R.id.amount_input)
+        seekBar = findViewById(R.id.seekBar)
+        seekBarValue = findViewById(R.id.seekBarValue)
 
         check_button.setOnClickListener {
             val book_id_res = book_id.text.toString()
@@ -108,7 +113,6 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         })
     }
 
-
     private fun sendId(id: String)
     {
         val logging = HttpLoggingInterceptor()
@@ -152,5 +156,8 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         })
     }
 
+    fun goToBooksImportActivity(view: View) {
+        val intent = Intent(this, CreateBookImportOrderActivity::class.java)
+        startActivity(intent)
+    }
 }
-

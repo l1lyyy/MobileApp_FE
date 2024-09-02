@@ -62,7 +62,7 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
                 val data = result.data
                 val bookname = data?.getStringExtra("bookname") ?: ""
                 val amount = data?.getStringExtra("amount") ?: "0"
-                val priceString = data?.getStringExtra("price") ?: "0.0"
+                val priceString = data?.getStringExtra("price") ?: "0"
                 val price = priceString.toFloatOrNull() ?: 0.0f
                 findViewById<TextView>(R.id.book_name_1).text = "$bookname\n"
                 findViewById<TextView>(R.id.amount_1).text = "$amount\n"

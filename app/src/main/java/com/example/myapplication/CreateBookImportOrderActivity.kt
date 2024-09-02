@@ -3,28 +3,31 @@ package com.example.myapplication
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
-import android.widget.ImageButton
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResultLauncher
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import com.google.gson.Gson
-import android.util.Log
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
+import java.util.*
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import com.google.gson.Gson
+import android.util.Log
 import java.util.Calendar
 
 class CreateBookImportOrderActivity : AppCompatActivity() {
@@ -41,6 +44,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token","") ?: ""
+
         val result_id = findViewById<TextView>(R.id.book_ID_1)
         val result_name = findViewById<TextView>(R.id.book_name_1)
         val result_author = findViewById<TextView>(R.id.author_1)
@@ -52,51 +56,14 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         // Restore the state from SharedPreferences
         restoreStateFromPreferences()
 
-        // Set up the navigation to the edit activities
-        findViewById<ImageButton>(R.id.edit_button_1).setOnClickListener {
-            goToEditActivity("book 1")
-        }
+        // Set up Edit buttons
+        setupEditButtons()
 
-        findViewById<ImageButton>(R.id.edit_button_2).setOnClickListener {
-            goToEditActivity("book 2")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_3).setOnClickListener {
-            goToEditActivity("book 3")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_4).setOnClickListener {
-            goToEditActivity("book 4")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_5).setOnClickListener {
-            goToEditActivity("book 5")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_6).setOnClickListener {
-            goToEditActivity("book 6")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_7).setOnClickListener {
-            goToEditActivity("book 7")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_8).setOnClickListener {
-            goToEditActivity("book 8")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_9).setOnClickListener {
-            goToEditActivity("book 9")
-        }
-
-        findViewById<ImageButton>(R.id.edit_button_10).setOnClickListener {
-            goToEditActivity("book 10")
-        }
-
-        // Set up the calendar button click listener
-        findViewById<View>(R.id.calendar_button).setOnClickListener {
+        // Set up Calendar Button
+        findViewById<ImageButton>(R.id.calendar_button).setOnClickListener {
             showDatePickerDialog()
         }
+
     }
 
     private fun showDatePickerDialog() {
@@ -192,7 +159,6 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
     }
 
     private fun goToEditActivity(editType: String) {
-        // Navigate to EditActivity with the type of edit
         saveStateToPreferences()
         val intent = Intent(this, CreateBookImportOderEditActivity::class.java)
         intent.putExtra("book_type", editType)
@@ -200,4 +166,21 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
     }
 
 
+    private fun setupEditButtons() {
+        val editButtonIds = listOf(
+            R.id.edit_button_1, R.id.edit_button_2, R.id.edit_button_3,
+            R.id.edit_button_4, R.id.edit_button_5, R.id.edit_button_6,
+            R.id.edit_button_7, R.id.edit_button_8, R.id.edit_button_9, R.id.edit_button_10
+        )
+        val bookTypes = listOf(
+            "book 1", "book 2", "book 3", "book 4", "book 5",
+            "book 6", "book 7", "book 8", "book 9", "book 10"
+        )
+
+        for (i in editButtonIds.indices) {
+            findViewById<ImageButton>(editButtonIds[i]).setOnClickListener {
+                goToEditActivity(bookTypes[i])
+            }
+        }
+    }
 }
