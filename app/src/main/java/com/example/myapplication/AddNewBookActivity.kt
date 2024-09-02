@@ -64,8 +64,9 @@ class AddNewBookActivity : AppCompatActivity() {
             val author_res = author.text.toString()
             val category_res = category.text.toString()
             val price_res = price.text.toString()
+            val id_res = id.text.toString()
             val price_double = price_res.toDoubleOrNull() ?: 0.0
-            sendBookData("0", book_name_res, author_res, category_res, price_double, 2)
+            sendBookData(id_res, book_name_res, author_res, category_res, price_double, 2)
         }
     }
 

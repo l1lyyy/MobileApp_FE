@@ -20,7 +20,7 @@ interface PostApi {
         const val API_URL = ROOT + "api/v1/"
     }
     @POST("create-import-order/")
-    fun sendImportOrder(@Header("Authorization") authHeader: String, @Body importOrder: ImportOrder): Call<ResponseBody>
+    fun sendImportOrder(@Header("Authorization") authHeader: String, @Body importOrder:List<ImportOrder>): Call<ResponseBody>
     @POST("check-book-id/")
     fun sendBookId(@Header("Authorization") authHeader: String,@Body id: BookId): Call<BookInfo>
     @POST("add-book/")
