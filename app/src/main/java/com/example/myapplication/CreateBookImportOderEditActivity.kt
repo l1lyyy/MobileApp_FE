@@ -10,6 +10,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<< HEAD
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,6 +23,8 @@ import com.google.gson.Gson
 import android.util.Log
 import android.widget.Toast
 import org.json.JSONObject
+=======
+>>>>>>> Nhu
 
 class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var book_id: EditText
@@ -46,11 +49,34 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         book_name = findViewById(R.id.book_name_1)
         author = findViewById(R.id.author_name)
 
+<<<<<<< HEAD
         check_button.setOnClickListener {
             val book_id_res = book_id.text.toString()
             sendId(book_id_res)
         }
     }
+=======
+        // Retrieve the edit type passed through the intent
+        val editType = intent.getStringExtra("book_type")
+
+        // Use the edit type to customize the activity, for example, changing the header text
+        val headerTextView = findViewById<TextView>(R.id.header_text_view)
+        headerTextView.text = "Edit $editType"
+
+        // Apply the setupSeekBarWithEditText method
+        setupSeekBarWithEditText(seekBar, amountInput, seekBarValue)
+    }
+
+    private fun setupSeekBarWithEditText(seekBar: SeekBar, editText: EditText, seekBarValue: TextView) {
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                // Ensure that we are not creating a loop of updates
+                if (editText.text.toString().toIntOrNull() != progress) {
+                    editText.setText(progress.toString())
+                }
+                seekBarValue.text = progress.toString()
+            }
+>>>>>>> Nhu
 
     private fun sendId(id: String)
     {
@@ -60,6 +86,7 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor(logging)
 
+<<<<<<< HEAD
         val builder = Retrofit.Builder().baseUrl(PostApi.CHECK_BOOK_ID_URL).addConverterFactory(GsonConverterFactory.create()).client(httpClient.build())
         val retrofit = builder.build()
 
@@ -86,6 +113,24 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
                     val statusCode = response.code()
                     println("Error: $statusCode, $errorBody")
                     Toast.makeText(this@CreateBookImportOderEditActivity, "Failed to check book ID", Toast.LENGTH_SHORT).show()
+=======
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Do nothing
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Avoid updating SeekBar if the value is invalid or if it is being updated by SeekBar
+                if (s != null && s.isNotEmpty()) {
+                    try {
+                        val value = s.toString().toInt()
+                        if (seekBar.progress != value) {
+                            seekBar.progress = value
+                        }
+                    } catch (e: NumberFormatException) {
+                        // Handle the case where the input is not a valid integer
+                    }
+>>>>>>> Nhu
                 }
             }
 
@@ -98,5 +143,9 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         val intent = Intent(this, CreateBookImportOrderActivity::class.java)
         startActivity(intent)
     }
+<<<<<<< HEAD
 
 }
+=======
+}
+>>>>>>> Nhu
