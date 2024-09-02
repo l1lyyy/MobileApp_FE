@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Im
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -49,6 +50,43 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         val result_name = findViewById<TextView>(R.id.book_name_1)
         val result_author = findViewById<TextView>(R.id.author_1)
         val result_amount = findViewById<TextView>(R.id.amount_1)
+        val edit_button = findViewById<ImageButton>(R.id.edit_button_1)
+
+        var amount_res = 0
+
+        resultLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+
+        ){result ->
+            if(result.resultCode == RESULT_OK) {
+                val data = result.data
+                val id = data?.getStringExtra("bookid")
+                val name = data?.getStringExtra("bookname")
+                val author = data?.getStringExtra("author")
+                val amount = data?.getStringExtra("amount")
+                result_id.text = "$id\n"
+                result_name.text = "$name\n"
+                result_author.text ="$author\n"
+                result_amount.text ="$amount\n"
+
+                val displayedAmount = result_amount.text.toString().trim()
+                amount_res = displayedAmount.toIntOrNull() ?: 0
+
+
+            }
+
+        }
+        edit_button.setOnClickListener {
+            val intent = Intent(this,CreateBookImportOderEditActivity::class.java)
+            resultLauncher.launch(intent)
+        }
+
+        date = findViewById(R.id.date_input)
+        confirm_button =findViewById(R.id.check_square_button)
+        confirm_button.setOnClickListener {
+            val date_res = date.text.toString()
+            sendImportOrder(result_id.text.toString().trim(),result_name.text.toString().trim(),result_author.text.toString().trim(),result_amount.text.toString(),date_res)
+        }
 
         // Initialize the EditText for date input
         date = findViewById(R.id.date_input)
@@ -97,7 +135,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         val retrofit = builder.build()
 
         postApi = retrofit.create(PostApi::class.java)
-        val amountInt = amount.toInt()
+        val amountInt = amount.trim().toInt()
         //val idInt = id.toInt()
         val import = ImportOrder(id,book,author,amountInt,date)
         val gson = Gson()

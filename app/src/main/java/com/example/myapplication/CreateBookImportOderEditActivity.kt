@@ -31,6 +31,8 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var check_button: ImageButton
     lateinit var book_name: EditText
     lateinit var author: EditText
+    lateinit var amount: EditText
+    lateinit var confirm_button: ImageButton
     private lateinit var amountInput: EditText
     private lateinit var seekBar: SeekBar
     private lateinit var seekBarValue: TextView
@@ -49,6 +51,8 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         book_id = findViewById(R.id.book_id_input)
         book_name = findViewById(R.id.book_name)
         author = findViewById(R.id.author_name)
+        amount = findViewById(R.id.amount_input)
+        confirm_button = findViewById(R.id.check_square_button)
         amountInput = findViewById(R.id.amount_input)
         seekBar = findViewById(R.id.seekBar)
         seekBarValue = findViewById(R.id.seekBarValue)
@@ -58,6 +62,20 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
             sendId(book_id_res)
         }
 
+        confirm_button.setOnClickListener {
+            val input_book_id = book_id.text.toString()
+            val input_book_name = book_name.text.toString()
+            val input_author = author.text.toString()
+            val input_amount = amount.text.toString()
+            val resultIntent = Intent()
+            resultIntent.putExtra("bookid",input_book_id)
+            resultIntent.putExtra("bookname",input_book_name)
+            resultIntent.putExtra("author", input_author)
+            resultIntent.putExtra("amount",input_amount)
+
+            setResult(RESULT_OK,resultIntent)
+            finish()
+        }
         // Retrieve the edit type passed through the intent
         val editType = intent.getStringExtra("book_type")
 
