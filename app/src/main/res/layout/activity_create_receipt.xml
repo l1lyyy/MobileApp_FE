@@ -119,12 +119,18 @@
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.02"/>
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="235dp"
-        android:background="@drawable/input_rectangle"/>
+
+        <EditText
+            android:id="@+id/fullname"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="235dp"
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:background="@drawable/input_rectangle" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -137,12 +143,18 @@
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.02"/>
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="330dp"
-        android:background="@drawable/input_rectangle" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="330dp"
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:background="@drawable/input_rectangle" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,12 +167,17 @@
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.02"/>
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="425dp"
-        android:background="@drawable/input_rectangle" />
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="425dp"
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:background="@drawable/input_rectangle" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -173,12 +190,17 @@
         android:fontFamily="@font/capriola"
         android:letterSpacing="0.02"/>
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="520dp"
-        android:background="@drawable/input_rectangle" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="520dp"
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:background="@drawable/input_rectangle" />
 
     <TextView
         android:layout_width="wrap_content"

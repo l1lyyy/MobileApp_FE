@@ -7,15 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import okhttp3.Address
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,6 +23,12 @@ import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import okhttp3.Address
 
 class CreateReceiptActivity : AppCompatActivity() {
     lateinit var customer_id: EditText
@@ -41,21 +41,22 @@ class CreateReceiptActivity : AppCompatActivity() {
     lateinit var confirm_button: ImageButton
     private lateinit var postApi: PostApi
     private lateinit var token: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_receipt)
 
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-        token = preferences.getString("token","") ?: ""
+        token = preferences.getString("token", "") ?: ""
 
-        customer_id = findViewById<EditText>(R.id.customer_id_input)
+        customer_id = findViewById(R.id.customer_id_input)
         //val full_name = findViewById<EditText>(R.id.)
         //val address = findViewById<EditText>(R.id.)
         //val phone_number = findViewById<EditText>(R.id.)
         //val email = findViewById<EditText>(R.id.)
-        payment_date = findViewById<EditText>(R.id.date_input)
-        paid_amount = findViewById<EditText>(R.id.paid_amount_input)
+        payment_date = findViewById(R.id.date_input)
+        paid_amount = findViewById(R.id.paid_amount_input)
         confirm_button = findViewById(R.id.check_square_button)
 
         // Set up Calendar Button
@@ -64,7 +65,7 @@ class CreateReceiptActivity : AppCompatActivity() {
             showDatePickerDialog()
         }
 
-        confirm_button.setOnClickListener{
+        confirm_button.setOnClickListener {
             val customer_id_res = customer_id.text.toString()
             //val full_name_res = full_name.text.toString()
             //val address_res = address.text.toString()
@@ -74,6 +75,13 @@ class CreateReceiptActivity : AppCompatActivity() {
             val paid_amount_res = paid_amount.text.toString()
             val paidAmountDouble = paid_amount_res.toDoubleOrNull() ?: 0.0
             sendReceipt(customer_id_res,"Trang Minh Nhut","Vinhomes Tan Cang","255182193","minhnhut13@icloud.com",payment_date_res,paidAmountDouble,token)
+
+            // Send data to the next activity
+            val intent = Intent(this, CreateReceiptBillActivity::class.java)
+            intent.putExtra("CUSTOMER_ID", customer_id_res)
+            intent.putExtra("DATE", payment_date_res)
+            intent.putExtra("PAID_AMOUNT", paidAmountDouble)
+            startActivity(intent)
         }
     }
 
@@ -137,9 +145,9 @@ class CreateReceiptActivity : AppCompatActivity() {
             }
         })
     }
+
     fun goToDashboardActivity(view: View) {
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
-
 }

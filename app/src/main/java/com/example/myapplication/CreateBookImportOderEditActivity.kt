@@ -25,7 +25,6 @@ import com.google.gson.Gson
 import android.util.Log
 import org.json.JSONObject
 
-
 class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var book_id: EditText
     lateinit var check_button: ImageButton
