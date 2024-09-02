@@ -21,7 +21,7 @@ class MonthlyInventoryReportEditActivity : AppCompatActivity() {
     }
 
     fun goToInventoryReportActivity(view: View) {
-        val intent = Intent(this, MonthlyDebtReportActivity::class.java)
+        val intent = Intent(this, MonthlyInventoryReportActivity::class.java)
         startActivity(intent)
     }
 

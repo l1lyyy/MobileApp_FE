@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.widget.ImageButton
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -15,8 +16,6 @@ import java.util.Calendar
 class CreateBookImportOrderActivity : AppCompatActivity() {
 
     private lateinit var dateInput: EditText
-    private lateinit var addSlotButtonContainer: FrameLayout
-    private var currentMarginTop: Int = 265
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,20 +25,53 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         // Initialize the EditText for date input
         dateInput = findViewById(R.id.date_input)
 
-        // Initialize the container for the add slot button
-        addSlotButtonContainer = findViewById(R.id.add_slot_button_container)
-
         // Restore the state from SharedPreferences
         restoreStateFromPreferences()
+
+        // Set up the navigation to the edit activities
+        findViewById<ImageButton>(R.id.edit_button_1).setOnClickListener {
+            goToEditActivity("book 1")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_2).setOnClickListener {
+            goToEditActivity("book 2")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_3).setOnClickListener {
+            goToEditActivity("book 3")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_4).setOnClickListener {
+            goToEditActivity("book 4")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_5).setOnClickListener {
+            goToEditActivity("book 5")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_6).setOnClickListener {
+            goToEditActivity("book 6")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_7).setOnClickListener {
+            goToEditActivity("book 7")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_8).setOnClickListener {
+            goToEditActivity("book 8")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_9).setOnClickListener {
+            goToEditActivity("book 9")
+        }
+
+        findViewById<ImageButton>(R.id.edit_button_10).setOnClickListener {
+            goToEditActivity("book 10")
+        }
 
         // Set up the calendar button click listener
         findViewById<View>(R.id.calendar_button).setOnClickListener {
             showDatePickerDialog()
-        }
-
-        // Set up the add slot button click listener
-        findViewById<View>(R.id.add_slot).setOnClickListener {
-            onAddSlotButtonClicked()
         }
     }
 
@@ -61,21 +93,6 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    private fun onAddSlotButtonClicked() {
-        // Adjust the margin of the "Add slot" button and text
-        val layoutParams = addSlotButtonContainer.layoutParams as RelativeLayout.LayoutParams
-        currentMarginTop = layoutParams.topMargin + dpToPx(100)
-        layoutParams.topMargin = currentMarginTop
-        addSlotButtonContainer.layoutParams = layoutParams
-
-        // Save the updated marginTop
-        saveStateToPreferences()
-    }
-
-    private fun dpToPx(dp: Int): Int {
-        val density = resources.displayMetrics.density
-        return (dp * density).toInt()
-    }
 
     private fun saveStateToPreferences() {
         val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
@@ -83,7 +100,6 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 
         // Save the current state
         editor.putString("dateInputText", dateInput.text.toString())
-        editor.putInt("currentMarginTop", currentMarginTop)
         editor.apply()
     }
 
@@ -92,10 +108,6 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 
         // Restore the state
         dateInput.setText(sharedPreferences.getString("dateInputText", ""))
-        currentMarginTop = sharedPreferences.getInt("currentMarginTop", currentMarginTop)
-        val layoutParams = addSlotButtonContainer.layoutParams as RelativeLayout.LayoutParams
-        layoutParams.topMargin = currentMarginTop
-        addSlotButtonContainer.layoutParams = layoutParams
     }
 
     private fun clearPreferences() {
@@ -110,10 +122,13 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goToEditActivity(view: View) {
-        // Save the current state before switching activities
+    private fun goToEditActivity(editType: String) {
+        // Navigate to EditActivity with the type of edit
         saveStateToPreferences()
         val intent = Intent(this, CreateBookImportOderEditActivity::class.java)
+        intent.putExtra("book_type", editType)
         startActivity(intent)
     }
+
+
 }

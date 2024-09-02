@@ -26,6 +26,13 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         seekBar = findViewById(R.id.seekBar)
         seekBarValue = findViewById(R.id.seekBarValue)
 
+        // Retrieve the edit type passed through the intent
+        val editType = intent.getStringExtra("book_type")
+
+        // Use the edit type to customize the activity, for example, changing the header text
+        val headerTextView = findViewById<TextView>(R.id.header_text_view)
+        headerTextView.text = "Edit $editType"
+
         // Apply the setupSeekBarWithEditText method
         setupSeekBarWithEditText(seekBar, amountInput, seekBarValue)
     }
