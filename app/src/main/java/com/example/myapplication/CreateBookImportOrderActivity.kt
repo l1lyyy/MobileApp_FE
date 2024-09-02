@@ -1,73 +1,91 @@
 package com.example.myapplication
 
-import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.RelativeLayout
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
-import java.util.Calendar
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import com.google.gson.Gson
+import android.util.Log
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CreateBookImportOrderActivity : AppCompatActivity() {
-
-    private lateinit var dateInput: EditText
-    private lateinit var addSlotButtonContainer: FrameLayout
-
+    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    lateinit var date: EditText
+    lateinit var confirm_button: ImageButton
+    private lateinit var postApi: PostApi
+    private lateinit var token: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_book_import_order)
-
-        // Initialize the EditText for date input
-        dateInput = findViewById(R.id.date_input)
-
-        // Initialize the container for the add slot button
-        addSlotButtonContainer = findViewById(R.id.add_slot_button_container)
-
-        // Set up the calendar button click listener
-        findViewById<View>(R.id.calendar_button).setOnClickListener {
-            showDatePickerDialog()
-        }
-
-        // Set up the add slot button click listener
-        findViewById<View>(R.id.add_slot).setOnClickListener {
-            onAddSlotButtonClicked()
-        }
+        val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        token = preferences.getString("token","") ?: ""
+        val result_id = findViewById<TextView>(R.id.book_ID_1)
+        val result_name = findViewById<TextView>(R.id.book_name_1)
+        val result_author = findViewById<TextView>(R.id.author_1)
+        val result_amount = findViewById<TextView>(R.id.amount_1)
     }
 
-    private fun showDatePickerDialog() {
-        // Get the current date
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
+    private fun sendImportOrder(id: String, book: String, author: String, amount: String,date: String)
+    {
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        // Create a DatePickerDialog
-        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            // Format the selected date and set it to the EditText
-            val formattedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-            dateInput.setText(formattedDate)
-        }, year, month, day)
+        val httpClient = OkHttpClient.Builder()
+        httpClient.addInterceptor(logging)
 
-        // Show the DatePickerDialog
-        datePickerDialog.show()
+        val builder = Retrofit.Builder().baseUrl(PostApi.IMPORT_URL).addConverterFactory(
+            GsonConverterFactory.create()).client(httpClient.build())
+        val retrofit = builder.build()
+
+        postApi = retrofit.create(PostApi::class.java)
+        val amountInt = amount.toInt()
+        //val idInt = id.toInt()
+        val import = ImportOrder(id,book,author,amountInt,date)
+        val gson = Gson()
+        val json = gson.toJson(import)
+        Log.d("import JSON",json)
+        val call = postApi.sendImportOrder("Token $token", import)
+
+        call.enqueue(object: Callback<ResponseBody>
+        {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>)
+            {
+                if (response.isSuccessful)
+                {
+                    Toast.makeText(this@CreateBookImportOrderActivity, "import order sent successfully", Toast.LENGTH_SHORT).show()
+                } else
+                {
+                    val errorBody = response.errorBody()?.string()
+                    val statusCode = response.code()
+                    println("Error: $statusCode, $errorBody")
+                    Toast.makeText(this@CreateBookImportOrderActivity, "Failed to send import order", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable)
+            {
+                Toast.makeText(this@CreateBookImportOrderActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
-
-    private fun onAddSlotButtonClicked() {
-        // Adjust the margin of the "Add slot" button and text
-        val layoutParams = addSlotButtonContainer.layoutParams as RelativeLayout.LayoutParams
-        layoutParams.topMargin += dpToPx(100)
-        addSlotButtonContainer.layoutParams = layoutParams
-    }
-
-    private fun dpToPx(dp: Int): Int {
-        val density = resources.displayMetrics.density
-        return (dp * density).toInt()
-    }
-
     fun goToDashboardActivity(view: View) {
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
@@ -77,4 +95,5 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         val intent = Intent(this, CreateBookImportOderEditActivity::class.java)
         startActivity(intent)
     }
+
 }

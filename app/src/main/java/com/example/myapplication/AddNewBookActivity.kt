@@ -35,6 +35,7 @@ class AddNewBookActivity : AppCompatActivity() {
     lateinit var author: EditText
     lateinit var category: EditText
     lateinit var price: EditText
+    lateinit var id: EditText
     lateinit var confirm_button: ImageButton
     private lateinit var postApi: PostApi
     private lateinit var token: String
@@ -44,6 +45,7 @@ class AddNewBookActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_new_book)
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token", "") ?: ""
+        id = findViewById(R.id.book_id_input)
         book_name = findViewById(R.id.book_input)
         author = findViewById(R.id.author_input)
         category = findViewById(R.id.categories_input)
@@ -53,46 +55,47 @@ class AddNewBookActivity : AppCompatActivity() {
         seekBarValue = findViewById(R.id.seekBarValue)
 
          //Update EditText when SeekBar is changed
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                priceInput.setText(progress.toString())
-                seekBarValue.text = progress.toString()
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                // Do nothing
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                // Do nothing
-            }
-        })
-
-        // Update SeekBar when EditText is changed
-        priceInput.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Do nothing
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s != null && s.isNotEmpty()) {
-                    val value = s.toString().toInt()
-                    seekBar.progress = value
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                // Do nothing
-            }
-        })
+//        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//                priceInput.setText(progress.toString())
+//                seekBarValue.text = progress.toString()
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//                // Do nothing
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//                // Do nothing
+//            }
+//        })
+//
+//        // Update SeekBar when EditText is changed
+//        priceInput.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//                // Do nothing
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//                if (s != null && s.isNotEmpty()) {
+//                    val value = s.toString().toInt()
+//                    seekBar.progress = value
+//                }
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//                // Do nothing
+//            }
+//        })
 
         confirm_button.setOnClickListener{
+            val id_res = id.text.toString()
             val book_name_res = book_name.text.toString()
             val author_res = author.text.toString()
             val category_res = category.text.toString()
             val price_res = price.text.toString()
             val price_double = price_res.toDoubleOrNull() ?: 0.0
-            sendBookData("0", book_name_res,author_res,category_res,price_double,2 )
+            sendBookData(id_res, book_name_res,author_res,category_res,price_double,2 )
         }
     }
 

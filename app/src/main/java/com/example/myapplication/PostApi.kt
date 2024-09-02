@@ -14,9 +14,15 @@ interface PostApi {
         const val INVOICE_URL = "${ROOT}invoice/"
         const val RECEIPT_URL = "${ROOT}receipt/"
         const val ADD_URL = "${ROOT}book/"
+        const val CHECK_BOOK_ID_URL = "${ROOT}book/"
+        const val IMPORT_URL ="${ROOT}book-import-order/"
         //const val POST_URL = "${ROOT}post/"
         const val API_URL = ROOT + "api/v1/"
     }
+    @POST("create-import-order/")
+    fun sendImportOrder(@Header("Authorization") authHeader: String, @Body importOrder: ImportOrder): Call<ResponseBody>
+    @POST("check-book-id/")
+    fun sendBookId(@Header("Authorization") authHeader: String,@Body id: BookId): Call<BookInfo>
     @POST("add-book/")
     fun sendBookData(@Header("Authorization") authHeader: String, @Body bookData: BookData): Call<ResponseBody>
     @POST("create-receipt/")
