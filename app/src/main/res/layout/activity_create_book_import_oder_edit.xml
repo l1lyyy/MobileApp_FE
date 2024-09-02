@@ -113,7 +113,7 @@
             android:background="@drawable/check_id_button"
             android:layout_gravity="top|start"
             android:contentDescription="check_id"
-            android:onClick="goToCheckIdActivity"/>
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -126,11 +126,14 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
-        <ImageView
+        <EditText
+            android:id="@+id/book_name_1"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="450dp"
+            android:enabled="false"
+            android:textColor="#000"
             android:background="@drawable/input_rectangle" />
 
         <TextView
@@ -144,11 +147,14 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
-        <ImageView
+        <EditText
+            android:id="@+id/author_name"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="550dp"
+            android:enabled="false"
+            android:textColor="#000"
             android:background="@drawable/input_rectangle" />
 
         <TextView

@@ -21,3 +21,12 @@ data class BookData(
     @SerializedName("amount")
     var amount: Int
 )
+data class BookId(
+    @SerializedName("book_id")
+    val id: String
+)
+
+data class BookInfo(
+    @SerializedName("book_name") val bookName: String,
+    @SerializedName("author") val author: String
+)
