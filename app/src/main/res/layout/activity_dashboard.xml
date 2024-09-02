@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="360dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0"
+        android:layout_height="wrap_content"
         android:background="@drawable/dashboard_background">
 
         <FrameLayout
@@ -65,13 +64,24 @@
             android:textColor="#FFFFFF"
             android:textSize="40sp"/>
 
+        <TextView
+            android:id="@+id/current_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="170dp"
+            android:fontFamily="@font/capriola"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/menu_gradient_rectangle"
-            android:clickable="true"
+            android:clickable="false"
+            android:focusable="false"
             android:contentDescription="menu_gradient_rectangle"/>
 
         <ImageButton

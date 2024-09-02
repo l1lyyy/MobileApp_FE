@@ -1,30 +1,35 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Im
 import android.view.View
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResultLauncher
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import com.google.gson.Gson
-import android.util.Log
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
+import java.util.*
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import com.google.gson.Gson
+import android.util.Log
+import java.util.Calendar
 
 class CreateBookImportOrderActivity : AppCompatActivity() {
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
@@ -32,15 +37,18 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
     lateinit var confirm_button: ImageButton
     private lateinit var postApi: PostApi
     private lateinit var token: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_book_import_order)
+
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token","") ?: ""
-        val result_id = findViewById<TextView>(R.id.book_name_1)
-        val result_name = findViewById<TextView>(R.id.author_1)
-        val result_author = findViewById<TextView>(R.id.category_1)
+
+        val result_id = findViewById<TextView>(R.id.book_ID_1)
+        val result_name = findViewById<TextView>(R.id.book_name_1)
+        val result_author = findViewById<TextView>(R.id.author_1)
         val result_amount = findViewById<TextView>(R.id.amount_1)
         val edit_button = findViewById<ImageButton>(R.id.edit_button_1)
 
@@ -79,6 +87,39 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
             val date_res = date.text.toString()
             sendImportOrder(result_id.text.toString().trim(),result_name.text.toString().trim(),result_author.text.toString().trim(),result_amount.text.toString(),date_res)
         }
+
+        // Initialize the EditText for date input
+        date = findViewById(R.id.date_input)
+
+        // Restore the state from SharedPreferences
+        restoreStateFromPreferences()
+
+        // Set up Edit buttons
+        setupEditButtons()
+
+        // Set up Calendar Button
+        findViewById<ImageButton>(R.id.calendar_button).setOnClickListener {
+            showDatePickerDialog()
+        }
+
+    }
+
+    private fun showDatePickerDialog() {
+        // Get the current date
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Create a DatePickerDialog
+        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+            // Format the selected date and set it to the EditText
+            val formattedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+            date.setText(formattedDate)
+        }, year, month, day)
+
+        // Show the DatePickerDialog
+        datePickerDialog.show()
     }
 
     private fun sendImportOrder(id: String, book: String, author: String, amount: String,date: String)
@@ -125,14 +166,59 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         })
 
     }
+
+    private fun saveStateToPreferences() {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // Save the current state
+        editor.putString("dateInputText", date.text.toString())
+        editor.apply()
+    }
+
+    private fun restoreStateFromPreferences() {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
+
+        // Restore the state
+        date.setText(sharedPreferences.getString("dateInputText", ""))
+    }
+
+    private fun clearPreferences() {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
+        sharedPreferences.edit().clear().apply()
+    }
+
+
     fun goToDashboardActivity(view: View) {
+        // Save the current state before switching activities
+        clearPreferences()
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
 
-    fun goToEditActivity(view: View) {
+    private fun goToEditActivity(editType: String) {
+        saveStateToPreferences()
         val intent = Intent(this, CreateBookImportOderEditActivity::class.java)
+        intent.putExtra("book_type", editType)
         startActivity(intent)
     }
 
+
+    private fun setupEditButtons() {
+        val editButtonIds = listOf(
+            R.id.edit_button_1, R.id.edit_button_2, R.id.edit_button_3,
+            R.id.edit_button_4, R.id.edit_button_5, R.id.edit_button_6,
+            R.id.edit_button_7, R.id.edit_button_8, R.id.edit_button_9, R.id.edit_button_10
+        )
+        val bookTypes = listOf(
+            "book 1", "book 2", "book 3", "book 4", "book 5",
+            "book 6", "book 7", "book 8", "book 9", "book 10"
+        )
+
+        for (i in editButtonIds.indices) {
+            findViewById<ImageButton>(editButtonIds[i]).setOnClickListener {
+                goToEditActivity(bookTypes[i])
+            }
+        }
+    }
 }
