@@ -7,17 +7,23 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import android.widget.TextView
 
 class MonthlyDebtReportEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_monthly_debt_report_edit)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
+
+        // Retrieve the edit type passed through the intent
+        val editType = intent.getStringExtra("customer_type")
+
+        // Use the edit type to customize the activity, for example, changing the header text
+        val headerTextView = findViewById<TextView>(R.id.header_text_view)
+        headerTextView.text = "$editType"
     }
 
     fun goToDebtReportActivity(view: View) {
