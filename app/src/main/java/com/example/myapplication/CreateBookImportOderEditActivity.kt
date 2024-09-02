@@ -28,6 +28,8 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var check_button: ImageButton
     lateinit var book_name: EditText
     lateinit var author: EditText
+    lateinit var amount: EditText
+    lateinit var confirm_button: ImageButton
     private lateinit var amountInput: EditText
     private lateinit var seekBar: SeekBar
     private lateinit var seekBarValue: TextView
@@ -45,10 +47,27 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         check_button = findViewById(R.id.check_id_button)
         book_name = findViewById(R.id.book_name_1)
         author = findViewById(R.id.author_name)
+        amount = findViewById(R.id.amount_input)
+        confirm_button = findViewById(R.id.check_square_button)
 
         check_button.setOnClickListener {
             val book_id_res = book_id.text.toString()
             sendId(book_id_res)
+        }
+
+        confirm_button.setOnClickListener {
+            val input_book_id = book_id.text.toString()
+            val input_book_name = book_name.text.toString()
+            val input_author = author.text.toString()
+            val input_amount = amount.text.toString()
+            val resultIntent = Intent()
+            resultIntent.putExtra("bookid",input_book_id)
+            resultIntent.putExtra("bookname",input_book_name)
+            resultIntent.putExtra("author", input_author)
+            resultIntent.putExtra("amount",input_amount)
+
+            setResult(RESULT_OK,resultIntent)
+            finish()
         }
     }
 
