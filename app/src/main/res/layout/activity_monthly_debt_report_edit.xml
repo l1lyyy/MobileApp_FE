@@ -110,7 +110,7 @@
             android:background="@drawable/check_id_button"
             android:layout_gravity="top|start"
             android:contentDescription="check_id"
-            android:onClick="goToCheckIdActivity"/>
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
             android:padding="10dp"
             android:textColor="#000"
             android:letterSpacing="0.05"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:maxLines="1"
             android:singleLine="true"/>
 

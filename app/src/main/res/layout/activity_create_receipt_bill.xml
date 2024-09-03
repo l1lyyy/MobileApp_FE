@@ -18,6 +18,18 @@
             android:layout_marginTop="60dp"
             android:src="@drawable/tick" />
 
+        <EditText
+            android:id="@+id/total_amount"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="270dp"
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="40dp"
+            android:background="@null"
+            android:gravity="center"/>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="300dp"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="250dp"
             android:text="vnd"
             android:textColor="#000000"
             android:textSize="17sp"
@@ -41,18 +53,23 @@
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="375dp"
-            android:text="Receipt ID"
+            android:text="Customer ID"
             android:textColor="#3755EC"
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.05"/>
 
-        <ImageView
+        <EditText
+            android:id="@+id/customer_id"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="405dp"
-            android:src="@drawable/corner_ratio_rectangle" />
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:background="@drawable/corner_ratio_rectangle"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -65,12 +82,17 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.05"/>
 
-        <ImageView
+        <EditText
+            android:id="@+id/customer_name"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="505dp"
-            android:src="@drawable/corner_ratio_rectangle" />
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:background="@drawable/corner_ratio_rectangle"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -83,12 +105,17 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.05"/>
 
-        <ImageView
+        <EditText
+            android:id="@+id/date"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="605dp"
-            android:src="@drawable/corner_ratio_rectangle" />
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:background="@drawable/corner_ratio_rectangle"
+            android:gravity="center"/>
 
         <ImageButton
             android:id="@+id/confirm_button"

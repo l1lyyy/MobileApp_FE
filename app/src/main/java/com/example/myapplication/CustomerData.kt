@@ -3,8 +3,8 @@ package com.example.myapplication
 import com.google.gson.annotations.SerializedName
 
 data class CustomerData(
-    @SerializedName("receipt_id")
-    var receiptId: String,
+    @SerializedName("customer_id")
+    var customerId: String,
 
     @SerializedName("customer_name")
     var customerName: String,

@@ -18,3 +18,11 @@ data class ImportOrder(
     var date: String
 )
 
+data class ImportOrderRequest(
+    @SerializedName("date")
+    var date: String,
+
+    @SerializedName("details")
+    var details: List<ImportOrder>
+)
+

@@ -53,11 +53,6 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token","") ?: ""
 
-//        val result_id = findViewById<TextView>(R.id.book_ID_1)
-//        val result_name = findViewById<TextView>(R.id.book_name_1)
-//        val result_author = findViewById<TextView>(R.id.author_1)
-//        val result_amount = findViewById<TextView>(R.id.amount_1)
-//        val edit_button = findViewById<ImageButton>(R.id.edit_button_1)
         // Initialize danh sách các `TextView` và `ImageButton`
         bookIds = listOf(
             findViewById(R.id.book_ID_1), findViewById(R.id.book_ID_2), findViewById(R.id.book_ID_3),
@@ -167,7 +162,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 //        }
         confirm_button =findViewById(R.id.check_square_button)
         confirm_button.setOnClickListener {
-            val date_res = date.text.toString()
+            val date_res = formatDateString(date.text.toString())
             val importOrders = mutableListOf<ImportOrder>()
 
             for (i in bookIds.indices) {
@@ -181,7 +176,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
                 }
             }
 
-            sendImportOrder(importOrders)
+            sendImportOrder(ImportOrderRequest(date_res, importOrders))
         }
 
         // Restore the state from SharedPreferences
@@ -213,8 +208,8 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         // Show the DatePickerDialog
         datePickerDialog.show()
     }
-    private fun sendImportOrder(importOrders: List<ImportOrder>) {
-        if (importOrders.isEmpty()) {
+    private fun sendImportOrder(importOrderRequest: ImportOrderRequest) {
+        if (importOrderRequest.details.isEmpty()) {
             Toast.makeText(this, "No valid data to send", Toast.LENGTH_SHORT).show()
             return
         }
@@ -234,10 +229,10 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         postApi = retrofit.create(PostApi::class.java)
 
         val gson = Gson()
-        val json = gson.toJson(importOrders)
-        Log.d("importOrders JSON", json)
+        val json = gson.toJson(importOrderRequest)
+        Log.d("importOrderRequest JSON", json)
 
-        val call = postApi.sendImportOrder("Token $token", importOrders)
+        val call = postApi.sendImportOrder("Token $token", importOrderRequest)
 
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
@@ -255,6 +250,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
                 Toast.makeText(this@CreateBookImportOrderActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
 //    private fun sendImportOrder(id: String, book: String, author: String, amount: String,date: String)
 //    {
 //        val amountInt = amount.trim().toIntOrNull()
@@ -303,8 +299,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 //                Toast.makeText(this@CreateBookImportOrderActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
 //            }
 //        })
-
-    }
+//    }
 
     private fun saveStateToPreferences() {
         val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
@@ -359,5 +354,18 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
                 goToEditActivity(bookTypes[i])
             }
         }
+    }
+
+    fun formatDateString(dateString: String): String {
+        // Split the date string by "/"
+        val parts = dateString.split("/")
+
+        // Extract day, month, and year
+        val day = parts[0].padStart(2, '0')   // Ensures day is two digits
+        val month = parts[1].padStart(2, '0') // Ensures month is two digits
+        val year = parts[2]                   // Year remains as is
+
+        // Return the formatted date in "yyyy-mm-dd" format
+        return "$year-$month-$day"
     }
 }
