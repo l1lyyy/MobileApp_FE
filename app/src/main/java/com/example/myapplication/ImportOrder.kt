@@ -14,8 +14,8 @@ data class ImportOrder(
     @SerializedName("amount")
     var amount: Int,
 
-    @SerializedName("date")
-    var date: String
+//    @SerializedName("date")
+//    var date: String
 )
 
 data class ImportOrderRequest(

@@ -119,8 +119,6 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
-<<<<<<< HEAD
-
         <EditText
             android:id="@+id/fullname"
             android:layout_width="300dp"
@@ -132,22 +130,6 @@
             android:textSize="18dp"
             android:padding="10dp"
             android:background="@drawable/input_rectangle" />
-=======
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
-
-        <EditText
-            android:id="@+id/fullname"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="235dp"
-            android:enabled="false"
-            android:textColor="#000"
-            android:textSize="18dp"
-            android:padding="10dp"
-            android:background="@drawable/input_rectangle" />
-
-<<<<<<< HEAD
 
         <EditText
             android:id="@+id/address"
@@ -160,7 +142,7 @@
             android:textSize="18dp"
             android:padding="10dp"
             android:background="@drawable/input_rectangle" />
-=======
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
@@ -171,28 +153,19 @@
             android:textSize="17sp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
-
 
         <EditText
-<<<<<<< HEAD
             android:id="@+id/phone_number"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="425dp"
-=======
-            android:id="@+id/address"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="330dp"
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
             android:enabled="false"
             android:textColor="#000"
             android:textSize="18dp"
             android:padding="10dp"
             android:background="@drawable/input_rectangle" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -205,25 +178,6 @@
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"/>
 
-        <EditText
-<<<<<<< HEAD
-            android:id="@+id/email"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="520dp"
-=======
-            android:id="@+id/phone_number"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="425dp"
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
-            android:enabled="false"
-            android:textColor="#000"
-            android:textSize="18dp"
-            android:padding="10dp"
-            android:background="@drawable/input_rectangle" />
 
         <TextView
             android:layout_width="wrap_content"

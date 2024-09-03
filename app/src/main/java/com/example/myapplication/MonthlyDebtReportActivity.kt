@@ -193,12 +193,12 @@ class MonthlyDebtReportActivity : AppCompatActivity() {
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@MonthlyDebtReportActivity, "sales invoice sent successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MonthlyDebtReportActivity, "sales debt report sent successfully", Toast.LENGTH_SHORT).show()
                 } else {
                     val errorBody = response.errorBody()?.string()
                     val statusCode = response.code()
                     println("Error: $statusCode, $errorBody")
-                    Toast.makeText(this@MonthlyDebtReportActivity, "Failed to send sales invoice", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MonthlyDebtReportActivity, "Failed to send debt report", Toast.LENGTH_SHORT).show()
                 }
             }
 

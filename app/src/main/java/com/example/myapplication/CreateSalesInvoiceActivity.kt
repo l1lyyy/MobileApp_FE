@@ -53,6 +53,13 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token", "") ?: ""
 
+        bookIds = listOf(
+            findViewById(R.id.book_id_1), findViewById(R.id.book_id_2), findViewById(R.id.book_id_3),
+            findViewById(R.id.book_id_4), findViewById(R.id.book_id_5), findViewById(R.id.book_id_6),
+            findViewById(R.id.book_id_7), findViewById(R.id.book_id_8), findViewById(R.id.book_id_9),
+            findViewById(R.id.book_id_10)
+        )
+
         bookNames = listOf(
             findViewById(R.id.book_name_1), findViewById(R.id.book_name_2), findViewById(R.id.book_name_3),
             findViewById(R.id.book_name_4), findViewById(R.id.book_name_5), findViewById(R.id.book_name_6),

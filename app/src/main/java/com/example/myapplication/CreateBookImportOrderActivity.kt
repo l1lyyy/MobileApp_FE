@@ -139,7 +139,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
                 val amount = amounts[i].text.toString().trim().toIntOrNull() ?: 0
 
                 if (bookId.isNotEmpty() && bookName.isNotEmpty() && author.isNotEmpty() && amount > 0) {
-                    importOrders.add(ImportOrder(bookId, bookName, author, amount, date_res))
+                    importOrders.add(ImportOrder(bookId, bookName, author, amount))
                 }
             }
 
