@@ -155,7 +155,6 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
                     salesInvoices.add(Salesinvoice(customer_id,customer_name,date_res,bookId,bookName,amount,price))
                 }
             }
-
             sendSalesInvoice(salesInvoices)
         }
 
