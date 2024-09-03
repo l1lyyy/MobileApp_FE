@@ -30,6 +30,7 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var check_button: ImageButton
     lateinit var book_name: EditText
     lateinit var author: EditText
+    lateinit var confirm_button: ImageButton
     private lateinit var amountInput: EditText
     private lateinit var seekBar: SeekBar
     private lateinit var seekBarValue: TextView
@@ -51,12 +52,34 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         amountInput = findViewById(R.id.amount_input)
         seekBar = findViewById(R.id.seekBar)
         seekBarValue = findViewById(R.id.seekBarValue)
+        confirm_button = findViewById(R.id.check_square_button)
 
         check_button.setOnClickListener {
-            val book_id_res = book_id.text.toString()
-            sendId(book_id_res)
+            val bookId = book_id.text.toString()
+            sendId(bookId)
         }
 
+        confirm_button.setOnClickListener {
+            val input_book_id = book_id.text.toString()
+            val input_book_name = book_name.text.toString()
+            val input_author = author.text.toString()
+            val input_amount = amountInput.text.toString()
+            val resultIntent = Intent()
+            if (input_book_id.isEmpty() && input_book_name.isEmpty() && input_author.isEmpty() || input_amount.isEmpty()) {
+                // Show a toast message if any field is empty
+                Toast.makeText(this, "Không được bỏ trống bất kỳ thông tin nào", Toast.LENGTH_SHORT).show()
+            } else {
+                // Proceed with setting the result and finishing the activity if all fields are filled
+                val resultIntent = Intent()
+                resultIntent.putExtra("bookid", input_book_id)
+                resultIntent.putExtra("bookname", input_book_name)
+                resultIntent.putExtra("author", input_author)
+                resultIntent.putExtra("amount", input_amount)
+
+                setResult(RESULT_OK, resultIntent)
+                finish()
+            }
+        }
         // Retrieve the edit type passed through the intent
         val editType = intent.getStringExtra("book_type")
 

@@ -30,3 +30,10 @@ data class BookInfo(
     @SerializedName("book_name") val bookName: String,
     @SerializedName("author") val author: String
 )
+
+data class BookDataImport(
+    val id: Int,
+    val name: String,
+    val author: String,
+    val amount: Int
+)

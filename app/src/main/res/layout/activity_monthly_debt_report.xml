@@ -10,924 +10,1000 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradient_2">
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="46dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
-
-            <ImageButton
-                android:id="@+id/back_button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/arrow_back"
-                android:contentDescription="back_button"
-                android:onClick="goToMonthlyReportActivity"/>
-        </FrameLayout>
-
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_2">
 
-            <TextView
+            <FrameLayout
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="46dp"
+                android:clickable="true">
+
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/arrow_back"
+                    android:contentDescription="back_button"
+                    android:onClick="goToMonthlyReportActivity"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="@font/capriola"
+                    android:letterSpacing="0.02"
+                    android:text="Debt report"
+                    android:textColor="#1E1E1E"
+                    android:textSize="24sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="46dp"
+                android:clickable="true">
+
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <ImageButton
+                    android:id="@+id/check_square_button"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/check_square"
+                    android:contentDescription="check_button"
+                    android:clickable="true"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center_horizontal"
-                android:layout_marginTop="55dp"
-                android:fontFamily="@font/capriola"
-                android:letterSpacing="0.02"
-                android:text="Debt report"
-                android:textColor="#1E1E1E"
-                android:textSize="24sp" />
-        </FrameLayout>
+                android:padding="16dp">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="46dp"
-            android:clickable="true">
+                <TextView
+                    android:id="@+id/date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="110dp"
+                    android:fontFamily="@font/capriola"
+                    android:letterSpacing="0.05"
+                    android:text="Month:"
+                    android:textColor="#1E1E1E"
+                    android:textSize="16sp" />
 
-            <View
-                android:layout_width="48dp"
+                <EditText
+                    android:id="@+id/date_input"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="95dp"
+                    android:background="@drawable/input_rectangle"
+                    android:hint="mm/yyyy"
+                    android:padding="10dp"
+                    android:letterSpacing="0.05"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+
+                <ImageButton
+                    android:id="@+id/calendar_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="285dp"
+                    android:layout_marginTop="97dp"
+                    android:background="@drawable/calendar"
+                    android:contentDescription="calendar_button" />
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="320dp"
+                android:layout_height="3dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="180dp"
+                android:src="@drawable/dash_line" />
+
+
+            <ImageView
+                android:id="@+id/book_import_info_1"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/check_square_button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/check_square"
-                android:contentDescription="check_button"
-                android:clickable="true"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center_horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/date_label"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="115dp"
-                android:fontFamily="@font/capriola"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="201dp"
+                android:clickable="true">
+
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <ImageButton
+                    android:id="@+id/edit_button_1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/customer_id_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="215dp"
                 android:letterSpacing="0.05"
-                android:text="Month:"
+                android:text="ID"
                 android:textColor="#1E1E1E"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/date_input"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="100dp"
-                android:background="@drawable/input_rectangle"
-                android:hint="mm/yyyy"
-                android:padding="10dp"
+            <TextView
+                android:id="@+id/customer_name_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="215dp"
                 android:letterSpacing="0.05"
-                android:textColor="#000"
-                android:textSize="18sp"
-                android:inputType="date"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                android:text="Customer 1"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-            <ImageButton
-                android:id="@+id/calendar_button"
-                android:layout_width="48dp"
+            <TextView
+                android:id="@+id/begin_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="215dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="215dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="215dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/book_import_info_2"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="285dp"
-                android:layout_marginTop="102dp"
-                android:background="@drawable/calendar"
-                android:contentDescription="calendar_button" />
-        </FrameLayout>
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="260dp"
+                android:background="@drawable/input_rectangle" />
 
-        <ImageView
-            android:layout_width="320dp"
-            android:layout_height="3dp"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="185dp"
-            android:src="@drawable/dash_line" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="261dp"
+                android:clickable="true">
 
-        <ImageView
-            android:id="@+id/book_import_info_1"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="205dp"
-            android:background="@drawable/input_rectangle" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="206dp"
-            android:clickable="true">
+                <ImageButton
+                    android:id="@+id/edit_button_2"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-            <View
-                android:layout_width="48dp"
+            <TextView
+                android:id="@+id/customer_id_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="275dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/customer_name_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="275dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 2"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/begin_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="275dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="275dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="275dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+
+
+
+            <ImageView
+                android:id="@+id/book_import_info_3"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="320dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_1"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="321dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="220dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 1"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="220dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_3"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="220dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="335dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/end_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="220dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_name_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="335dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 3"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <ImageView
-            android:id="@+id/book_import_info_2"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="265dp"
-            android:background="@drawable/input_rectangle" />
+            <TextView
+                android:id="@+id/begin_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="335dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="266dp"
-            android:clickable="true">
+            <TextView
+                android:id="@+id/arise_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="335dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-            <View
-                android:layout_width="48dp"
+            <TextView
+                android:id="@+id/end_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="335dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+
+
+            <ImageView
+                android:id="@+id/book_import_info_4"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="380dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_2"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="381dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="280dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 2"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="280dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_4"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="280dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="395dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/end_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="280dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_name_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="395dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 4"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/begin_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="395dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="395dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="395dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
 
 
 
-        <ImageView
-            android:id="@+id/book_import_info_3"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="325dp"
-            android:background="@drawable/input_rectangle" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="326dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
+            <ImageView
+                android:id="@+id/book_import_info_5"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="440dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_3"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="441dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="340dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 3"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="340dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_5"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="340dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="455dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/end_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="340dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_name_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="455dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 5"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/begin_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="455dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="455dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="455dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
 
 
-        <ImageView
-            android:id="@+id/book_import_info_4"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="385dp"
-            android:background="@drawable/input_rectangle" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="386dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
+            <ImageView
+                android:id="@+id/book_import_info_6"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="500dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_4"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="501dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="400dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 4"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="400dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_6"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="400dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/end_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="400dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="515dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
 
+            <TextView
+                android:id="@+id/customer_name_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="515dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 6"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/begin_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="515dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="515dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="515dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
 
-        <ImageView
-            android:id="@+id/book_import_info_5"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="445dp"
-            android:background="@drawable/input_rectangle" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="446dp"
-            android:clickable="true">
 
-            <View
-                android:layout_width="48dp"
+            <ImageView
+                android:id="@+id/book_import_info_7"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="560dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_5"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="561dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="460dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 5"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="460dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_7"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="460dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="575dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/end_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="460dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_name_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="575dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 7"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/begin_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="575dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="575dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="575dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
 
 
 
-        <ImageView
-            android:id="@+id/book_import_info_6"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="505dp"
-            android:background="@drawable/input_rectangle" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="506dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
+            <ImageView
+                android:id="@+id/book_import_info_8"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="620dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_6"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="621dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="520dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 6"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="520dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_8"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="520dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="635dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/end_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="520dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_name_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="635dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 8"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/begin_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="635dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="635dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="635dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
 
 
 
-        <ImageView
-            android:id="@+id/book_import_info_7"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="565dp"
-            android:background="@drawable/input_rectangle" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="566dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
+            <ImageView
+                android:id="@+id/book_import_info_9"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="680dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_7"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="681dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="580dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 7"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="580dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_9"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="580dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="695dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/end_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="580dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_name_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="695dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 9"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/begin_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="695dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/arise_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="695dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="695dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
 
 
 
-
-        <ImageView
-            android:id="@+id/book_import_info_8"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="625dp"
-            android:background="@drawable/input_rectangle" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="626dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
+            <ImageView
+                android:id="@+id/book_import_info_10"
+                android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="740dp"
+                android:background="@drawable/input_rectangle" />
 
-            <ImageButton
-                android:id="@+id/edit_button_8"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="741dp"
+                android:clickable="true">
 
-        <TextView
-            android:id="@+id/customer_name_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="640dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 8"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground" />
 
-        <TextView
-            android:id="@+id/begin_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="640dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+                <ImageButton
+                    android:id="@+id/edit_button_10"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pencil"
+                    android:contentDescription="edit_pencil"
+                    android:clickable="true"/>
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/arise_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="640dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_id_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="755dp"
+                android:letterSpacing="0.05"
+                android:text="ID"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/end_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="640dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/customer_name_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="755dp"
+                android:letterSpacing="0.05"
+                android:text="Customer 10"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/begin_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="755dp"
+                android:letterSpacing="0.05"
+                android:text="Begin"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/arise_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="208dp"
+                android:layout_marginTop="755dp"
+                android:letterSpacing="0.05"
+                android:text="Arise"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/end_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="755dp"
+                android:letterSpacing="0.05"
+                android:text="End"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp" />
 
-
-        <ImageView
-            android:id="@+id/book_import_info_9"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="685dp"
-            android:background="@drawable/input_rectangle" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="686dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
-
-            <ImageButton
-                android:id="@+id/edit_button_9"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/customer_name_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="700dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 9"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/begin_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="700dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/arise_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="700dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/end_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="700dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-
-
-
-        <ImageView
-            android:id="@+id/book_import_info_10"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="745dp"
-            android:background="@drawable/input_rectangle" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="746dp"
-            android:clickable="true">
-
-            <View
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackground" />
-
-            <ImageButton
-                android:id="@+id/edit_button_10"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:background="@drawable/pencil"
-                android:contentDescription="edit_pencil" />
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/customer_name_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="760dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Customer 10"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/begin_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="760dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Begin"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/arise_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_marginTop="760dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="Arise"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/end_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="265dp"
-            android:layout_marginTop="760dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.05"
-            android:text="End"
-            android:textColor="#1E1E1E"
-            android:textSize="14sp" />
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="770dp"/>
-
-    </RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
 </LinearLayout>
