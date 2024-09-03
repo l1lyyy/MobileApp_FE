@@ -13,17 +13,15 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import okhttp3.ResponseBody
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import com.google.gson.Gson
+import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import com.google.gson.Gson
-import android.util.Log
-import org.json.JSONObject
 
 class CreateSalesInvoiceEditActivity : AppCompatActivity() {
     lateinit var book_id: EditText
@@ -36,6 +34,8 @@ class CreateSalesInvoiceEditActivity : AppCompatActivity() {
     private lateinit var seekBarValue: TextView
     private lateinit var postApi: PostApi
     private lateinit var token: String
+
+    private var currentSlotIndex: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,89 +54,78 @@ class CreateSalesInvoiceEditActivity : AppCompatActivity() {
         seekBarValue = findViewById(R.id.seekBarValue)
         confirm_button = findViewById(R.id.check_square_button)
 
+        currentSlotIndex = intent.getIntExtra("index", -1)
+
+        val editType = intent.getStringExtra("book_type")
+        val headerTextView = findViewById<TextView>(R.id.header_text_view)
+        headerTextView.text = "Edit $editType"
+
+        if (currentSlotIndex != -1) {
+            restoreStateFromPreferences(currentSlotIndex)
+        }
+
         check_button.setOnClickListener {
             val book_id_res = book_id.text.toString()
             sendId(book_id_res)
         }
 
-        // Retrieve the edit type passed through the intent
-        val editType = intent.getStringExtra("book_type")
-
-        // Use the edit type to customize the activity, for example, changing the header text
-        val headerTextView = findViewById<TextView>(R.id.header_text_view)
-        headerTextView.text = "Edit $editType"
-
         confirm_button.setOnClickListener {
+            if (currentSlotIndex != -1) {
+                saveStateToPreferences(currentSlotIndex)
+            }
+
             val input_book_id = book_id.text.toString()
             val input_book_name = book_name.text.toString()
             val input_amount = amount.text.toString()
             val input_price = price.text.toString()
 
             if (input_book_id.isEmpty() || input_book_name.isEmpty() || input_amount.isEmpty() || input_price.isEmpty()) {
-                // Show a toast message if any field is empty
                 Toast.makeText(this, "Không được bỏ trống bất kỳ thông tin nào", Toast.LENGTH_SHORT).show()
             } else {
-                // Proceed with setting the result and finishing the activity if all fields are filled
                 val resultIntent = Intent()
                 resultIntent.putExtra("bookid", input_book_id)
                 resultIntent.putExtra("bookname", input_book_name)
                 resultIntent.putExtra("amount", input_amount)
                 resultIntent.putExtra("price", input_price)
+                resultIntent.putExtra("index", currentSlotIndex)
 
                 setResult(RESULT_OK, resultIntent)
                 finish()
             }
         }
 
-        // Apply the setupSeekBarWithEditText method
         setupSeekBarWithEditText(seekBar, amount, seekBarValue)
     }
 
     private fun setupSeekBarWithEditText(seekBar: SeekBar, editText: EditText, seekBarValue: TextView) {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                // Ensure that we are not creating a loop of updates
                 if (editText.text.toString().toIntOrNull() != progress) {
                     editText.setText(progress.toString())
                 }
                 seekBarValue.text = progress.toString()
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                // Do nothing
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                // Do nothing
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
         editText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Do nothing
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Avoid updating SeekBar if the value is invalid or if it is being updated by SeekBar
                 if (s != null && s.isNotEmpty()) {
                     try {
                         val value = s.toString().toInt()
                         if (seekBar.progress != value) {
                             seekBar.progress = value
                         }
-                    } catch (e: NumberFormatException) {
-                        // Handle the case where the input is not a valid integer
-                    }
+                    } catch (e: NumberFormatException) {}
                 }
             }
-
-            override fun afterTextChanged(s: Editable?) {
-                // Do nothing
-            }
+            override fun afterTextChanged(s: Editable?) {}
         })
     }
 
-    // solve
     private fun sendId(id: String)
     {
         val logging = HttpLoggingInterceptor()
@@ -180,9 +169,44 @@ class CreateSalesInvoiceEditActivity : AppCompatActivity() {
         })
     }
 
+    private fun saveStateToPreferences(index: Int) {
+        val sharedPreferences = getSharedPreferences("CreateSalesInvoiceEditPrefs_$index", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.putString("bookId", book_id.text.toString())
+        editor.putString("bookName", book_name.text.toString())
+        editor.putString("amount", amount.text.toString())
+        editor.putString("price", price.text.toString())
+        editor.putInt("seekBarProgress", seekBar.progress)
+
+        editor.apply()
+    }
+
+    private fun restoreStateFromPreferences(index: Int) {
+        val sharedPreferences = getSharedPreferences("CreateSalesInvoiceEditPrefs_$index", MODE_PRIVATE)
+
+        book_id.setText(sharedPreferences.getString("bookId", ""))
+        book_name.setText(sharedPreferences.getString("bookName", ""))
+        amount.setText(sharedPreferences.getString("amount", ""))
+        price.setText(sharedPreferences.getString("price", ""))
+        seekBar.progress = sharedPreferences.getInt("seekBarProgress", 0)
+        seekBarValue.text = seekBar.progress.toString()
+    }
+
+    private fun clearPreferences(index: Int) {
+        val sharedPreferences = getSharedPreferences("CreateSalesInvoiceEditPrefs_$index", MODE_PRIVATE)
+        sharedPreferences.edit().clear().apply()
+    }
+
+    override fun onBackPressed() {
+        if (currentSlotIndex != -1) {
+            clearPreferences(currentSlotIndex)
+        }
+        super.onBackPressed()
+    }
+
     fun goToCreateSalesInvoiceActivity(view: View) {
         val intent = Intent(this, CreateSalesInvoiceActivity::class.java)
         startActivity(intent)
     }
-
 }

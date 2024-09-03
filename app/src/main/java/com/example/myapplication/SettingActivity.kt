@@ -1,9 +1,9 @@
 package com.example.myapplication
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
 import android.text.TextWatcher
 import android.view.View
 import android.widget.CheckBox
@@ -68,6 +68,11 @@ class SettingActivity : AppCompatActivity() {
 
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token", "") ?: ""
+        // Set input filters for EditTexts other than maximumDebtInput
+        setInputFilter(minimumImportInput, 1000)
+        setInputFilter(numImportStockLessThanInput, 1000)
+        setInputFilter(minimumInStockInput, 1000)
+        setInputFilter(maximumDebtInput, 200000)
 
         // Restore state or set defaults
         restoreStateOrSetDefaults()
@@ -88,8 +93,20 @@ class SettingActivity : AppCompatActivity() {
 
         // Handle back button click
         findViewById<View>(R.id.back_button).setOnClickListener {
-            onBackPressed()
+            super.onBackPressed()
         }
+    }
+
+    private fun setInputFilter(editText: EditText, maxValue: Int) {
+        val filter = InputFilter { source, start, end, dest, dstart, dend ->
+            try {
+                val input = (dest.toString() + source.toString()).toInt()
+                if (input in 0..maxValue) null else ""
+            } catch (nfe: NumberFormatException) {
+                ""
+            }
+        }
+        editText.filters = arrayOf(filter)
     }
     private fun saveSettings() {
         saveStateToPreferences()
@@ -141,22 +158,24 @@ class SettingActivity : AppCompatActivity() {
 
         // Get stored values or set defaults
         minimumImportInput.setText(sharedPreferences.getInt("minimumImport", defaultMinimumImport).toString())
-        seekBar1.progress = sharedPreferences.getInt("minimumImport", defaultMinimumImport)
-        seekBarValue1.text = seekBar1.progress.toString()
+        syncSeekBarWithValue(seekBar1, seekBarValue1, minimumImportInput)
 
         numImportStockLessThanInput.setText(sharedPreferences.getInt("numImportStockLessThan", defaultNumImportStockLessThan).toString())
-        seekBar2.progress = sharedPreferences.getInt("numImportStockLessThan", defaultNumImportStockLessThan)
-        seekBarValue2.text = seekBar2.progress.toString()
+        syncSeekBarWithValue(seekBar2, seekBarValue2, numImportStockLessThanInput)
 
         maximumDebtInput.setText(sharedPreferences.getInt("maximumDebt", defaultMaximumDebt).toString())
-        seekBar3.progress = sharedPreferences.getInt("maximumDebt", defaultMaximumDebt)
-        seekBarValue3.text = seekBar3.progress.toString()
+        syncSeekBarWithValue(seekBar3, seekBarValue3, maximumDebtInput)
 
         minimumInStockInput.setText(sharedPreferences.getInt("minimumInStock", defaultMinimumInStock).toString())
-        seekBar4.progress = sharedPreferences.getInt("minimumInStock", defaultMinimumInStock)
-        seekBarValue4.text = seekBar4.progress.toString()
+        syncSeekBarWithValue(seekBar4, seekBarValue4, minimumInStockInput)
 
         applyFilterCheckbox.isChecked = sharedPreferences.getBoolean("applyFilter", defaultApplyFilter)
+    }
+
+    private fun syncSeekBarWithValue(seekBar: SeekBar, seekBarValue: TextView, editText: EditText) {
+        val value = editText.text.toString().toIntOrNull() ?: 0
+        seekBar.progress = value
+        seekBarValue.text = value.toString()
     }
 
     private fun setupSeekBarWithEditText(seekBar: SeekBar, editText: EditText, seekBarValue: TextView) {
@@ -186,13 +205,8 @@ class SettingActivity : AppCompatActivity() {
                 if (s != null && s.isNotEmpty()) {
                     try {
                         val value = s.toString().toInt()
-                        if (seekBar.progress != value) {
-                            seekBar.progress = value
-                        }
-                        // Update the seekBarValue3 text when maximumDebtInput changes
-                        if (editText.id == R.id.maximum_debt_input) {
-                            seekBarValue3.text = value.toString()
-                        }
+                        seekBar.progress = value
+                        seekBarValue.text = value.toString()
                     } catch (e: NumberFormatException) {
                         // Handle the case where the input is not a valid integer
                     }
@@ -216,10 +230,5 @@ class SettingActivity : AppCompatActivity() {
         editor.putBoolean("applyFilter", applyFilterCheckbox.isChecked)
 
         editor.apply()
-    }
-
-    override fun onBackPressed() {
-        saveStateToPreferences()
-        super.onBackPressed()
     }
 }
