@@ -93,17 +93,9 @@ class CreateReceiptActivity : AppCompatActivity() {
             } else {
                 sendReceipt(customer_id_res, full_name_res, address_res, phone_number_res, email_res,
                     payment_date_res, paid_amount_res, token)
-
-                // Send data to the next activity
-                val intent = Intent(this, CreateReceiptBillActivity::class.java)
-                intent.putExtra("PAID_AMOUNT", paid_amount_res)
-                intent.putExtra("CUSTOMER_ID", customer_id_res)
-                intent.putExtra("CUSTOMER_NAME", customer_name)
-                intent.putExtra("DATE", payment_date_res)
-                startActivity(intent)
             }
-
         }
+
     }
 
     fun formatDateString(dateString: String): String {
@@ -199,8 +191,7 @@ class CreateReceiptActivity : AppCompatActivity() {
         })
     }
 
-    private fun sendReceipt(id: String, fullname: String, address: String,phonenumber:String, email: String, paymentdate: String, paidamount: Int, token: String)
-    {
+    private fun sendReceipt(id: String, fullname: String, address: String, phonenumber: String, email: String, paymentdate: String, paidamount: Int, token: String) {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
@@ -211,22 +202,25 @@ class CreateReceiptActivity : AppCompatActivity() {
         val retrofit = builder.build()
 
         postApi = retrofit.create(PostApi::class.java)
-        val paidAmountInt = paidamount.toInt()
-        val receipt = CustomerData(id,fullname,address,phonenumber,email,paymentdate,paidAmountInt)
+        val receipt = CustomerData(id, fullname, address, phonenumber, email, paymentdate, paidamount)
         val gson = Gson()
         val json = gson.toJson(receipt)
         Log.d("receipt JSON", json)
         val call = postApi.sendReceipt("Token $token", receipt)
 
-        call.enqueue(object: Callback<ResponseBody>
-        {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>)
-            {
-                if (response.isSuccessful)
-                {
-                    Toast.makeText(this@CreateReceiptActivity, "receipt sent successfully", Toast.LENGTH_SHORT).show()
-                } else
-                {
+        call.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(this@CreateReceiptActivity, "Receipt sent successfully", Toast.LENGTH_SHORT).show()
+
+                    // Navigate to CreateReceiptBillActivity on successful receipt creation
+                    val intent = Intent(this@CreateReceiptActivity, CreateReceiptBillActivity::class.java)
+                    intent.putExtra("PAID_AMOUNT", paidamount)
+                    intent.putExtra("CUSTOMER_ID", id)
+                    intent.putExtra("CUSTOMER_NAME", fullname)
+                    intent.putExtra("DATE", paymentdate)
+                    startActivity(intent)
+                } else {
                     val errorBody = response.errorBody()?.string()
                     val statusCode = response.code()
                     println("Error: $statusCode, $errorBody")
@@ -234,12 +228,12 @@ class CreateReceiptActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable)
-            {
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Toast.makeText(this@CreateReceiptActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
 
     fun goToDashboardActivity(view: View) {
         val intent = Intent(this, DashboardActivity::class.java)
