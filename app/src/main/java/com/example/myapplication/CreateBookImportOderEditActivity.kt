@@ -30,6 +30,7 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
     lateinit var check_button: ImageButton
     lateinit var book_name: EditText
     lateinit var author: EditText
+    lateinit var confirm_button: ImageButton
     private lateinit var amountInput: EditText
     private lateinit var seekBar: SeekBar
     private lateinit var seekBarValue: TextView
@@ -51,20 +52,53 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
         amountInput = findViewById(R.id.amount_input)
         seekBar = findViewById(R.id.seekBar)
         seekBarValue = findViewById(R.id.seekBarValue)
+        confirm_button = findViewById(R.id.check_square_button)
 
-        check_button.setOnClickListener {
-            val book_id_res = book_id.text.toString()
-            sendId(book_id_res)
+        // Retrieve the index passed through the intent
+        val currentSlotIndex = intent.getIntExtra("index", -1) // Lấy index từ Intent
+
+        // Use the index to set the header text
+        if (currentSlotIndex != -1) {
+            val headerTextView = findViewById<TextView>(R.id.header_text_view)
+            headerTextView.text = "Edit book ${currentSlotIndex + 1}"
         }
 
-        // Retrieve the edit type passed through the intent
-        val editType = intent.getStringExtra("book_type")
 
-        // Use the edit type to customize the activity, for example, changing the header text
-        val headerTextView = findViewById<TextView>(R.id.header_text_view)
-        headerTextView.text = "Edit $editType"
+        // Khôi phục trạng thái nếu có
+        if (currentSlotIndex != -1) {
+            restoreStateFromPreferences(currentSlotIndex)
+        }
 
-        // Apply the setupSeekBarWithEditText method
+        check_button.setOnClickListener {
+            val bookId = book_id.text.toString()
+            sendId(bookId)
+        }
+
+        confirm_button.setOnClickListener {
+            if (currentSlotIndex != -1) {
+                saveStateToPreferences(currentSlotIndex) // Lưu trạng thái trước khi trả kết quả về CreateBookImportOrderActivity
+            }
+
+            val input_book_id = book_id.text.toString()
+            val input_book_name = book_name.text.toString()
+            val input_author = author.text.toString()
+            val input_amount = amountInput.text.toString()
+
+            if (input_book_id.isEmpty() || input_book_name.isEmpty()|| input_author.isEmpty() || input_amount.isEmpty()) {
+                Toast.makeText(this, "Không được bỏ trống bất kỳ thông tin nào", Toast.LENGTH_SHORT).show()
+            } else {
+                val resultIntent = Intent()
+                resultIntent.putExtra("bookid", input_book_id)
+                resultIntent.putExtra("bookname", input_book_name)
+                resultIntent.putExtra("author", input_author)
+                resultIntent.putExtra("amount", input_amount)
+                resultIntent.putExtra("index", currentSlotIndex) // Trả về index
+
+                setResult(RESULT_OK, resultIntent)
+                finish()
+            }
+        }
+
         setupSeekBarWithEditText(seekBar, amountInput, seekBarValue)
     }
 
@@ -154,6 +188,35 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
             }
         })
     }
+
+    // Lưu trạng thái khi nhấn `check_square_button`
+    private fun saveStateToPreferences(index: Int) {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderEditPrefs_$index", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // Lưu thông tin nhập liệu và tiến độ SeekBar
+        editor.putString("bookId", book_id.text.toString())
+        editor.putString("bookName", book_name.text.toString())
+        editor.putString("author", author.text.toString())
+        editor.putString("amount", amountInput.text.toString())
+        editor.putInt("seekBarProgress", seekBar.progress)
+
+        editor.apply() // Lưu lại
+    }
+
+    // Khôi phục trạng thái khi quay lại từ `CreateBookImportOrder`
+    private fun restoreStateFromPreferences(index: Int) {
+        val sharedPreferences = getSharedPreferences("CreateBookImportOrderEditPrefs_$index", MODE_PRIVATE)
+
+        // Khôi phục trạng thái
+        book_id.setText(sharedPreferences.getString("bookId", ""))
+        book_name.setText(sharedPreferences.getString("bookName", ""))
+        author.setText(sharedPreferences.getString("author", ""))
+        amountInput.setText(sharedPreferences.getString("amount", ""))
+        seekBar.progress = sharedPreferences.getInt("seekBarProgress", 0)
+        seekBarValue.text = seekBar.progress.toString() // Hiển thị giá trị của SeekBar
+    }
+
 
     fun goToBooksImportActivity(view: View) {
         val intent = Intent(this, CreateBookImportOrderActivity::class.java)

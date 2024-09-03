@@ -110,7 +110,7 @@
             android:background="@drawable/check_id_button"
             android:layout_gravity="top|start"
             android:contentDescription="check_id"
-            android:onClick="goToCheckIdActivity"/>
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="wrap_content"

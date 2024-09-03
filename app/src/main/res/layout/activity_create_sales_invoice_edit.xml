@@ -91,12 +91,12 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="380dp"
             android:background="@drawable/input_rectangle"
-            android:hint="Book ID"
+            android:hint="Enter ID to autofill"
             android:textSize="18dp"
-            android:letterSpacing="0.05"
             android:padding="10dp"
             android:textColor="#000"
-            android:inputType="text"
+            android:letterSpacing="0.05"
+            android:inputType="number"
             android:maxLines="1"
             android:singleLine="true"/>
 
@@ -110,7 +110,7 @@
             android:background="@drawable/check_id_button"
             android:layout_gravity="top|start"
             android:contentDescription="check_id"
-            android:onClick="goToCheckIdActivity"/>
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="wrap_content"
