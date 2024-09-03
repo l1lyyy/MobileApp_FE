@@ -94,6 +94,7 @@
             android:background="@drawable/corner_ratio_rectangle"
             android:gravity="center"/>
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"

@@ -226,7 +226,7 @@
             android:letterSpacing="0.02"/>
 
         <EditText
-            android:id="@+id/arising_inventory_input"
+            android:id="@+id/minimum_in_stock"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
