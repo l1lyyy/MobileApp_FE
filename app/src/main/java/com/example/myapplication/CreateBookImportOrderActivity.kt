@@ -144,6 +144,9 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
             }
 
             sendImportOrder(ImportOrderRequest(date_res, importOrders))
+            clearAllPreferences()
+            val intent = Intent(this, CreateBookImportOrderActivity::class.java)
+            startActivity(intent)
         }
 
         // Restore the state from SharedPreferences

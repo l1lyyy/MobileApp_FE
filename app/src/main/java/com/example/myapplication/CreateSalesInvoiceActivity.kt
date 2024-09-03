@@ -149,6 +149,10 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
                     salesInvoices.add(Salesinvoice(customer_id, customer_name, date_res, bookId, bookName, amount, price))
                 }
             }
+            sendSalesInvoice(salesInvoices)
+            clearAllPreferences()
+            val intent = Intent(this, CreateBookImportOrderActivity::class.java)
+            startActivity(intent)
         }
 
         restoreStateFromPreferences()
@@ -236,6 +240,7 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
             }
         })
     }
+
     private fun sendSalesInvoice(salesinvoice: List<Salesinvoice>)
     {
         if(salesinvoice.isEmpty())
