@@ -90,18 +90,12 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         )
 
         // Add listeners for edit buttons (for each slot)
-        val bookTypes = listOf(
-            "book 1", "book 2", "book 3", "book 4", "book 5",
-            "book 6", "book 7", "book 8", "book 9", "book 10"
-        )
-
-        // Add listeners for edit buttons (for each slot)
         for (i in editButtons.indices) {
             editButtons[i].setOnClickListener {
                 currentSlotIndex = i  // Cập nhật slot hiện tại
-                saveStateToPreferences()
+                saveStateToPreferences() // Lưu trạng thái của CreateBookImportOrderActivity
                 val intent = Intent(this, CreateBookImportOderEditActivity::class.java)
-                intent.putExtra("book_type", bookTypes[i])
+                intent.putExtra("index", i) // Truyền index cho CreateBookImportOderEditActivity
                 resultLauncher.launch(intent)
             }
         }
@@ -110,57 +104,30 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         resultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
-            if (result.resultCode == RESULT_OK && currentSlotIndex != -1) {
+            if (result.resultCode == RESULT_OK) {
                 val data = result.data
                 val id = data?.getStringExtra("bookid")
                 val name = data?.getStringExtra("bookname")
                 val author = data?.getStringExtra("author")
                 val amount = data?.getStringExtra("amount")
 
-                // Cập nhật các `TextView` trong slot hiện tại
-                bookIds[currentSlotIndex].text = "$id\n"
-                bookNames[currentSlotIndex].text = "$name\n"
-                authors[currentSlotIndex].text = "$author\n"
-                amounts[currentSlotIndex].text = "$amount\n"
+                val index = data?.getIntExtra("index", -1) ?: -1 // Lấy index từ kết quả trả về
 
-                Log.d("CreateBookImportOrder", "Slot $currentSlotIndex - Book ID: $id, Book Name: $name, Author: $author, Amount: $amount")
+                if (index != -1) {
+                    // Cập nhật các `TextView` trong slot hiện tại
+                    bookIds[index].text = "$id\n"
+                    bookNames[index].text = "$name\n"
+                    authors[index].text = "$author\n"
+                    amounts[index].text = "$amount\n"
+
+                    Log.d("CreateBookImportOrder", "Slot $index - Book ID: $id, Book Name: $name, Author: $author, Amount: $amount")
+                }
             }
         }
-        //var amount_res = 0
-
-//        resultLauncher = registerForActivityResult(
-//            ActivityResultContracts.StartActivityForResult()
-//
-//        ){result ->
-//            if(result.resultCode == RESULT_OK) {
-//                val data = result.data
-//                val id = data?.getStringExtra("bookid")
-//                val name = data?.getStringExtra("bookname")
-//                val author = data?.getStringExtra("author")
-//                val amount = data?.getStringExtra("amount")
-//                result_id.text = "$id\n"
-//                result_name.text = "$name\n"
-//                result_author.text ="$author\n"
-//                result_amount.text ="$amount\n"
-//                Log.d("CreateBookImportOrder", "Book ID: $id, Book Name: $name, Author: $author, Amount: $amount")
-//                val displayedAmount = result_amount.text.toString().trim()
-//                amount_res = displayedAmount.toIntOrNull() ?: 0
-//            }
-//        }
-//        edit_button.setOnClickListener {
-//            val intent = Intent(this,CreateBookImportOderEditActivity::class.java)
-//            resultLauncher.launch(intent)
-//        }
 
         date = findViewById(R.id.date_input)
-//        confirm_button =findViewById(R.id.check_square_button)
-//        confirm_button.setOnClickListener {
-//            val importOrders = mutableListOf<ImportOrder>()
-//            val date_res = date.text.toString()
-//
-//            sendImportOrder(result_id.text.toString().trim(),result_name.text.toString().trim(),result_author.text.toString().trim(),result_amount.text.toString(),date_res)
-//        }
         confirm_button =findViewById(R.id.check_square_button)
+
         confirm_button.setOnClickListener {
             val date_res = formatDateString(date.text.toString())
             val importOrders = mutableListOf<ImportOrder>()
@@ -182,13 +149,23 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         // Restore the state from SharedPreferences
         restoreStateFromPreferences()
 
-        // Set up Edit buttons
-        //setupEditButtons()
-
         // Set up Calendar Button
         findViewById<ImageButton>(R.id.calendar_button).setOnClickListener {
             showDatePickerDialog()
         }
+    }
+
+    fun formatDateString(dateString: String): String {
+        // Split the date string by "/"
+        val parts = dateString.split("/")
+
+        // Extract day, month, and year
+        val day = parts[0].padStart(2, '0')   // Ensures day is two digits
+        val month = parts[1].padStart(2, '0') // Ensures month is two digits
+        val year = parts[2]                   // Year remains as is
+
+        // Return the formatted date in "yyyy-mm-dd" format
+        return "$year-$month-$day"
     }
 
     private fun showDatePickerDialog() {
@@ -208,6 +185,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         // Show the DatePickerDialog
         datePickerDialog.show()
     }
+
     private fun sendImportOrder(importOrderRequest: ImportOrderRequest) {
         if (importOrderRequest.details.isEmpty()) {
             Toast.makeText(this, "No valid data to send", Toast.LENGTH_SHORT).show()
@@ -251,70 +229,39 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
             }
         })
     }
-//    private fun sendImportOrder(id: String, book: String, author: String, amount: String,date: String)
-//    {
-//        val amountInt = amount.trim().toIntOrNull()
-//        if (amountInt == null) {
-//            Toast.makeText(this@CreateBookImportOrderActivity, "Invalid amount entered", Toast.LENGTH_SHORT).show()
-//            return
-//        }
-//
-//        val logging = HttpLoggingInterceptor()
-//        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-//
-//        val httpClient = OkHttpClient.Builder()
-//        httpClient.addInterceptor(logging)
-//
-//        val builder = Retrofit.Builder().baseUrl(PostApi.IMPORT_URL).addConverterFactory(
-//            GsonConverterFactory.create()).client(httpClient.build())
-//        val retrofit = builder.build()
-//
-//        postApi = retrofit.create(PostApi::class.java)
-//
-//        //val idInt = id.toInt()
-//        val import = ImportOrder(id,book,author,amountInt,date)
-//        val gson = Gson()
-//        val json = gson.toJson(import)
-//        Log.d("import JSON",json)
-//        val call = postApi.sendImportOrder("Token $token", import)
-//
-//        call.enqueue(object: Callback<ResponseBody>
-//        {
-//            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>)
-//            {
-//                if (response.isSuccessful)
-//                {
-//                    Toast.makeText(this@CreateBookImportOrderActivity, "import order sent successfully", Toast.LENGTH_SHORT).show()
-//                } else
-//                {
-//                    val errorBody = response.errorBody()?.string()
-//                    val statusCode = response.code()
-//                    println("Error: $statusCode, $errorBody")
-//                    Toast.makeText(this@CreateBookImportOrderActivity, "Failed to send import order", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<ResponseBody>, t: Throwable)
-//            {
-//                Toast.makeText(this@CreateBookImportOrderActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//    }
 
     private fun saveStateToPreferences() {
         val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        // Save the current state
+        // Save the current state of date input
         editor.putString("dateInputText", date.text.toString())
-        editor.apply()
+
+        // Save the state of book details for each slot
+        for (i in bookIds.indices) {
+            editor.putString("bookId_$i", bookIds[i].text.toString())
+            editor.putString("bookName_$i", bookNames[i].text.toString())
+            editor.putString("author_$i", authors[i].text.toString())
+            editor.putString("amount_$i", amounts[i].text.toString())
+        }
+
+        editor.apply() // Save all changes
     }
+
 
     private fun restoreStateFromPreferences() {
         val sharedPreferences = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
 
-        // Restore the state
+        // Khôi phục trạng thái
         date.setText(sharedPreferences.getString("dateInputText", ""))
+
+        // Khôi phục trạng thái các trường book, author, amount từ CreateBookImportOderEditActivity
+        for (i in bookIds.indices) {
+            bookIds[i].text = sharedPreferences.getString("bookId_$i", "ID")
+            bookNames[i].text = sharedPreferences.getString("bookName_$i", "Book " + (i+1).toString())
+            authors[i].text = sharedPreferences.getString("author_$i", "Author")
+            amounts[i].text = sharedPreferences.getString("amount_$i", "Amount")
+        }
     }
 
     private fun clearPreferences() {
@@ -322,10 +269,25 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         sharedPreferences.edit().clear().apply()
     }
 
+    override fun onBackPressed() {
+        clearAllPreferences() // Xóa tất cả các trạng thái
+        super.onBackPressed() // Quay lại dashboard
+    }
+
+    private fun clearAllPreferences() {
+        // Xóa trạng thái của CreateBookImportOrderActivity
+        val sharedPreferencesOrder = getSharedPreferences("CreateBookImportOrderPrefs", MODE_PRIVATE)
+        sharedPreferencesOrder.edit().clear().apply()
+
+        // Xóa trạng thái của từng CreateBookImportOderEditActivity
+        for (i in bookIds.indices) {
+            val sharedPreferencesEdit = getSharedPreferences("CreateBookImportOrderEditPrefs_$i", MODE_PRIVATE)
+            sharedPreferencesEdit.edit().clear().apply()
+        }
+    }
 
     fun goToDashboardActivity(view: View) {
-        // Save the current state before switching activities
-        clearPreferences()
+        clearAllPreferences() // Xóa tất cả các trạng thái trước khi chuyển sang dashboard
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
@@ -337,35 +299,5 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-
-    private fun setupEditButtons() {
-        val editButtonIds = listOf(
-            R.id.edit_button_1, R.id.edit_button_2, R.id.edit_button_3,
-            R.id.edit_button_4, R.id.edit_button_5, R.id.edit_button_6,
-            R.id.edit_button_7, R.id.edit_button_8, R.id.edit_button_9, R.id.edit_button_10
-        )
-        val bookTypes = listOf(
-            "book 1", "book 2", "book 3", "book 4", "book 5",
-            "book 6", "book 7", "book 8", "book 9", "book 10"
-        )
-
-        for (i in editButtonIds.indices) {
-            findViewById<ImageButton>(editButtonIds[i]).setOnClickListener {
-                goToEditActivity(bookTypes[i])
-            }
-        }
-    }
-
-    fun formatDateString(dateString: String): String {
-        // Split the date string by "/"
-        val parts = dateString.split("/")
-
-        // Extract day, month, and year
-        val day = parts[0].padStart(2, '0')   // Ensures day is two digits
-        val month = parts[1].padStart(2, '0') // Ensures month is two digits
-        val year = parts[2]                   // Year remains as is
-
-        // Return the formatted date in "yyyy-mm-dd" format
-        return "$year-$month-$day"
-    }
 }
+

@@ -43,32 +43,22 @@ class CreateReceiptActivity : AppCompatActivity() {
     private lateinit var postApi: PostApi
     private lateinit var token: String
 
-<<<<<<< HEAD
-=======
     // Khai báo biến customer_name
     private lateinit var customer_name: String
 
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_receipt)
 
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-        token = preferences.getString("token", "") ?: ""
+        token = preferences.getString("token","") ?: ""
 
         customer_id = findViewById(R.id.customer_id_input)
-<<<<<<< HEAD
-        //val full_name = findViewById<EditText>(R.id.)
-        //val address = findViewById<EditText>(R.id.)
-        //val phone_number = findViewById<EditText>(R.id.)
-        //val email = findViewById<EditText>(R.id.)
-=======
         full_name = findViewById(R.id.fullname)
         address = findViewById(R.id.address)
         phone_number = findViewById(R.id.phone_number)
         email = findViewById(R.id.email)
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
         payment_date = findViewById(R.id.date_input)
         paid_amount = findViewById(R.id.paid_amount_input)
         confirm_button = findViewById(R.id.check_square_button)
@@ -80,30 +70,10 @@ class CreateReceiptActivity : AppCompatActivity() {
             showDatePickerDialog()
         }
 
-<<<<<<< HEAD
-        confirm_button.setOnClickListener {
-            val customer_id_res = customer_id.text.toString()
-            //val full_name_res = full_name.text.toString()
-            //val address_res = address.text.toString()
-            //val phone_number_res = phone_number.text.toString()
-            //val email_res = email.text.toString()
-            val payment_date_res = payment_date.text.toString()
-            val paid_amount_res = paid_amount.text.toString()
-            val paidAmountDouble = paid_amount_res.toDoubleOrNull() ?: 0.0
-            sendReceipt(customer_id_res,"Trang Minh Nhut","Vinhomes Tan Cang","255182193","minhnhut13@icloud.com",payment_date_res,paidAmountDouble,token)
-
-            // Send data to the next activity
-            val intent = Intent(this, CreateReceiptBillActivity::class.java)
-            intent.putExtra("CUSTOMER_ID", customer_id_res)
-            intent.putExtra("DATE", payment_date_res)
-            intent.putExtra("PAID_AMOUNT", paidAmountDouble)
-            startActivity(intent)
-=======
         // solve
         check_button.setOnClickListener {
             val customer_id_res = customer_id.text.toString()
             sendId(customer_id_res)
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
         }
 
         confirm_button =findViewById(R.id.check_square_button)
@@ -275,8 +245,4 @@ class CreateReceiptActivity : AppCompatActivity() {
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91

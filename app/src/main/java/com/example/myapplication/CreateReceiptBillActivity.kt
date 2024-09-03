@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.content.Intent
 import android.widget.EditText
-<<<<<<< HEAD
-=======
 import android.widget.ImageButton
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,24 +22,6 @@ class CreateReceiptBillActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_receipt_bill)
 
-<<<<<<< HEAD
-        val customerName = intent.getStringExtra("CUSTOMER_NAME") ?: ""
-        val date = intent.getStringExtra("DATE") ?: ""
-        val paidAmountDouble = intent.getDoubleExtra("PAID_AMOUNT", 0.0)
-        val paidAmount = paidAmountDouble.toInt()
-
-        // Format the paid amount as currency
-        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
-        val formattedAmount = numberFormat.format(paidAmount)
-
-        val customerNameEditText = findViewById<EditText>(R.id.customer_name)
-        val dateEditText = findViewById<EditText>(R.id.date)
-        val paidAmountTextView = findViewById<TextView>(R.id.total_amount)
-
-        customerNameEditText.setText(customerName)
-        dateEditText.setText(date)
-        paidAmountTextView.text = formattedAmount
-=======
         payment_date = findViewById(R.id.date)
         paid_amount = findViewById(R.id.total_amount)
         customerId = findViewById(R.id.customer_id)
@@ -62,7 +41,6 @@ class CreateReceiptBillActivity : AppCompatActivity() {
         customerId.setText(customer_id_res)
         customerName.setText(customer_name_res)
 
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
     }
 
     fun goToCreateReceiptActivity(view: View) {

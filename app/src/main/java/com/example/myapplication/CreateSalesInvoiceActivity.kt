@@ -14,17 +14,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import com.google.gson.Gson
 import okhttp3.ResponseBody
+import java.util.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
-import java.util.*
-import com.google.gson.Gson
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 
 class CreateSalesInvoiceActivity : AppCompatActivity() {
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
@@ -36,30 +36,22 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
     private lateinit var postApi: PostApi
     private lateinit var token: String
 
-    // Danh sách các `TextView` và `ImageButton` cho các slot
+
     private lateinit var bookIds: List<TextView>
     private lateinit var bookNames: List<TextView>
     private lateinit var amounts: List<TextView>
     private lateinit var prices: List<TextView>
     private lateinit var editButtons: List<ImageButton>
-    private var currentSlotIndex: Int = -1  // Theo dõi slot hiện tại
+
+    private var currentSlotIndex: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_sales_invoice)
 
-        // Initialize SharedPreferences and token
         val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         token = preferences.getString("token", "") ?: ""
-
-        // Initialize danh sách các `TextView` và `ImageButton`
-        bookIds = listOf(
-            findViewById(R.id.book_id_1), findViewById(R.id.book_id_2), findViewById(R.id.book_id_3),
-            findViewById(R.id.book_id_4), findViewById(R.id.book_id_5), findViewById(R.id.book_id_6),
-            findViewById(R.id.book_id_7), findViewById(R.id.book_id_8), findViewById(R.id.book_id_9),
-            findViewById(R.id.book_id_10)
-        )
 
         bookNames = listOf(
             findViewById(R.id.book_name_1), findViewById(R.id.book_name_2), findViewById(R.id.book_name_3),
@@ -89,7 +81,6 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
             findViewById(R.id.edit_button_10)
         )
 
-        // Add listeners for edit buttons (for each slot)
         val bookTypes = listOf(
             "book 1", "book 2", "book 3", "book 4", "book 5",
             "book 6", "book 7", "book 8", "book 9", "book 10"
@@ -97,15 +88,15 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
 
         for (i in editButtons.indices) {
             editButtons[i].setOnClickListener {
-                currentSlotIndex = i  // Cập nhật slot hiện tại
+                currentSlotIndex = i
                 saveStateToPreferences()
                 val intent = Intent(this, CreateSalesInvoiceEditActivity::class.java)
                 intent.putExtra("book_type", bookTypes[i])
+                intent.putExtra("index", i)
                 resultLauncher.launch(intent)
             }
         }
 
-        // Thiết lập resultLauncher để nhận dữ liệu từ CreateBookImportOderEditActivity
         resultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
@@ -116,32 +107,35 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
                 val amount = data?.getStringExtra("amount")
                 val price = data?.getStringExtra("price")
 
-                // Cập nhật các `TextView` trong slot hiện tại
                 bookIds[currentSlotIndex].text = "$id\n"
                 bookNames[currentSlotIndex].text = "$name\n"
                 amounts[currentSlotIndex].text = "$amount\n"
                 prices[currentSlotIndex].text = "$price\n"
 
-                Log.d("CreateBookImportOrder", "Slot $currentSlotIndex - Book ID: $id, Book Name: $name, Amount: $amount, Price: $price")
+                Log.d("CreateSalesInvoice", "Slot $currentSlotIndex - Book ID: $id, Book Name: $name, Amount: $amount, Price: $price")
             }
         }
 
-        // Initialize UI components
         check_button = findViewById(R.id.check_id_button)
         customer_id = findViewById(R.id.customer_id_input)
         customer_name = findViewById(R.id.customer_name_input)
         date = findViewById(R.id.date_input)
         confirm_button =findViewById(R.id.check_square_button)
 
-        // solve
         check_button.setOnClickListener {
             val customer_id_res = customer_id.text.toString()
             sendId(customer_id_res)
         }
 
+        val retrofit = Retrofit.Builder()
+            .baseUrl(PostApi.INVOICE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        postApi = retrofit.create(PostApi::class.java)
+
         confirm_button.setOnClickListener {
-            val customer_id = customer_id.text.toString()
-            val customer_name = customer_name.text.toString()
+            val customer_id = customer_id.text.toString().trim()
+            val customer_name = customer_name.text.toString().trim()
             val date_res = formatDateString(date.text.toString())
             val salesInvoices = mutableListOf<Salesinvoice>()
 
@@ -152,32 +146,23 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
                 val price = prices[i].text.toString().trim().toIntOrNull() ?: 0
 
                 if (bookId.isNotEmpty() && bookName.isNotEmpty() && amount > 0 && price > 0) {
-                    salesInvoices.add(Salesinvoice(customer_id,customer_name,date_res,bookId,bookName,amount,price))
+                    salesInvoices.add(Salesinvoice(customer_id, customer_name, date_res, bookId, bookName, amount, price))
                 }
             }
-
-            sendSalesInvoice(salesInvoices)
         }
 
-        // Restore the state from SharedPreferences
         restoreStateFromPreferences()
 
-        // Set up Calendar Button
         findViewById<ImageButton>(R.id.calendar_button).setOnClickListener {
             showDatePickerDialog()
         }
     }
 
     fun formatDateString(dateString: String): String {
-        // Split the date string by "/"
         val parts = dateString.split("/")
-
-        // Extract day, month, and year
-        val day = parts[0].padStart(2, '0')   // Ensures day is two digits
-        val month = parts[1].padStart(2, '0') // Ensures month is two digits
-        val year = parts[2]                   // Year remains as is
-
-        // Return the formatted date in "yyyy-mm-dd" format
+        val day = parts[0].padStart(2, '0')
+        val month = parts[1].padStart(2, '0')
+        val year = parts[2]
         return "$year-$month-$day"
     }
 
@@ -188,18 +173,15 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        // Create a DatePickerDialog
+
         val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            // Format the selected date and set it to the EditText
             val formattedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
             date.setText(formattedDate)
         }, year, month, day)
 
-        // Show the DatePickerDialog
         datePickerDialog.show()
     }
 
-    // solve
     private fun sendId(id: String) {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -308,6 +290,14 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         editor.putString("customerId", customer_id.text.toString())
         editor.putString("customerName", customer_name.text.toString())
         editor.putString("dateInputText", date.text.toString())
+
+        for (i in bookIds.indices) {
+            editor.putString("bookId_$i", bookIds[i].text.toString())
+            editor.putString("bookName_$i", bookNames[i].text.toString())
+            editor.putString("amount_$i", amounts[i].text.toString())
+            editor.putString("price_$i", prices[i].text.toString())
+        }
+
         editor.apply()
     }
 
@@ -318,6 +308,13 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         customer_id.setText(sharedPreferences.getString("customerId", ""))
         customer_name.setText(sharedPreferences.getString("customerName", ""))
         date.setText(sharedPreferences.getString("dateInputText", ""))
+
+        for (i in bookIds.indices) {
+            bookIds[i].text = sharedPreferences.getString("bookId_$i", "ID")
+            bookNames[i].text = sharedPreferences.getString("bookName_$i", "Book " + (i+1).toString())
+            amounts[i].text = sharedPreferences.getString("amount_$i", "Amount")
+            prices[i].text = sharedPreferences.getString("price_$i", "Price")
+        }
     }
 
     private fun clearPreferences() {
@@ -325,8 +322,22 @@ class CreateSalesInvoiceActivity : AppCompatActivity() {
         sharedPreferences.edit().clear().apply()
     }
 
-    fun goToDashboardActivity(view: View) {
+    private fun clearAllPreferences() {
         clearPreferences()
+
+        for (i in bookIds.indices) {
+            val sharedPreferencesEdit = getSharedPreferences("CreateSalesInvoiceEditPrefs_$i", MODE_PRIVATE)
+            sharedPreferencesEdit.edit().clear().apply()
+        }
+    }
+
+    override fun onBackPressed() {
+        clearAllPreferences()
+        super.onBackPressed()
+    }
+
+    fun goToDashboardActivity(view: View) {
+        clearAllPreferences()
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
     }

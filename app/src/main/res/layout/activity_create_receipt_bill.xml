@@ -60,11 +60,7 @@
             android:letterSpacing="0.05"/>
 
         <EditText
-<<<<<<< HEAD
-            android:id="@+id/receipt_id"
-=======
             android:id="@+id/customer_id"
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginLeft="30dp"
@@ -97,10 +93,7 @@
             android:textSize="18dp"
             android:background="@drawable/corner_ratio_rectangle"
             android:gravity="center"/>
-<<<<<<< HEAD
-=======
 
->>>>>>> dd2ea717c96839412ebb34a2696d549fe18f3c91
 
         <TextView
             android:layout_width="wrap_content"
