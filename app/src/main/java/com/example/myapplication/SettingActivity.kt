@@ -13,6 +13,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 
 class SettingActivity : AppCompatActivity() {
 
@@ -29,6 +37,8 @@ class SettingActivity : AppCompatActivity() {
     private lateinit var seekBar4: SeekBar
     private lateinit var seekBarValue4: TextView
     private lateinit var applyFilterCheckbox: CheckBox
+    private lateinit var postApi: PostApi
+    private lateinit var token: String
 
     private val defaultMinimumImport = 150
     private val defaultNumImportStockLessThan = 300
@@ -56,6 +66,8 @@ class SettingActivity : AppCompatActivity() {
         seekBarValue4 = findViewById(R.id.seekBarValue)
         applyFilterCheckbox = findViewById(R.id.apply_filter_checkbox)
 
+        val preferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        token = preferences.getString("token", "") ?: ""
         // Set input filters for EditTexts other than maximumDebtInput
         setInputFilter(minimumImportInput, 1000)
         setInputFilter(numImportStockLessThanInput, 1000)
@@ -96,7 +108,51 @@ class SettingActivity : AppCompatActivity() {
         }
         editText.filters = arrayOf(filter)
     }
+    private fun saveSettings() {
+        saveStateToPreferences()
 
+        // Tạo đối tượng Setting từ dữ liệu đã nhập
+        val settings = Setting(
+            minImportAmount = minimumImportInput.text.toString().toInt(),
+            maxImportStock = numImportStockLessThanInput.text.toString().toInt(),
+            maxDebt = maximumDebtInput.text.toString().toDouble(),
+            minStock = minimumInStockInput.text.toString().toInt(),
+            paymentBillLimit = applyFilterCheckbox.isChecked
+        )
+
+        // Gửi dữ liệu lên server qua phương thức PUT
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        val httpClient = OkHttpClient.Builder()
+        httpClient.addInterceptor(logging)
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(PostApi.SETTING_URL)
+            .client(httpClient.build())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        postApi = retrofit.create(PostApi::class.java)
+
+        val call = postApi.updateSetting("Token $token", settings)
+        call.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(this@SettingActivity, "Settings updated successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    val statusCode = response.code()
+                    println("Error: $statusCode, $errorBody")
+                    Toast.makeText(this@SettingActivity, "Failed to update settings", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(this@SettingActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
     private fun restoreStateOrSetDefaults() {
         val sharedPreferences = getSharedPreferences("SettingsPrefs", Context.MODE_PRIVATE)
 
@@ -161,11 +217,6 @@ class SettingActivity : AppCompatActivity() {
                 // Do nothing
             }
         })
-    }
-
-    private fun saveSettings() {
-        saveStateToPreferences()
-        Toast.makeText(this, "Settings saved successfully", Toast.LENGTH_SHORT).show()
     }
 
     private fun saveStateToPreferences() {

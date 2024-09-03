@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface PostApi {
     companion object {
@@ -18,9 +19,12 @@ interface PostApi {
         const val IMPORT_URL ="${ROOT}book-import-order/"
         const val CHECK_CUSTOMER_ID_URL = "${ROOT}invoice/"
         const val BASE_REPORT_URL = "${ROOT}report/"
+        const val SETTING_URL = "${ROOT}setting/"
         //const val POST_URL = "${ROOT}post/"
         const val API_URL = ROOT + "api/v1/"
     }
+    @PUT("regulations/")
+    fun updateSetting(@Header("Authorization") authHeader: String, @Body setting: Setting): Call<ResponseBody>
     @POST("inventory/")
     fun sendInventoryReport(@Header("Authorization") authHeader: String, @Body inventoryReport: List<InventoryReport>): Call<ResponseBody>
     @POST("debt/")
