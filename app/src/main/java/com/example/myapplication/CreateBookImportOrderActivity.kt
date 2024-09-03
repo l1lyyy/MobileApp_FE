@@ -95,10 +95,18 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         )
 
         // Add listeners for edit buttons (for each slot)
+        val bookTypes = listOf(
+            "book 1", "book 2", "book 3", "book 4", "book 5",
+            "book 6", "book 7", "book 8", "book 9", "book 10"
+        )
+
+        // Add listeners for edit buttons (for each slot)
         for (i in editButtons.indices) {
             editButtons[i].setOnClickListener {
                 currentSlotIndex = i  // Cập nhật slot hiện tại
+                saveStateToPreferences()
                 val intent = Intent(this, CreateBookImportOderEditActivity::class.java)
+                intent.putExtra("book_type", bookTypes[i])
                 resultLauncher.launch(intent)
             }
         }
@@ -149,7 +157,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 //            resultLauncher.launch(intent)
 //        }
 
-//        date = findViewById(R.id.date_input)
+        date = findViewById(R.id.date_input)
 //        confirm_button =findViewById(R.id.check_square_button)
 //        confirm_button.setOnClickListener {
 //            val importOrders = mutableListOf<ImportOrder>()
@@ -177,7 +185,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         }
 
         // Restore the state from SharedPreferences
-        //restoreStateFromPreferences()
+        restoreStateFromPreferences()
 
         // Set up Edit buttons
         //setupEditButtons()

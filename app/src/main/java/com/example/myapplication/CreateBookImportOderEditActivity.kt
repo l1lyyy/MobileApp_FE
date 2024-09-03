@@ -65,13 +65,20 @@ class CreateBookImportOderEditActivity : AppCompatActivity() {
             val input_author = author.text.toString()
             val input_amount = amountInput.text.toString()
             val resultIntent = Intent()
-            resultIntent.putExtra("bookid",input_book_id)
-            resultIntent.putExtra("bookname",input_book_name)
-            resultIntent.putExtra("author", input_author)
-            resultIntent.putExtra("amount",input_amount)
+            if (input_book_id.isEmpty() && input_book_name.isEmpty() && input_author.isEmpty() || input_amount.isEmpty()) {
+                // Show a toast message if any field is empty
+                Toast.makeText(this, "Không được bỏ trống bất kỳ thông tin nào", Toast.LENGTH_SHORT).show()
+            } else {
+                // Proceed with setting the result and finishing the activity if all fields are filled
+                val resultIntent = Intent()
+                resultIntent.putExtra("bookid", input_book_id)
+                resultIntent.putExtra("bookname", input_book_name)
+                resultIntent.putExtra("author", input_author)
+                resultIntent.putExtra("amount", input_amount)
 
-            setResult(RESULT_OK,resultIntent)
-            finish()
+                setResult(RESULT_OK, resultIntent)
+                finish()
+            }
         }
         // Retrieve the edit type passed through the intent
         val editType = intent.getStringExtra("book_type")
