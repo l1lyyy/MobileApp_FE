@@ -157,6 +157,7 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
 //
 //            sendImportOrder(result_id.text.toString().trim(),result_name.text.toString().trim(),result_author.text.toString().trim(),result_amount.text.toString(),date_res)
 //        }
+        confirm_button =findViewById(R.id.check_square_button)
         confirm_button.setOnClickListener {
             val date_res = date.text.toString()
             val importOrders = mutableListOf<ImportOrder>()
@@ -176,10 +177,10 @@ class CreateBookImportOrderActivity : AppCompatActivity() {
         }
 
         // Restore the state from SharedPreferences
-        restoreStateFromPreferences()
+        //restoreStateFromPreferences()
 
         // Set up Edit buttons
-        setupEditButtons()
+        //setupEditButtons()
 
         // Set up Calendar Button
         findViewById<ImageButton>(R.id.calendar_button).setOnClickListener {
