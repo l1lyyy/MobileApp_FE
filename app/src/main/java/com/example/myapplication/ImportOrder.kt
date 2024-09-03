@@ -2,19 +2,27 @@ package com.example.myapplication
 import com.google.gson.annotations.SerializedName
 
 data class ImportOrder(
-    @SerializedName("")
+    @SerializedName("book_id")
     var id: String,
 
-    @SerializedName("")
+    @SerializedName("book_name")
     var book: String,
 
-    @SerializedName("")
+    @SerializedName("author")
     var author: String,
 
-    @SerializedName("")
+    @SerializedName("amount")
     var amount: Int,
 
-    @SerializedName("")
+    @SerializedName("date")
     var date: String
+)
+
+data class ImportOrderRequest(
+    @SerializedName("date")
+    var date: String,
+
+    @SerializedName("details")
+    var details: List<ImportOrder>
 )
 
