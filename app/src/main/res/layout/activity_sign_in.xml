@@ -94,26 +94,13 @@
             android:maxLines="1"
             android:singleLine="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="460dp"
-            android:fontFamily="@font/capriola"
-            android:letterSpacing="0.02"
-            android:text="Forgot password?"
-            android:textColor="#8C8A8A"
-            android:textSize="15sp"
-            android:padding="14dp"
-            android:clickable="true" />
-
 
         <ImageButton
             android:id="@+id/sign_in_button"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="540dp"
+            android:layout_marginTop="500dp"
             android:background="@drawable/blue_shadow_button"
             android:contentDescription="sign_in_button"
             android:clickable="true"/>
@@ -122,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="546dp"
+            android:layout_marginTop="506dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Sign In"
@@ -137,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="43dp"
-            android:layout_marginTop="625dp"
+            android:layout_marginTop="585dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Don't have an account?"
@@ -148,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="202dp"
-            android:layout_marginTop="610dp"
+            android:layout_marginTop="570dp"
             android:fontFamily="@font/capriola"
             android:letterSpacing="0.02"
             android:text="Register here!"
